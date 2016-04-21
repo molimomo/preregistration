@@ -1,0 +1,1534 @@
+<!doctype html>
+<!--[if IE 7 ]>		 <html class="no-js ie ie7 lte7 lte8 lte9" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]>		 <html class="no-js ie ie8 lte8 lte9" lang="en-US"> <![endif]-->
+<!--[if IE 9 ]>		 <html class="no-js ie ie9 lte9>" lang="en-US"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head data-live-domain="blog.jquery.com">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>jQuery 2.2 and 1.12 Released | Official jQuery Blog</title>
+
+	<meta name="author" content="jQuery Foundation - jquery.org">
+	<meta name="description" content="jQuery: The Write Less, Do More, JavaScript Library">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="shortcut icon" href="http://blog.jquery.com/wp-content/themes/jquery.com/i/favicon.ico">
+
+	<link rel="stylesheet" href="http://blog.jquery.com/wp-content/themes/jquery/css/base.css?v=1">
+	<link rel="stylesheet" href="http://blog.jquery.com/wp-content/themes/jquery.com/style.css">
+	<link rel="pingback" href="http://blog.jquery.com/xmlrpc.php" />
+	<!--[if lt IE 7]><link rel="stylesheet" href="css/font-awesome-ie7.min.css"><![endif]-->
+
+	<script src="http://blog.jquery.com/wp-content/themes/jquery/js/modernizr.custom.2.6.2.min.js"></script>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write(unescape('%3Cscript src="http://blog.jquery.com/wp-content/themes/jquery/js/jquery-1.9.1.min.js"%3E%3C/script%3E'))</script>
+
+	<script src="http://blog.jquery.com/wp-content/themes/jquery/js/plugins.js"></script>
+	<script src="http://blog.jquery.com/wp-content/themes/jquery/js/main.js"></script>
+
+	<script src="//use.typekit.net/wde1aof.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+
+<link rel="alternate" type="application/rss+xml" title="Official jQuery Blog &raquo; Feed" href="http://blog.jquery.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Official jQuery Blog &raquo; Comments Feed" href="http://blog.jquery.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Official jQuery Blog &raquo; jQuery 2.2 and 1.12 Released Comments Feed" href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/blog.jquery.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.1"}};
+			!function(a,b,c){function d(a){var c,d=b.createElement("canvas"),e=d.getContext&&d.getContext("2d");return e&&e.fillText?(e.textBaseline="top",e.font="600 32px Arial","flag"===a?(e.fillText(String.fromCharCode(55356,56806,55356,56826),0,0),d.toDataURL().length>3e3):"diversity"===a?(e.fillText(String.fromCharCode(55356,57221),0,0),c=e.getImageData(16,16,1,1).data.toString(),e.fillText(String.fromCharCode(55356,57221,55356,57343),0,0),c!==e.getImageData(16,16,1,1).data.toString()):("simple"===a?e.fillText(String.fromCharCode(55357,56835),0,0):e.fillText(String.fromCharCode(55356,57135),0,0),0!==e.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='https://api.w.org/' href='http://blog.jquery.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.jquery.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.jquery.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Living up to Our Commitment to Diversity' href='http://blog.jquery.com/2015/12/16/living-up-to-our-commitment-to-diversity/' />
+<link rel='next' title='jQuery Migrate 1.3.0 Released' href='http://blog.jquery.com/2016/01/13/jquery-migrate-1-3-0-released/' />
+<meta name="generator" content="WordPress 4.4.1" />
+<link rel="canonical" href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/" />
+<link rel='shortlink' href='http://blog.jquery.com/?p=3936' />
+<link rel="alternate" type="application/json+oembed" href="http://blog.jquery.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fblog.jquery.com%2F2016%2F01%2F08%2Fjquery-2-2-and-1-12-released%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://blog.jquery.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fblog.jquery.com%2F2016%2F01%2F08%2Fjquery-2-2-and-1-12-released%2F&#038;format=xml" />
+
+</head>
+<body class="jquery singular">
+
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+<![endif]-->
+
+<header>
+	<section id="global-nav">
+		<nav>
+			<div class="constrain">
+				<ul class="projects">
+					<li class="project jquery"><a href="http://jquery.com/" title="jQuery">jQuery</a></li>
+					<li class="project jquery-ui"><a href="http://jqueryui.com/" title="jQuery UI">jQuery UI</a></li>
+					<li class="project jquery-mobile"><a href="http://jquerymobile.com/" title="jQuery Mobile">jQuery Mobile</a></li>
+					<li class="project sizzlejs"><a href="http://sizzlejs.com/" title="Sizzle">Sizzle</a></li>
+					<li class="project qunitjs"><a href="http://qunitjs.com/" title="QUnit">QUnit</a></li>
+				</ul>
+				<ul class="links">
+					<li><a href="http://plugins.jquery.com/">Plugins</a></li>
+					<li class="dropdown"><a href="http://contribute.jquery.org/">Contribute</a>
+						<ul>
+							<li><a href="http://contribute.jquery.org/cla/">CLA</a></li>
+							<li><a href="http://contribute.jquery.org/style-guide/">Style Guides</a></li>
+							<li><a href="http://contribute.jquery.org/triage/">Bug Triage</a></li>
+							<li><a href="http://contribute.jquery.org/code/">Code</a></li>
+							<li><a href="http://contribute.jquery.org/documentation/">Documentation</a></li>
+							<li><a href="http://contribute.jquery.org/web-sites/">Web Sites</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"><a href="http://events.jquery.org/">Events</a>
+						<ul class="wide">
+							<li><a href="http://appendto.com/what-we-do/training/schedule/jquery-virtual-training-april-2014/">Apr 16-17 | jQuery Virtual Training</a></li>
+							<li><a href="http://jqueryuk.com/?utm_source=jqueryorg&utm_medium=banner&utm_campaign=jqueryorgbanner">May 16 | jQuery UK</a></li>
+							<li><a href="http://appendto.com/what-we-do/training/schedule/jquery-virtual-training-june-2014/">Jun 17-19 | jQuery Virtual Training</a></li>
+							<li><a href="http://events.jquery.org/2014/chicago/">Sep 12-13 | jQuery Chicago</a></li>
+							<li><a href="http://2014.cssdevconf.com/">Oct 13-15 | CSS Dev Conf 2014</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"><a href="https://jquery.org/support/">Support</a>
+						<ul>
+							<li><a href="http://learn.jquery.com/">Learning Center</a></li>
+							<li><a href="http://try.jquery.com/">Try jQuery</a></li>
+							<li><a href="http://irc.jquery.org/">IRC/Chat</a></li>
+							<li><a href="http://forum.jquery.com/">Forums</a></li>
+							<li><a href="http://stackoverflow.com/tags/jquery/info">Stack Overflow</a></li>
+							<li><a href="https://jquery.org/support/">Commercial Support</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"><a href="https://jquery.org/">jQuery Foundation</a>
+						<ul>
+							<li><a href="https://jquery.org/join/">Join</a></li>
+							<li><a href="https://jquery.org/members/">Members</a></li>
+							<li><a href="https://jquery.org/team/">Team</a></li>
+							<li><a href="http://brand.jquery.org/">Brand Guide</a></li>
+							<li><a href="https://jquery.org/donate/">Donate</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</section>
+</header>
+
+<div id="container">
+	<div id="logo-events" class="constrain clearfix">
+		<h2 class="logo"><a href="/" title="Official jQuery Blog">Official jQuery Blog</a></h2>
+
+		<aside><div id="broadcast"></div></aside>
+	</div>
+
+	<nav id="main" class="constrain clearfix">
+		<div class="menu-top-container">
+	<ul id="menu-top" class="menu">
+<li class="menu-item"><a href="http://jquery.com/download/">Download</a></li>
+<li class="menu-item"><a href="http://api.jquery.com/">API Documentation</a></li>
+<li class="menu-item current"><a href="http://blog.jquery.com/">Blog</a></li>
+<li class="menu-item"><a href="http://plugins.jquery.com/">Plugins</a></li>
+<li class="menu-item"><a href="http://jquery.com/browser-support/">Browser Support</a></li>
+	</ul>
+</div>
+
+		<form method="get" class="searchform" action="http://blog.jquery.com/">
+	<button type="submit" class="icon-search"><span class="visuallyhidden">search</span></button>
+	<label>
+		<span class="visuallyhidden">Search Official jQuery Blog</span>
+		<input type="text" name="s" value=""
+			placeholder="Search">
+	</label>
+</form>
+	</nav>
+
+	<div id="content-wrapper" class="clearfix row">
+
+
+<div class="content-right twelve columns">
+	<div id="content">
+		<h1 class="entry-title">jQuery 2.2 and 1.12 Released</h1>
+				<div class="entry-posted">
+			<span class="sep">Posted on </span><a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/" title="5:14 pm" rel="bookmark"><time class="entry-date" datetime="2016-01-08T17:14:53+00:00" pubdate>January 8, 2016</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://blog.jquery.com/author/timmywil/" title="View all posts by Timmy Willison" rel="author">Timmy Willison</a></span></span>		</div>
+				<hr>
+
+		
+<p>To usher in the new year, the jQuery team has been hard at work on 2 new releases: jQuery 1.12.0 and 2.2.0! These releases include lots of bug fixes and improvements to make your cross-browser development experience better. We anticipate this to be the last releases for the 1.x and 2.x branches before we release jQuery 3.0. Since jQuery 3.0 will have some breaking changes, we will continue to support 1.12 and 2.2 after jQuery 3.0 is released, but only with patches for major regressions. As a side-note, we will have some big news related to jQuery 3.0 coming soon!</p>
+<h2>Performance Improvements</h2>
+<p>Performance of the selector engine has improved thanks to a shortcut path that immediately uses precompiled Sizzle selectors when the selector cannot be processed by the native <code>querySelectorAll</code> or <code>matchesSelector</code> methods. This results in a <a href="https://github.com/jquery/jquery/issues/2042#issuecomment-72469549">significant speedup</a> in some real-world cases.</p>
+<h2>New Features</h2>
+<p>We’ve added some minor, non-breaking features that we thought might be useful in these releases. Here are some of the highlights.</p>
+<h3>SVG Class Manipulation</h3>
+<p>While jQuery is a HTML library, we agreed that class support for SVG elements could be useful. Users will now be able to call the <code>.addClass()</code>, <code>.removeClass()</code>, <code>.toggleClass()</code>, and <code>.hasClass()</code> methods on SVG. jQuery now changes the <code>class</code> attribute rather than the <code>className</code> property. This also makes the class methods usable in general XML documents. Keep in mind that many other things will not work with SVG, and we still recommend using a library dedicated to SVG if you need anything beyond class manipulation.</p>
+<h3><code>jQuery.post(options)</code> and <code>jQuery.get(options)</code></h3>
+<p>These ajax shortcuts have a new signature that takes a single object containing options.</p>
+<pre>jQuery.post({
+  url: “/example”
+});
+</pre>
+<h3>Symbol/iterator support</h3>
+<p>We’ve added support for the <a href="//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol type and iterators via <code>Symbol.iterator</code></a> added in ES6/ES2015. &#8220;Symbol&#8221; will be detectable with <code>jQuery.type</code>, and jQuery objects can be iterated with <code>for-of</code> where supported.</p>
+<pre>for (element of $elements) {
+  console.log(element);
+}
+</pre>
+<h3>jQuery.htmlPrefilter()</h3>
+<p>A new hook has been added for filtering HTML that is passed to jQuery DOM manipulation methods like <code>.html()</code>, <code>.append()</code>, and <code>.replaceWith()</code>. The default prefilter translates single tags to XHTML-compatible tags. This method will allow users to bypass <a href="//github.com/jquery/jquery/issues/2668">certain edge cases</a>, remove scripts, and sanitize input.</p>
+<h3>jQuery.uniqueSort alias</h3>
+<p>To make it clear that <code>jQuery.unique()</code> also sorts, we’ve update the name. <code>jQuery.unique</code> will still exist, but <code>jQuery.uniqueSort</code> will become the documented method. This method is still only intended to sort DOM elements in document order; it is not a general sorting method.</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</p>
+<p>We do not expect this release to have any breaking changes, but if you do encounter bugs in upgrading from the previous version, please <a href="//github.com/jquery/jquery/issues">let us know</a>.</p>
+<p>You can include these files directly from the jQuery CDN if you like, or copy them to your own local server. The 1.x branch includes support for IE 6/7/8 and the 2.x branch does not.</p>
+<p><a href="//code.jquery.com/jquery-1.12.0.js">https://code.jquery.com/jquery-1.12.0.js</a></p>
+<p><a href="//code.jquery.com/jquery-2.2.0.js">https://code.jquery.com/jquery-2.2.0.js</a></p>
+<p>These updates are already available as the current versions on npm and Bower. Information on all the ways to get jQuery is available at <a href="//jquery.com/download/">https://jquery.com/download/</a>. Public CDNs receive their copies today, please give them a few days to post the files. If you’re anxious to get a quick start, use the files on our CDN until they have a chance to update.</p>
+<p>Many thanks to all of you who participated in this release by testing, reporting bugs, or submitting patches, including <a href="https://github.com/ChrisAntaki">Chris Antaki</a>, <a href="https://github.com/ConnorAtherton">Connor Atherton</a>, <a href="https://github.com/jbedard">Jason Bedard</a>, <a href="https://github.com/batiste">Batiste Bieler</a>, <a href="https://github.com/LeonardoBraga">Leonardo Braga</a>, <a href="https://github.com/campersau">Bastian Buchholz</a>, <a href="https://github.com/agcolom">Anne-Gaelle Colom</a>, <a href="https://github.com/dcorb">David Corbacho</a>, <a href="https://github.com/bcbcb">Brenard Cubacub</a>, <a href="https://github.com/AurelioDeRosa">Aurelio De Rosa</a>, <a href="https://github.com/hamishdickson">Hamish Dickson</a>, <a href="https://github.com/namlede">Ben Edelman</a>, <a href="https://github.com/ntwb">Stephen Edgar</a>, <a href="https://github.com/elas7">Esteban</a>, <a href="https://github.com/aFarkas">Alexander Farkas</a>, Joelle Fleurantin, <a href="https://github.com/flexphperia">flexphperia</a>, <a href="https://github.com/gnarf">Corey Frang</a>, <a href="https://github.com/xfq">Xue Fuqiao</a>, <a href="https://github.com/markelog">Oleg Gaidarenko</a>, <a href="https://github.com/gibson042">Richard Gibson</a>, <a href="https://github.com/mgol">Micha&#322; Go&#322;&#281;biowski</a>, <a href="https://github.com/scottgonzalez">Scott González</a>, <a href="https://github.com/goob">goob</a>, <a href="https://github.com/ChristianGrete">Christian Grete</a>, <a href="https://github.com/grimalschi">Veaceslav Grimalschi</a>, <a href="https://github.com/mhbseal">Mu Haibao</a>, <a href="https://github.com/danhart">Dan Hart</a>, <a href="https://github.com/fhemberger">Frederic Hemberger</a>, <a href="https://github.com/musophob">Sean Henderson</a>, <a href="https://github.com/nicolashenry">Nicolas Henry</a>, <a href="https://github.com/hermands">Daniel Herman</a>, <a href="https://github.com/jonhester">Jon Hester</a>, <a href="https://github.com/victor-homyakov">Victor Homyakov</a>, <a href="https://github.com/winhowes">Winston Howes</a>, <a href="https://github.com/danielhusar">Daniel Husar</a>, <a href="https://github.com/mixed">Yongwoo Jeon</a>, <a href="https://github.com/essamjoubori">Essam Joubori</a>, <a href="https://github.com/KimTaehee">Taehee Kim</a>, <a href="https://github.com/riichard">Richard Kraaijenhagen</a>, <a href="https://github.com/vlajos">Veres Lajos</a>, <a href="https://github.com/mklew">Marek Lewandowski</a>, <a href="https://github.com/reedloden">Reed Loden</a>, <a href="https://github.com/togakangaroo">George Mauer</a>, <a href="https://github.com/rmcdaniel">Richard McDaniel</a>, <a href="https://github.com/amitmerchant1990">Amit Merchant</a>, <a href="https://github.com/calvinmetcalf">Calvin Metcalf</a>, <a href="https://github.com/dmethvin">Dave Methvin</a>, <a href="https://github.com/MightyBranch">MightyBranch</a>, <a href="https://github.com/nazar-pc">Nazar Mokrynskyi</a>, <a href="https://github.com/MatthewMueller">Matthew Mueller</a>, <a href="https://github.com/64lines">Julian Alexander Murillo</a>, <a href="https://github.com/AVGP">Martin Naumann</a>, <a href="https://github.com/DanielNill">Daniel Nill</a>, <a href="https://github.com/AlexanderOMara">Alexander O&#8217;Mara</a>, <a href="https://github.com/adrianolek">Adrian Olek</a>, <a href="https://github.com/randsonjs">Randson Oliveira</a>, <a href="https://github.com/jamesgpearce">James Pearce</a>, <a href="https://github.com/pgilad">Gilad Peleg</a>, <a href="https://github.com/bperel">Bruno Perel</a>, <a href="https://github.com/phistuck">PhistucK</a>, <a href="https://github.com/TheDistantSea">PJ</a>, <a href="https://github.com/upisfree">Senya Pugach</a>, <a href="https://github.com/araghava">Aditya Raghavan</a>, <a href="https://github.com/LizaLemons">Liza Ramo</a>, <a href="https://github.com/cvrebert">Chris Rebert</a>, <a href="https://github.com/anthonyryan1">Anthony Ryan</a>, <a href="https://github.com/gabrielschulhof">Gabriel Schulhof</a>, <a href="https://github.com/FarSeeing">Mike Sidorov</a>, <a href="https://github.com/NickStefan">Nick Stefan</a>, <a href="https://github.com/NekR">Arthur Stolyar</a>, Zheming Sun, <a href="https://github.com/ufologist">Jun Sun</a>, <a href="https://github.com/Krinkle">Timo Tijhof</a>, <a href="https://github.com/mastahyeti">Ben Toews</a>, <a href="https://github.com/Mr21">Thomas Tortorini</a>, <a href="https://github.com/shivajivarma">Shivaji Varma</a>, <a href="https://github.com/arthurvr">Arthur Verschaeve</a>, <a href="https://github.com/rwaldron">Rick Waldron</a>, <a href="https://github.com/Binjian">Bin Xin</a>, <a href="https://github.com/normanzb">Norman Xu</a>, <a href="https://github.com/garysye">Gary Ye</a>, <a href="https://github.com/imyousuf">Imran M Yousuf</a>, and <a href="https://github.com/jzaefferer">Jörn Zaefferer</a>.</p>
+<h1>&nbsp;</h1>
+<h1>Full changelogs</h1>
+<h2>2.2.0</h2>
+<h3>Ajax</h3>
+<ul>
+<li>Remove workaround for IE6/7 (<a href="https://github.com/jquery/jquery/commit/e5190982c40d7ac8ab9bdb2e7e4334f0e123ef66">e519098</a>)</li>
+<li>remove event dependency from the ajax module (<a href="https://github.com/jquery/jquery/commit/4e7f34f6296111f7f91d621397dfb02c6bf4c41f">4e7f34f</a>)</li>
+<li>Fix for request aborted in ajaxSend (<a href="https://github.com/jquery/jquery/issues/1775">#1775</a>, <a href="https://github.com/jquery/jquery/commit/598ed050f6931922214aeaea8a1dc867e0cc6fb7">598ed05</a>)</li>
+<li>use anchor tag for parsing urls (<a href="https://github.com/jquery/jquery/issues/1875">#1875</a>, <a href="https://github.com/jquery/jquery/commit/b091fdbafac33123cba329e6bb48b9281323ca38">b091fdb</a>)</li>
+<li>simplify jQuery.parseXML method (<a href="https://github.com/jquery/jquery/commit/5a0867d1e94794fbfc3be1f18f4c0a168dc18d95">5a0867d</a>)</li>
+<li>Fix cross-domain detection test for non-default port (<a href="https://github.com/jquery/jquery/commit/83b038fc81ec12e29dba92ad022e1d5fcf4980bc">83b038f</a>)</li>
+<li>$.post and $.get can now take an options object (<a href="https://github.com/jquery/jquery/issues/1986">#1986</a>, <a href="https://github.com/jquery/jquery/commit/89ce0af2cf7f001647e74fc1de92ce94a51fd5c2">89ce0af</a>)</li>
+<li>simplify one ajax call and add explanatory comment (<a href="https://github.com/jquery/jquery/commit/0ac28ed293681cb8f2e9fdd11efa0021da039c84">0ac28ed</a>)</li>
+<li>make jQuery#load &#8220;type&#8221; field explicit (<a href="https://github.com/jquery/jquery/commit/4ef120d3f2578fe3d52eb6c0d0641df945991391">4ef120d</a>)</li>
+<li>replace &#8220;jqXHR.complete&#8221; callback with &#8220;always&#8221; (<a href="https://github.com/jquery/jquery/commit/97ef1f2612a9c5bd453d34146fdfd552cf9cee67">97ef1f2</a>)</li>
+<li>remove use of jQuery#each second argument (<a href="https://github.com/jquery/jquery/commit/a4715f4216ace92fba6991106053415e66289686">a4715f4</a>)</li>
+<li>remove &#8220;onunload&#8221; event handler (<a href="https://github.com/jquery/jquery/commit/a117dd05f638a078c21dc57f19966f4ae81f98f0">a117dd0</a>)</li>
+<li>Remove jsonp callbacks through &#8220;jQuery#removeProp&#8221; method (<a href="https://github.com/jquery/jquery/issues/2323">#2323</a>, <a href="https://github.com/jquery/jquery/commit/a2ae215d999637e8d9d0906abcbf6b1ca35c8e6e">a2ae215</a>)</li>
+<li>Account for Android 2.3 not firing window.onerror on script errors (<a href="https://github.com/jquery/jquery/commit/6044fb6a7384aec85906949835ef9a58114896ce">6044fb6</a>)</li>
+<li>do not quote &#8220;throws&#8221; option &#8211; use dot notation instead (<a href="https://github.com/jquery/jquery/issues/2571">#2571</a>, <a href="https://github.com/jquery/jquery/commit/c9cf250daafe806818da1dd207a88a8e94a4ad16">c9cf250</a>)</li>
+<li>correct indentation (<a href="https://github.com/jquery/jquery/commit/cb087ce41daa5db4c8db10e586bdc141f953d93d">cb087ce</a>)</li>
+<li>improve content-type detection (<a href="https://github.com/jquery/jquery/issues/2584">#2584</a>, <a href="https://github.com/jquery/jquery/commit/239169bb2ede6ea6287d82d1d13b0c354f451749">239169b</a>)</li>
+<li>trigger error callback on native abort (<a href="https://github.com/jquery/jquery/issues/2079">#2079</a>, <a href="https://github.com/jquery/jquery/commit/76e9a95dbeaf28fbc5a64571ebb5959f91a9c14a">76e9a95</a>)</li>
+<li>Don&#8217;t throw exceptions on binary data response (<a href="https://github.com/jquery/jquery/issues/2498">#2498</a>, <a href="https://github.com/jquery/jquery/commit/769446c69775f6c44e35cee1bcdeccafba51be7b">769446c</a>)</li>
+<li>code style fixes (<a href="https://github.com/jquery/jquery/commit/8a896dfac8ea9d7307d8819ab848fef9b03cd933">8a896df</a>)</li>
+</ul>
+<h3>Attr</h3>
+<ul>
+<li>Use typeof check for getAttribute method (<a href="https://github.com/jquery/jquery/commit/075da3091cda170bd8cd5ce47bad1c5b14760232">075da30</a>)</li>
+</ul>
+<h3>Attributes</h3>
+<ul>
+<li>remove unnecessary element null check (<a href="https://github.com/jquery/jquery/commit/55ac56aeda786a4d1b677aefd3f5bb134ecb02ad">55ac56a</a>)</li>
+<li>Use the option val hook in select val hook and simplify it (<a href="https://github.com/jquery/jquery/issues/1902">#1902</a>, <a href="https://github.com/jquery/jquery/commit/f6302b0b53d61dfe1adbfaf6612be5cbced5bbc1">f6302b0</a>)</li>
+<li>fix failing test for new return value (<a href="https://github.com/jquery/jquery/commit/5dc4616ca0fdbf2a80890bd9b236e796b84db8c1">5dc4616</a>)</li>
+<li>add SVG class manipulation (<a href="https://github.com/jquery/jquery/issues/2199">#2199</a>, <a href="https://github.com/jquery/jquery/commit/20aaed367f993f3c2aa204183d82d0d73efa114f">20aaed3</a>)</li>
+<li>revert returning null for non-elements (<a href="https://github.com/jquery/jquery/commit/7632b7454b8a918b5eb9ade199a6a842eae98571">7632b74</a>)</li>
+<li>fix tabIndex on <img alt="" /> in IE11 (<a href="https://github.com/jquery/jquery/issues/2647">#2647</a>, <a href="https://github.com/jquery/jquery/commit/c752a5030bc00eb5b45dea9c28963f824a5c4f44">c752a50</a>)</li>
+<li>revert returning null for non-existant attributes (<a href="https://github.com/jquery/jquery/commit/2905961bf75b741937f430ee5b619f11e93a448d">2905961</a>)</li>
+<li>removeClass() -&gt; attr(&#8220;class&#8221;, &#8220;&#8221;) (<a href="https://github.com/jquery/jquery/commit/5db1e053098af747330044d5740e5379f2834402">5db1e05</a>)</li>
+<li>Use simpler boolean check vs a function call (<a href="https://github.com/jquery/jquery/commit/4bf1a09522955eb52de1fafb4ee1ecc5982b7a3e">4bf1a09</a>)</li>
+<li>return null when attribute does not exist (<a href="https://github.com/jquery/jquery/issues/2118">#2118</a>, <a href="https://github.com/jquery/jquery/commit/aaeed53e9f1e299975cb6f697c8038ec3a83fa4d">aaeed53</a>)</li>
+</ul>
+<h3>Authors</h3>
+<ul>
+<li>Update AUTHORS.TXT and .mailmap (<a href="https://github.com/jquery/jquery/commit/03557db96c5b9fad22320e94b52b118c89f7b6f9">03557db</a>)</li>
+</ul>
+<h3>Build</h3>
+<ul>
+<li>Update QUnit to latest (1.17.1) (<a href="https://github.com/jquery/jquery/commit/2d5c5d213f09fa0205d07a2d60a36581058cc40a">2d5c5d2</a>)</li>
+<li>Acknowledge Android 2.3 is not ES5-compatible (<a href="https://github.com/jquery/jquery/issues/2478">#2478</a>, <a href="https://github.com/jquery/jquery/commit/1c59b308d201d6dd0f0aed2ad0256d01b9f68047">1c59b30</a>)</li>
+<li>space between curly and paren is optional (<a href="https://github.com/jquery/jquery/issues/2399">#2399</a>, <a href="https://github.com/jquery/jquery/commit/63a577aa0bcb439c1730c3825407d86c128b17be">63a577a</a>)</li>
+<li>Moved JSHint directives to .jshintrc file (<a href="https://github.com/jquery/jquery/commit/15a609f7663c4348ab7f1acbc9e566ec20bb717c">15a609f</a>)</li>
+<li>update AUTHORS.txt (<a href="https://github.com/jquery/jquery/commit/8f13997e89ca325a49f7581fad7e85fe37bad166">8f13997</a>)</li>
+<li>Add a comment explaining why the es3 option is needed (<a href="https://github.com/jquery/jquery/commit/669cb16d763cb5486dadd56ec15a17b2b0303571">669cb16</a>)</li>
+<li>Upgrade to commitplease 2.0.0 (<a href="https://github.com/jquery/jquery/commit/5bc1ddc5cc96e509e0fadb0c1e3a70927de6ed1c">5bc1ddc</a>)</li>
+<li>Refactor Node smoke tests (<a href="https://github.com/jquery/jquery/commit/9c8a3ecdc46156afd8f93aa44b6e6aea7c52c049">9c8a3ec</a>)</li>
+<li>update version to 3.0.0-pre (<a href="https://github.com/jquery/jquery/commit/7a607c5673fa36f9818f19e349871600a2938b1e">7a607c5</a>)</li>
+<li>Fix various typos (<a href="https://github.com/jquery/jquery/commit/dc4b914a05e1e6dbf13f916897b5d6a472ea0380">dc4b914</a>)</li>
+<li>Update jscs and lint files (<a href="https://github.com/jquery/jquery/issues/2056">#2056</a>, <a href="https://github.com/jquery/jquery/commit/10fdad742a2a6aa9f0e00b3e04fc5264797c53c7">10fdad7</a>)</li>
+<li>correct jscs paths (<a href="https://github.com/jquery/jquery/commit/99975c44abc8c1092764c7fca3ccfe89fc832b87">99975c4</a>)</li>
+<li>Remove empty define({}) from build output (<a href="https://github.com/jquery/jquery/issues/1768">#1768</a>, <a href="https://github.com/jquery/jquery/commit/2c1b556d98da597b0490f204e3561f656987f17c">2c1b556</a>)</li>
+<li>correct style tests files which could be automatically corrected (<a href="https://github.com/jquery/jquery/commit/e35bdc1a22d7b5786b8f849acdc4653f1dc25e9b">e35bdc1</a>)</li>
+<li>Update commitplease dev dependency (<a href="https://github.com/jquery/jquery/commit/39b76064d9400295a383291ab6e821e259b67832">39b7606</a>)</li>
+<li>Update grunt-contrib-jshint (<a href="https://github.com/jquery/jquery/commit/1556c4661af647e355a9a5c0a814012955e231bc">1556c46</a>)</li>
+<li>remove bower.json lint target (<a href="https://github.com/jquery/jquery/commit/285cfbfccc4c61d50ee8e0fe6e23695dc663e166">285cfbf</a>)</li>
+<li>fix tests in AMD mode (<a href="https://github.com/jquery/jquery/commit/6051609df35ef5e478c79c76534c03e4b46100bf">6051609</a>)</li>
+<li>Update grunt-contrib-uglify because of a security issue in uglify (<a href="https://github.com/jquery/jquery/commit/835e9218beef8f0c559da314fac01cb85dacb740">835e921</a>)</li>
+<li>Update the license attribute (<a href="https://github.com/jquery/jquery/issues/2331">#2331</a>, <a href="https://github.com/jquery/jquery/commit/8e92e1ea3c533f3be82c99bbafaaf74b5bdedecc">8e92e1e</a>)</li>
+<li>update requirejs dependency to 2.1.17 (<a href="https://github.com/jquery/jquery/issues/2290">#2290</a>, <a href="https://github.com/jquery/jquery/commit/a644101ed04d0beacea864ce805e0c4f86ba1cd1">a644101</a>)</li>
+<li>bower.json: remove moot `version` field (<a href="https://github.com/jquery/jquery/commit/61e21a4eaf479406b660328f4df7e3183c32386b">61e21a4</a>)</li>
+<li>put back &#8220;lint&#8221; command to the &#8220;dev&#8221; list (<a href="https://github.com/jquery/jquery/commit/5adf04a73c135dc729b9d9889bc963b45a9fc471">5adf04a</a>)</li>
+<li>Upgrade to grunt-bowercopy 1.0.0 (<a href="https://github.com/jquery/jquery/commit/323e82c09f9078cc16f0df170e7a8bddea33523e">323e82c</a>)</li>
+<li>account for version labels in Sizzle versions (<a href="https://github.com/jquery/jquery/issues/1939">#1939</a>, <a href="https://github.com/jquery/jquery/commit/78ac753192d5490295a46b60f278c030d958bf6d">78ac753</a>)</li>
+<li>update node dependencies (<a href="https://github.com/jquery/jquery/commit/91017047fc85cf634d9c7726901c250708f58731">9101704</a>)</li>
+<li>Sizzle version labels must start with a dash (<a href="https://github.com/jquery/jquery/commit/d6c97abb744bfe8c67ab9158aecdb5bb1c05e47b">d6c97ab</a>)</li>
+<li>Don&#8217;t assume the browser environment; smoke test on Node w/ jsdom (<a href="https://github.com/jquery/jquery/issues/1950">#1950</a>, <a href="https://github.com/jquery/jquery/commit/76df9e4e389d80bff410a9e5f08b848de1d21a2f">76df9e4</a>)</li>
+<li>Remove dates from copyright notice (<a href="https://github.com/jquery/jquery/commit/66e1b6b8d49812239b5712d65922ff94c60f7b02">66e1b6b</a>)</li>
+<li>Specify valid components for commit messages (<a href="https://github.com/jquery/jquery/commit/0c9d018889944da3d60cac135dc38dfcc37ac14a">0c9d018</a>)</li>
+<li>Fix an email address of a contributor (<a href="https://github.com/jquery/jquery/commit/ab30934c1d7e023d9e80525c6e7ad4da31b543af">ab30934</a>)</li>
+<li>Remove unused Sizzle test files (<a href="https://github.com/jquery/jquery/commit/8d113104e980179e9eb4d092df0b1ab37cdc6fa5">8d11310</a>)</li>
+<li>Move all external libraries to external directory (<a href="https://github.com/jquery/jquery/commit/c5d9d88dce65b89a1d7d12b41ad254d5017a92a8">c5d9d88</a>)</li>
+<li>Don&#8217;t install jsdom 3 on Node.js 0.10 &amp; 0.12 by default (<a href="https://github.com/jquery/jquery/issues/2519">#2519</a>, <a href="https://github.com/jquery/jquery/commit/dbb2daa8c3a458e3525d310440f4365548edc138">dbb2daa</a>)</li>
+<li>use different versions of jsdom for Node and iojs testing (<a href="https://github.com/jquery/jquery/issues/2266">#2266</a>, <a href="https://github.com/jquery/jquery/commit/5c3101fee60046fa7976b3131fada8dfe9fbd53e">5c3101f</a>)</li>
+<li>Rearrange grunt/npm tasks into a build/dist/test pattern (<a href="https://github.com/jquery/jquery/commit/bb928bde7e7b85357fef3fedd450b04c03e965d7">bb928bd</a>)</li>
+<li>Remove npm from dependencies (<a href="https://github.com/jquery/jquery/commit/b92acf72372c3ad09d5f67ba3a1b2c19355a0e5f">b92acf7</a>)</li>
+<li>Sanctify the component name status of Wrap (<a href="https://github.com/jquery/jquery/commit/a4133ffafa6ac43b3aa22bc4edb4444b09f5250c">a4133ff</a>)</li>
+<li>Drop io.js testing, test on latest Node.js (<a href="https://github.com/jquery/jquery/commit/250a1990baa571de60325ab2c52eabb399c4cf9e">250a199</a>)</li>
+<li>Use double quotes in .travis.yml (<a href="https://github.com/jquery/jquery/commit/06320c88af5be9cd937917282deb6eb4c4ad0443">06320c8</a>)</li>
+<li>Test on Node 5 (<a href="https://github.com/jquery/jquery/commit/cbe5b2b79a46c61ad36ea5df44f80b1cc2c1b60a">cbe5b2b</a>)</li>
+<li>Speed up the Travis build (<a href="https://github.com/jquery/jquery/commit/31f4f8e3f30e67e677a2aa167b9e894d46d5b81e">31f4f8e</a>)</li>
+<li>Remove a double empty line at the end of .travis.yml (<a href="https://github.com/jquery/jquery/commit/cea94a83c7a5c5df6da578d417e5fb26152b19e1">cea94a8</a>)</li>
+<li>ignore test dependencies for npm install (<a href="https://github.com/jquery/jquery/commit/35f8e15fd73256ec02397d7bf93893e38afc9bc9">35f8e15</a>)</li>
+<li>update Sizzle to 1.11.1 and include license (<a href="https://github.com/jquery/jquery/commit/c0b23e2b71eb7dd19b6435c6e94980275dd3990d">c0b23e2</a>)</li>
+<li>update grunt-bowercopy (<a href="https://github.com/jquery/jquery/commit/712e78c47fc3e550dabbb44055e5bf7877871bff">712e78c</a>)</li>
+<li>Add &#8220;deprecated&#8221; to the Testswarm module list (<a href="https://github.com/jquery/jquery/commit/1144e754a6a131bd4affec26fd85299e71bdab06">1144e75</a>)</li>
+<li>Update license (<a href="https://github.com/jquery/jquery/commit/4f776e5ff91c48891f02d1ca3ba31132477d3972">4f776e5</a>)</li>
+<li>update Sizzle (<a href="https://github.com/jquery/jquery/issues/2042">#2042</a>, <a href="https://github.com/jquery/jquery/issues/1969">#1969</a>, <a href="https://github.com/jquery/jquery/commit/3a0dd5a3d3a23e81dfb32af2871fab6be4619434">3a0dd5a</a>)</li>
+<li>Move test to appropriate module (<a href="https://github.com/jquery/jquery/commit/fbdbb6fd431a3f598b581079b0ca37c399d369d4">fbdbb6f</a>)</li>
+<li>update Sizzle to 2.0.0 (<a href="https://github.com/jquery/jquery/commit/bcca4f041b4c98dc9cb127ea3a2a7f40d2db4796">bcca4f0</a>)</li>
+<li>add mailmap entry (<a href="https://github.com/jquery/jquery/commit/3ec73efb26317239a4f22f0b023b0b99a4300a20">3ec73ef</a>)</li>
+<li>drop bower; use npm for front-end deps (<a href="https://github.com/jquery/jquery/issues/15186">#15186</a>, <a href="https://github.com/jquery/jquery/commit/e1949f43711b5808d42378bafb6728b40b1738d6">e1949f4</a>)</li>
+<li>update front-end dependencies (<a href="https://github.com/jquery/jquery/commit/8356948ed4ee13af218af74c56c8a91ee9523828">8356948</a>)</li>
+<li>fix broken assertions caused by QUnit update (<a href="https://github.com/jquery/jquery/commit/8b6aeae52d4c53a53468678ccd45e9dda9665004">8b6aeae</a>)</li>
+<li>Change the 2.2-stable version to 2.2.0-pre (<a href="https://github.com/jquery/jquery/commit/c56e8b680dbfcbcdff77d982618a8c6eda68cb49">c56e8b6</a>)</li>
+<li>Update native-promise-only (again) (<a href="https://github.com/jquery/jquery/commit/f5aa89af7029ae6b9203c2d3e551a8554a0b4b89">f5aa89a</a>)</li>
+<li>update Sizzle to 2.2.1 (<a href="https://github.com/jquery/jquery/issues/2390">#2390</a>, <a href="https://github.com/jquery/jquery/commit/44f8239d3f9d09d81e2885e9ae7e044277b67341">44f8239</a>)</li>
+<li>Update native-promise-only (<a href="https://github.com/jquery/jquery/commit/0065e1f3e3021fc2bcb32e915177498bca034b34">0065e1f</a>)</li>
+<li>remove deprecated JSHint options (<a href="https://github.com/jquery/jquery/commit/34da7d552982d8ab7b18c2ceca9786d5023930f6">34da7d5</a>)</li>
+<li>save sinon update for later (<a href="https://github.com/jquery/jquery/issues/2160">#2160</a>, <a href="https://github.com/jquery/jquery/commit/98c25b7c803fe708a587f70e5b70541192004247">98c25b7</a>)</li>
+<li>update node dependencies barring jscs (<a href="https://github.com/jquery/jquery/commit/8e3a0ceafa2c7c78902d0eab07d21b793deb5366">8e3a0ce</a>)</li>
+<li>update grunt-jscs-checker and pass with the new rules (<a href="https://github.com/jquery/jquery/commit/c869a1ef8a031342e817a2c063179a787ff57239">c869a1e</a>)</li>
+<li>update source map options for the new grunt jshint (<a href="https://github.com/jquery/jquery/commit/269a27c70204c7d233eac3cd91a383e9b5759a2f">269a27c</a>)</li>
+<li>Fixed issue with base path that contain &#8216;var&#8217; (<a href="https://github.com/jquery/jquery/issues/2450">#2450</a>, <a href="https://github.com/jquery/jquery/commit/0c34e688439713725d4215c63bc4cf876d8d0423">0c34e68</a>)</li>
+</ul>
+<h3>Callbacks</h3>
+<ul>
+<li>bring back size reduction (<a href="https://github.com/jquery/jquery/commit/f0532a29e38d01d6f3e44435198527323d507cf9">f0532a2</a>)</li>
+<li>No object starts out locked (<a href="https://github.com/jquery/jquery/issues/1989">#1989</a>, <a href="https://github.com/jquery/jquery/commit/0d829f0e9a177038580a59d0b5649fab76b8104f">0d829f0</a>)</li>
+<li>Disabling a callback should prevent firing (<a href="https://github.com/jquery/jquery/issues/1790">#1790</a>, <a href="https://github.com/jquery/jquery/commit/bc1cb122db30be034b3da84ee2546c86e2a5268f">bc1cb12</a>)</li>
+<li>Change broken url to wayback one (<a href="https://github.com/jquery/jquery/commit/31d58c5cbbede6dc33d10feecd5277ccddb367e6">31d58c5</a>)</li>
+</ul>
+<h3>CONTRIBUTING</h3>
+<ul>
+<li>Condense info and add directions to other resources (<a href="https://github.com/jquery/jquery/issues/1824">#1824</a>, <a href="https://github.com/jquery/jquery/commit/bfd5dab2c6f387dce08e7c153ad0b3854ed971e4">bfd5dab</a>)</li>
+<li>Close parenthesis (<a href="https://github.com/jquery/jquery/commit/609adf63dadb7052c816b1a3ee44e3f928ede2e3">609adf6</a>)</li>
+</ul>
+<h3>Core</h3>
+<ul>
+<li>Align branches: remove an unused variable, add comments (<a href="https://github.com/jquery/jquery/commit/f6de5a90ddde29e9096c2e45b9da21e65882b7c0">f6de5a9</a>)</li>
+<li>use interactive to evaluate dom ready, barring IE9-10 (<a href="https://github.com/jquery/jquery/issues/2100">#2100</a>, <a href="https://github.com/jquery/jquery/commit/dabd5ba96c05279b3ffb052db5b8d17f75996694">dabd5ba</a>)</li>
+<li>add support to tag-hyphenated elements (<a href="https://github.com/jquery/jquery/commit/534f13025aeb59a7d5893ce62efafa0b066a4934">534f130</a>)</li>
+<li>Test all factory use cases from intro.js (<a href="https://github.com/jquery/jquery/issues/2181">#2181</a>, <a href="https://github.com/jquery/jquery/commit/ab407258795bfa05756b009058757f8b42aa9c53">ab40725</a>)</li>
+<li>add workaround for iOS JIT error in isArrayLike (<a href="https://github.com/jquery/jquery/issues/2145">#2145</a>, <a href="https://github.com/jquery/jquery/commit/154166458284bcce7d6a86328b7fd13483232a1a">1541664</a>)</li>
+<li>CSS:Event: simplification of native method signatures (<a href="https://github.com/jquery/jquery/commit/85577a348a72ae765e0d7330b9e82985d23c94b7">85577a3</a>)</li>
+<li>allow init to accept an alternate rootjQuery for migrate&#8217;s sake (<a href="https://github.com/jquery/jquery/issues/2101">#2101</a>, <a href="https://github.com/jquery/jquery/commit/7a6931de689865f559bed26e797e8cbb5674bbce">7a6931d</a>)</li>
+<li>remove isArraylike check for nodes (<a href="https://github.com/jquery/jquery/issues/2238">#2238</a>, <a href="https://github.com/jquery/jquery/commit/436f0aee0a4c37ecb61b87a3a44227f6f5153b3a">436f0ae</a>)</li>
+<li>Standardize indexOf comparisons (<a href="https://github.com/jquery/jquery/commit/53aa87f3bf4284763405f3eb8affff296e55ba4f">53aa87f</a>)</li>
+<li>Support Symbol wrapper objects in jQuery.type (<a href="https://github.com/jquery/jquery/commit/8a734344f2566dab5b8d34ecd79ae81ebd8843c5">8a73434</a>)</li>
+<li>make isNumeric test work on Symbol (<a href="https://github.com/jquery/jquery/commit/0703fd52ef88a2cdac93502070c51c93ffa1dfdd">0703fd5</a>)</li>
+<li>CSS: disable 2 tests for Opera 12 (<a href="https://github.com/jquery/jquery/commit/13d2de7efc1146bac018d2de49029e33b7b33af2">13d2de7</a>)</li>
+<li>Remove unnecessary parameter to jQuery#constructor (<a href="https://github.com/jquery/jquery/commit/98cee73244d55910a1ac82bcf6cae04a7f650484">98cee73</a>)</li>
+<li>Update tested jsdom, drop obsolete workarounds (<a href="https://github.com/jquery/jquery/issues/2153">#2153</a>, <a href="https://github.com/jquery/jquery/commit/06f6cd1ffd2a4e9f5955d146d229492f245d83cb">06f6cd1</a>)</li>
+<li>change jQuery.each and jQuery#each signatures (<a href="https://github.com/jquery/jquery/issues/2090">#2090</a>, <a href="https://github.com/jquery/jquery/commit/2380028ec4a6a77401b867a51de26a3cb8e8d311">2380028</a>)</li>
+<li>re-introduce createHTMLDocument in parseHTML; Safari 8 left out (<a href="https://github.com/jquery/jquery/commit/cfe468f29c4cbe1a457d0feb17dec90dcfd7c280">cfe468f</a>)</li>
+<li>revert addition of createHTMLDocument. Thanks, Safari 8. (<a href="https://github.com/jquery/jquery/commit/b77983173e18724a883e02ad3a84661e18e6cf4a">b779831</a>)</li>
+<li>Consistently use local reference to access() (<a href="https://github.com/jquery/jquery/commit/2fb719e5aa885232c5347576e9f9e1e341a7ba15">2fb719e</a>)</li>
+<li>pass empty string to createHTMLDocument to appease IE (<a href="https://github.com/jquery/jquery/commit/31c7d7fb7530e1af950b41d13dd956820d5c6908">31c7d7f</a>)</li>
+<li>remove unnecessary support test for createHTMLDocument (<a href="https://github.com/jquery/jquery/commit/59232825aa87b941dd2418a6860b64017dfec0ae">5923282</a>)</li>
+<li>use document.implemenation.createHTMLDocument in jQuery.parseHTML (<a href="https://github.com/jquery/jquery/commit/58c24608210c9a9a264a38746628ebc26823f59b">58c2460</a>)</li>
+<li>Simplify and speed up .each (<a href="https://github.com/jquery/jquery/commit/eeda11cdd6a69ec2ef4e9c1ed12b82a79910fda5">eeda11c</a>)</li>
+<li>simplify &#8220;each&#8221; stylesheet iteration test (<a href="https://github.com/jquery/jquery/commit/fcb6c4d1d6552c7e54df16a36b171858bdf0553f">fcb6c4d</a>)</li>
+<li>add unit test for isPlainObject(Symbol) (<a href="https://github.com/jquery/jquery/issues/2645">#2645</a>, <a href="https://github.com/jquery/jquery/commit/9090d98439f8dc449beafee98f8ff35cfb4f9116">9090d98</a>)</li>
+<li>Follow the AMD specification for define (<a href="https://github.com/jquery/jquery/commit/892625b3c36eda6bb6ac226d15e0a158ba35cf21">892625b</a>)</li>
+<li>Make jQuery objects iterable (<a href="https://github.com/jquery/jquery/issues/1693">#1693</a>, <a href="https://github.com/jquery/jquery/commit/bb026fc12c3c2ad37f47f0919e484bddcdc3d291">bb026fc</a>)</li>
+<li>Use window.setTimeout &amp; friends instead of global equivalents (<a href="https://github.com/jquery/jquery/issues/2177">#2177</a>, <a href="https://github.com/jquery/jquery/commit/219c7494938a10b985b7827990bc419e41585b10">219c749</a>)</li>
+<li>Don&#8217;t expose jQuery.access (<a href="https://github.com/jquery/jquery/issues/2513">#2513</a>, <a href="https://github.com/jquery/jquery/commit/9adfad19865837f5dffedb1eb41e407f196ca515">9adfad1</a>)</li>
+<li>Switch from modules to just window.setTimeout etc. (<a href="https://github.com/jquery/jquery/commit/842958e7aecd0d75a7ee9e2aaec83457701aa2f3">842958e</a>)</li>
+<li>Drop strundefined variable (<a href="https://github.com/jquery/jquery/commit/29838b6cab6f2e508f3e9692f32918c72b1a504b">29838b6</a>)</li>
+<li>organize prop &amp; attr code to be similar (<a href="https://github.com/jquery/jquery/commit/5153b5334eb2c8317372b46209bd9d092a91afdc">5153b53</a>)</li>
+<li>Adjust comments &amp; tests after dropping Safari 6 support (<a href="https://github.com/jquery/jquery/commit/93bee4701d14202045a88aab156da0daf9418430">93bee47</a>)</li>
+<li>.each/.map should accept an undefined/null value (<a href="https://github.com/jquery/jquery/issues/2267">#2267</a>, <a href="https://github.com/jquery/jquery/commit/bf48c21d225c31f0f9b5441d95f73615ca3dcfdb">bf48c21</a>)</li>
+<li>Add a support comment for Safari 8 (<a href="https://github.com/jquery/jquery/commit/d24275372624bac897c4131fd1507a58c09a1483">d242753</a>)</li>
+</ul>
+<h3>Css</h3>
+<ul>
+<li>Fix the &#8220;sanity check&#8221; test (<a href="https://github.com/jquery/jquery/commit/995f70777ac6c0f988a44807ef1399e73937b2ee">995f707</a>)</li>
+<li>Remove non-functional unit test for negative margin (<a href="https://github.com/jquery/jquery/commit/4ab743188ec6bdaafe8550dab84f374ef7e22aca">4ab7431</a>)</li>
+</ul>
+<h3>CSS</h3>
+<ul>
+<li>fix :visible/:hidden selectors for inline element w/ content (<a href="https://github.com/jquery/jquery/issues/2227">#2227</a>, <a href="https://github.com/jquery/jquery/commit/79bcb291324167ab2d844027d0cdc6300613d010">79bcb29</a>)</li>
+<li>save 20 bytes in css/support (<a href="https://github.com/jquery/jquery/commit/45ec73f55618cd080867a98b42b9ab80409cab2e">45ec73f</a>)</li>
+<li>Don&#8217;t name the anonymous swap function (<a href="https://github.com/jquery/jquery/commit/0019a463bdcb81dc6ba3434505a45774ca27f363">0019a46</a>)</li>
+<li>Correct misrepresentation of &#8220;auto&#8221; horizontal margins as 0 (<a href="https://github.com/jquery/jquery/issues/2237">#2237</a>, <a href="https://github.com/jquery/jquery/commit/487d5ca913c237aafe9efa1179749b46382fddbf">487d5ca</a>)</li>
+<li>Use pre-defined displays for html and body (<a href="https://github.com/jquery/jquery/commit/a7724186c98734529b06bebb8f2dc7fc2b641011">a772418</a>)</li>
+<li>Support relative adjustment in any applicable unit (<a href="https://github.com/jquery/jquery/issues/1711">#1711</a>, <a href="https://github.com/jquery/jquery/commit/9b03f6df88a8d9dbda3f7893cdd84e3a3c70da17">9b03f6d</a>)</li>
+<li>use isFinite in place of redundant isNumeric (<a href="https://github.com/jquery/jquery/commit/3689963909880ed832ac17eabf7b9260927a68d8">3689963</a>)</li>
+<li>Clean up memory leak in reliableMarginRight (<a href="https://github.com/jquery/jquery/issues/1795">#1795</a>, <a href="https://github.com/jquery/jquery/commit/7d15b4d1f181de8868c375c545a51e4dfc28a611">7d15b4d</a>)</li>
+<li>Correct typo in the comment (<a href="https://github.com/jquery/jquery/commit/7e09619cdf2813f2cd9da600ba682be8f91b08b6">7e09619</a>)</li>
+<li>elements are hidden when either offsetWidth or offsetHeight is zero (<a href="https://github.com/jquery/jquery/issues/10406">#10406</a>, <a href="https://github.com/jquery/jquery/issues/13132">#13132</a>, <a href="https://github.com/jquery/jquery/commit/10399ddcf8a239acc27bdec9231b996b178224d3">10399dd</a>)</li>
+<li>Add animation-iteration-count to cssNumber, fix tests (<a href="https://github.com/jquery/jquery/issues/2792">#2792</a>, <a href="https://github.com/jquery/jquery/commit/b9a695865b4eb3916f7320026d028a2866da6e4e">b9a6958</a>)</li>
+<li>Don&#8217;t cache unrecognized CSS property names (<a href="https://github.com/jquery/jquery/issues/2015">#2015</a>, <a href="https://github.com/jquery/jquery/commit/d471842b3e3af83c9a1be06b5d16f75bfa96af8c">d471842</a>)</li>
+<li>Collapse a double if statement into one (<a href="https://github.com/jquery/jquery/commit/7855a1a7d8a5c959d4ef2f951b4eb971908ac96f">7855a1a</a>)</li>
+<li>Add unit tests for negative margins and positioning (<a href="https://github.com/jquery/jquery/commit/1b932bb7867924b98529537f8ccd35db979ae22a">1b932bb</a>)</li>
+<li>Work around an IE11 fullscreen dimensions bug (<a href="https://github.com/jquery/jquery/issues/1764">#1764</a>, <a href="https://github.com/jquery/jquery/commit/90d828bad0d6d318d73d6cf6209d9dc7ac13878c">90d828b</a>)</li>
+<li>Restore the hack to get pixels for .css(&#8216;width&#8217;) etc. (<a href="https://github.com/jquery/jquery/commit/3747cc642a48d2a5a8ac83069f66bddd33bea301">3747cc6</a>)</li>
+<li>make the getStyles function more readable (<a href="https://github.com/jquery/jquery/commit/3a0d582cf63b6e8f77150d9c38d2bf34d0c7790e">3a0d582</a>)</li>
+<li>Fix the pixelMarginRight support test in Android 2.3 (<a href="https://github.com/jquery/jquery/commit/cdfc2d092afad5a3e5b3978b04b402a1ee9dce79">cdfc2d0</a>)</li>
+<li>Don&#8217;t expose jQuery.swap (<a href="https://github.com/jquery/jquery/issues/2058">#2058</a>, <a href="https://github.com/jquery/jquery/commit/bb4d888f4f7886371347b59eae5d4e6135acb7ed">bb4d888</a>)</li>
+<li>simplify &#8220;defaultDisplay&#8221; module (<a href="https://github.com/jquery/jquery/commit/c62486fb4cb18fdb7dc5807231c964ed82ee6482">c62486f</a>)</li>
+<li>Improve a comment explaining IE11 fullscreen bug (<a href="https://github.com/jquery/jquery/commit/8e4aac8cb03ffb88373ea99629165d82ff5eccdd">8e4aac8</a>)</li>
+<li>Add an integration test for issue gh-1764 (<a href="https://github.com/jquery/jquery/commit/8887106702baa69ed80baa65c5a249786bffc77e">8887106</a>)</li>
+<li>Removed redundant &#8220;to the number&#8221; in comment (<a href="https://github.com/jquery/jquery/commit/895ea6887dd02a44067d041db00c355c80e930a3">895ea68</a>)</li>
+<li>Remove use of getDefaultComputedStyle (<a href="https://github.com/jquery/jquery/issues/15227">#15227</a>, <a href="https://github.com/jquery/jquery/commit/274feb53cc9a99633dfac785d8b3b837d192c43c">274feb5</a>)</li>
+</ul>
+<h3>Data</h3>
+<ul>
+<li>move element cache to element[expando] (<a href="https://github.com/jquery/jquery/issues/1734">#1734</a>, <a href="https://github.com/jquery/jquery/commit/d702b7637a61e1973e08c27b8d8de2ed24a543e2">d702b76</a>)</li>
+<li>updates to element[expando] cache (<a href="https://github.com/jquery/jquery/commit/222ac3ad6bd40ef4dfb4e4c60bac4b751d907e2a">222ac3a</a>)</li>
+<li>shave off a couple of bytes (<a href="https://github.com/jquery/jquery/commit/6f65f5faf2b5831414d4c93d271a59265b41a75b">6f65f5f</a>)</li>
+<li>restore explicit data removal of private data in cleanData. (<a href="https://github.com/jquery/jquery/issues/2127">#2127</a>, <a href="https://github.com/jquery/jquery/commit/332fd941b4ae80e8ca5e5a20aca91806038f4816">332fd94</a>)</li>
+<li>remove user data in cleanData (<a href="https://github.com/jquery/jquery/issues/2503">#2503</a>, <a href="https://github.com/jquery/jquery/commit/5fe76c663f8a4986af62edb434a1708c006d0b21">5fe76c6</a>)</li>
+<li>avoid Object.defineProperties for nodes (<a href="https://github.com/jquery/jquery/issues/1728">#1728</a>, <a href="https://github.com/jquery/jquery/commit/95fb798980d7e404c413e29e20016db9052e2bf2">95fb798</a>)</li>
+<li>speed up $.fn.data() for camel-cased key (<a href="https://github.com/jquery/jquery/issues/1941">#1941</a>, <a href="https://github.com/jquery/jquery/commit/72c4a067a9def9720a997f23615690970894dc9c">72c4a06</a>)</li>
+<li>find hyphenated data with camelCased key (<a href="https://github.com/jquery/jquery/issues/2779">#2779</a>, <a href="https://github.com/jquery/jquery/commit/c1511c673148208ab17cafa0faf37bce3b4ae392">c1511c6</a>)</li>
+<li>avoid non-alphanumeric chars in expando properties (<a href="https://github.com/jquery/jquery/commit/0cdec797de23555c95a70978f4d9e06f3b041330">0cdec79</a>)</li>
+<li>Drop the tests relying on applets (<a href="https://github.com/jquery/jquery/issues/1938">#1938</a>, <a href="https://github.com/jquery/jquery/commit/95c0a10e15477a5031185e2d656d896905562afa">95c0a10</a>)</li>
+<li>Combine register and cache methods (<a href="https://github.com/jquery/jquery/commit/b5f7c9e2d526b17b9962976bb704dce8779d7362">b5f7c9e</a>)</li>
+<li>avoid using delete on DOM nodes (<a href="https://github.com/jquery/jquery/commit/0e982433eb94391b3e9f6838d9b8fbf9bb31abf9">0e98243</a>)</li>
+<li>Don&#8217;t expose jQuery.acceptData (<a href="https://github.com/jquery/jquery/issues/2555">#2555</a>, <a href="https://github.com/jquery/jquery/commit/224271982eb9cd351d7db1b38c740b4e927e6f97">2242719</a>)</li>
+<li>Use a PDF object instead of a Java applet for acceptData testing (<a href="https://github.com/jquery/jquery/issues/1938">#1938</a>, <a href="https://github.com/jquery/jquery/commit/087d280ad1160de53a45ea96184911194f7b46e0">087d280</a>)</li>
+<li>do not create data cache when fetching single property (<a href="https://github.com/jquery/jquery/commit/f5bf9bc48897e3b8f050d87d02252c8be456044a">f5bf9bc</a>)</li>
+<li>remove the expando when there&#8217;s no more data (<a href="https://github.com/jquery/jquery/issues/1760">#1760</a>, <a href="https://github.com/jquery/jquery/commit/56bb677725b21415905e5c3eeb1e05be4480e780">56bb677</a>)</li>
+<li>remove some unused code (<a href="https://github.com/jquery/jquery/commit/764dc949d0d65742606747ce75852d1b5dd59fcd">764dc94</a>)</li>
+</ul>
+<h3>Deferred</h3>
+<ul>
+<li>Fix $.when with resolved deferred and progress callbacks (<a href="https://github.com/jquery/jquery/issues/1894">#1894</a>, <a href="https://github.com/jquery/jquery/commit/ab20d9d24f0a95df382c02e9ef3dcc4adb86e4f1">ab20d9d</a>)</li>
+<li>Always handle progress callbacks before done/fail (<a href="https://github.com/jquery/jquery/issues/2013">#2013</a>, <a href="https://github.com/jquery/jquery/issues/2010">#2010</a>, <a href="https://github.com/jquery/jquery/commit/002240a6eb1cee2fcd886d5cf44893eb67f246f1">002240a</a>)</li>
+</ul>
+<h3>Deprecated</h3>
+<ul>
+<li>fix amd mode for the deprecated module (<a href="https://github.com/jquery/jquery/commit/e271f665dd8fb617a5015051e1c9df8cebd6c97b">e271f66</a>)</li>
+</ul>
+<h3>Dimensions</h3>
+<ul>
+<li>properly manipulate non-px values (<a href="https://github.com/jquery/jquery/issues/1712">#1712</a>, <a href="https://github.com/jquery/jquery/commit/75b3cdd509a2cf0a704767d04557ec392112a438">75b3cdd</a>)</li>
+<li>allow modification of coordinates argument (<a href="https://github.com/jquery/jquery/issues/1848">#1848</a>, <a href="https://github.com/jquery/jquery/commit/f7e60dc83d81cbf892de9dab39642dd67c49bd23">f7e60dc</a>)</li>
+</ul>
+<h3>Docs</h3>
+<ul>
+<li>Fix README uppercase (<a href="https://github.com/jquery/jquery/commit/b50e0f2c3651d64d40931a16733b015f56409c63">b50e0f2</a>)</li>
+<li>remove redundant instruction from the readme (<a href="https://github.com/jquery/jquery/issues/2359">#2359</a>, <a href="https://github.com/jquery/jquery/commit/3c9277086742fe3a38a268ef97184be34e294655">3c92770</a>)</li>
+<li>correct grunt command in README.md (<a href="https://github.com/jquery/jquery/issues/1850">#1850</a>, <a href="https://github.com/jquery/jquery/commit/9d6beac3958da79671344fd11b9a3fe9b85f88e1">9d6beac</a>)</li>
+<li>1.x-master branch -&gt; compat branch; 2.x branch -&gt; master branch (<a href="https://github.com/jquery/jquery/commit/758fd6cea9e82f7bfebce07ba6ecf0d107e8a53c">758fd6c</a>)</li>
+<li>Clarify custom build instructions (<a href="https://github.com/jquery/jquery/commit/a3779bc3254159f5a99e8204e69a0f0b9e191f6f">a3779bc</a>)</li>
+<li>Add info about Sizzle not being excludable on the compat branch (<a href="https://github.com/jquery/jquery/issues/2184">#2184</a>, <a href="https://github.com/jquery/jquery/commit/062b5267d0a3538f1f6dee3df16da536b73061ea">062b526</a>)</li>
+<li>Fix various spelling mistakes (<a href="https://github.com/jquery/jquery/commit/360a4780339b7f412b75ad8a06dca7f39616f654">360a478</a>)</li>
+<li>&#8220;npm run build&#8221; was missing from the contributing guides (<a href="https://github.com/jquery/jquery/commit/735dea34fb0ae625542d51eae3f4e7316e403eaa">735dea3</a>)</li>
+</ul>
+<h3>Effects</h3>
+<ul>
+<li>set default easing using jQuery.easing._default (<a href="https://github.com/jquery/jquery/issues/2219">#2219</a>, <a href="https://github.com/jquery/jquery/commit/5f2ea402582c7b8f4773771e1529d60587f3435e">5f2ea40</a>)</li>
+<li>Remove tests for jQuery.Animation &amp; jQuery.Tween (<a href="https://github.com/jquery/jquery/commit/a5864aefdfadfee16522456c82139fa10360d8fc">a5864ae</a>)</li>
+<li>Improve raf logic (<a href="https://github.com/jquery/jquery/commit/708764f47b0c8de152bbb444d0f608db558b76ed">708764f</a>)</li>
+<li>Finish should call progress (<a href="https://github.com/jquery/jquery/issues/2283">#2283</a>, <a href="https://github.com/jquery/jquery/commit/3dd3d1357d027a487559516fcdd9064cc792edab">3dd3d13</a>)</li>
+<li>manually revert two `requestAnimationFrame` commits (<a href="https://github.com/jquery/jquery/commit/0a98623abb85bdce079b400ed3bf3d87ddc6b1da">0a98623</a>)</li>
+<li>add tests for jQuery.easing._default in Animation and Tween (<a href="https://github.com/jquery/jquery/commit/6d7ef56ed3004a18f5139928455cdbdc169e1232">6d7ef56</a>)</li>
+<li>Add tests for jQuery.Tween (<a href="https://github.com/jquery/jquery/commit/cdaed15c7ea1bbfdde5a5bea691c583ce7961526">cdaed15</a>)</li>
+<li>Adding unit tests for jQuery.Animation (<a href="https://github.com/jquery/jquery/commit/b3b2d6c3dd51fbdc69e1942e9af75cc99a1834c2">b3b2d6c</a>)</li>
+<li>Reintroduce use of requestAnimationFrame (<a href="https://github.com/jquery/jquery/issues/15147">#15147</a>, <a href="https://github.com/jquery/jquery/commit/72119e0023dcc0d9807caf6d988598b74abdc937">72119e0</a>)</li>
+</ul>
+<h3>Event</h3>
+<ul>
+<li>HTML5 drop events inherit from MouseEvent (<a href="https://github.com/jquery/jquery/issues/2009">#2009</a>, <a href="https://github.com/jquery/jquery/commit/d7e5fcee519e5f3e840beef9e67a536e75133df9">d7e5fce</a>)</li>
+<li>Ensure delegation doesn&#8217;t error on comment nodes (<a href="https://github.com/jquery/jquery/issues/2055">#2055</a>, <a href="https://github.com/jquery/jquery/commit/493b0fd7f51054345abe981270bd7839825f79dd">493b0fd</a>)</li>
+<li>remove preDispatch hook &amp; simplify &#8220;simulate&#8221; signature (<a href="https://github.com/jquery/jquery/commit/3655c4e1908cc3ee49487e7e26e8cfca9fe8146d">3655c4e</a>)</li>
+<li>Copy detail property to jQuery.Event on native events (<a href="https://github.com/jquery/jquery/issues/1867">#1867</a>, <a href="https://github.com/jquery/jquery/commit/d9ed166c865e91ccc8cef1ca282785c500ca2306">d9ed166</a>)</li>
+<li>Fully clean up events in unit test (<a href="https://github.com/jquery/jquery/commit/4467ed606ab0a9b28ed495e682576910937fa5e0">4467ed6</a>)</li>
+<li>Update support comments for mouseenter/mouseleave implementation (<a href="https://github.com/jquery/jquery/commit/2792845534e36c39dbb9c8369ed96aaefa560081">2792845</a>)</li>
+<li>Add a note about a mouseenter bug in Chrome (<a href="https://github.com/jquery/jquery/commit/a5e1c9b44c971fd7046d9a95bd0810e50840b663">a5e1c9b</a>)</li>
+<li>Empty namespaces should be uneventfully ignored (<a href="https://github.com/jquery/jquery/commit/8653068dd6b8a515f5c1d8a0fda4479e9534103e">8653068</a>)</li>
+<li>remove outdated originalEvent hack (<a href="https://github.com/jquery/jquery/commit/6df669f0fb87cd9975a18bf6bbe3c3548afa4fee">6df669f</a>)</li>
+<li>Remove fake originalEvent from jQuery.Event.simulate (<a href="https://github.com/jquery/jquery/issues/2300">#2300</a>, <a href="https://github.com/jquery/jquery/commit/7475d5debeb7c53158921ed40f6c2fdb25a2cc86">7475d5d</a>)</li>
+<li>Add basic unit tests for event aliases (<a href="https://github.com/jquery/jquery/issues/2302">#2302</a>, <a href="https://github.com/jquery/jquery/commit/e05c63e17a037d550e7dde5d805ee5c4214ee44b">e05c63e</a>)</li>
+<li>Fix delegated radio events when arrow keys are used (<a href="https://github.com/jquery/jquery/issues/2343">#2343</a>, <a href="https://github.com/jquery/jquery/commit/c82a6685bb964627e27008e298f93ea81218265b">c82a668</a>)</li>
+<li>Make event aliases optional in unit tests (<a href="https://github.com/jquery/jquery/commit/2cb8ebadcb77da1c1a12c07bc5274fd456bf3b01">2cb8eba</a>)</li>
+<li>provide verbose comment for focus(in | out) &amp; rename support prop (<a href="https://github.com/jquery/jquery/commit/c074006a69db73a116dc04ec78844468a8cea7d3">c074006</a>)</li>
+<li>Move .bind() and .delegate() to deprecated (<a href="https://github.com/jquery/jquery/issues/2288">#2288</a>, <a href="https://github.com/jquery/jquery/commit/ee0854f85bd686b55757e8854a10480f23c928da">ee0854f</a>)</li>
+<li>Separate trigger/simulate into its own module (<a href="https://github.com/jquery/jquery/issues/1864">#1864</a>, <a href="https://github.com/jquery/jquery/commit/c9935b6d2db9e1be4bed12f7419e98cdca45763e">c9935b6</a>)</li>
+<li>Move VML test out of event alias test (<a href="https://github.com/jquery/jquery/commit/67fa2eab6ef323b1d894e9e7f054c6e8c844d304">67fa2ea</a>)</li>
+<li>Remove an internal argument to the on method (<a href="https://github.com/jquery/jquery/commit/04a29696e5b176ac66401120e433d52425222f0f">04a2969</a>)</li>
+<li>fix incorrect window bug with scrollTop/Left in iframes (<a href="https://github.com/jquery/jquery/issues/1945">#1945</a>, <a href="https://github.com/jquery/jquery/commit/d21edb599d8f5f80a3f3ecba5b62311b9cd1a3e6">d21edb5</a>)</li>
+<li>fix incorrect test (<a href="https://github.com/jquery/jquery/commit/d92310050ca7bf0b33825d64e052f9a8809c3e9e">d923100</a>)</li>
+<li>Restore the `constructor` property on jQuery.Event prototype (<a href="https://github.com/jquery/jquery/issues/15090">#15090</a>, <a href="https://github.com/jquery/jquery/commit/b807aedb7fee321fb3aa5d156a5a256ab0634e2d">b807aed</a>)</li>
+<li>Only check elements for delegation matches (<a href="https://github.com/jquery/jquery/commit/9d820fbde6d89bc7a06e2704be61cf6c0b4d6e3c">9d820fb</a>)</li>
+<li>remove redundant guards for the event methods (<a href="https://github.com/jquery/jquery/issues/2047">#2047</a>, <a href="https://github.com/jquery/jquery/commit/a873558436383beea7a05fd07db7070a30420100">a873558</a>)</li>
+<li>add support comment (<a href="https://github.com/jquery/jquery/commit/9db9316609c2881dbb6abc49efc3aa91a57a02ad">9db9316</a>)</li>
+<li>correct support comment (<a href="https://github.com/jquery/jquery/commit/361a0d5150a1c57b1857611cde1b05bd0ef21a50">361a0d5</a>)</li>
+<li>Normalize mouse event properties in drag events (<a href="https://github.com/jquery/jquery/issues/1925">#1925</a>, <a href="https://github.com/jquery/jquery/commit/97cf5280824027c3d4fcdbb4db49c10ad3c62bce">97cf528</a>)</li>
+</ul>
+<h3>Manipulation</h3>
+<ul>
+<li>Make an HTML interception point (<a href="https://github.com/jquery/jquery/issues/1747">#1747</a>, <a href="https://github.com/jquery/jquery/commit/225bde37c997f5ddd9fe00fdfb8e9a43545cfbbc">225bde3</a>)</li>
+<li>add support to tag-hyphenated elements (<a href="https://github.com/jquery/jquery/issues/1987">#1987</a>, <a href="https://github.com/jquery/jquery/commit/85ffc6d973865a031ded170934e0acfc2e97cb11">85ffc6d</a>)</li>
+<li>Detect sneaky no-content replaceWith input (<a href="https://github.com/jquery/jquery/issues/2204">#2204</a>, <a href="https://github.com/jquery/jquery/commit/4b27ae16a2b911f75b341b56d9d939bc65a9657a">4b27ae1</a>)</li>
+<li>Tolerate XMLNode host object input to getAll (<a href="https://github.com/jquery/jquery/issues/15151">#15151</a>, <a href="https://github.com/jquery/jquery/commit/1ae025e24f9920d18cec8a8498bfc4eed7e3f1dc">1ae025e</a>)</li>
+<li>Check state lost if the name is set for Android 4.0-4.3 (<a href="https://github.com/jquery/jquery/commit/1bbb678949da480dce0d9ed3d0fb273bccce9787">1bbb678</a>)</li>
+<li>privatize internal domManip() function (<a href="https://github.com/jquery/jquery/issues/2225">#2225</a>, <a href="https://github.com/jquery/jquery/commit/62d5579578109f1468a37e44f76af06f283a46ab">62d5579</a>)</li>
+<li>privatize buildFragment() function (<a href="https://github.com/jquery/jquery/issues/2224">#2224</a>, <a href="https://github.com/jquery/jquery/commit/a74320fca8bb0a2190f6e1fdb71a73733b6986e4">a74320f</a>)</li>
+<li>Remove an internal argument to the remove method (<a href="https://github.com/jquery/jquery/issues/2301">#2301</a>, <a href="https://github.com/jquery/jquery/commit/349edbd6c53aa93d4fd207d3c0c4c24a7b0314dd">349edbd</a>)</li>
+<li>Don&#8217;t provide the parser with sloppy table markup (<a href="https://github.com/jquery/jquery/issues/2493">#2493</a>, <a href="https://github.com/jquery/jquery/commit/99e8ff1baa7ae341e94bb89c3e84570c7c3ad9ea">99e8ff1</a>)</li>
+<li>re-expose domManip until 3.0 (<a href="https://github.com/jquery/jquery/issues/2225">#2225</a>, <a href="https://github.com/jquery/jquery/commit/6ed6bc335f98352acfc7c07249bc4e936099aecf">6ed6bc3</a>)</li>
+<li>simplify html wrappers (<a href="https://github.com/jquery/jquery/issues/2002">#2002</a>, <a href="https://github.com/jquery/jquery/commit/0ea342a6a6dce793c1b0f14f051c2573f40f4e44">0ea342a</a>)</li>
+<li>Switch rnoInnerhtml to a version more performant in IE (<a href="https://github.com/jquery/jquery/issues/2563">#2563</a>, <a href="https://github.com/jquery/jquery/commit/d4def22e4cd1c2eb2571f449e226b38384fb6d81">d4def22</a>)</li>
+<li>don&#8217;t auto-insert tbody (<a href="https://github.com/jquery/jquery/issues/1835">#1835</a>, <a href="https://github.com/jquery/jquery/commit/e984d1c79cc476062818e03df04a366baa13d197">e984d1c</a>)</li>
+</ul>
+<h3>Misc</h3>
+<ul>
+<li>Mac OS is now OS X, thanks @xfq (<a href="https://github.com/jquery/jquery/commit/d30c482910bf35c5dbaec9c82174d1e6ae8839b5">d30c482</a>)</li>
+<li>Fix the tests, revert some unneeded/broken reverts (<a href="https://github.com/jquery/jquery/commit/1ad9915d11e27ebce8016ef81163206fb68b2335">1ad9915</a>)</li>
+<li>Need for speed removed by 9ad6e7e (<a href="https://github.com/jquery/jquery/commit/ff928f5775566ee54f26fcb0f9a326719c32e63c">ff928f5</a>)</li>
+<li>Update all references to bugs.jquery.com (<a href="https://github.com/jquery/jquery/issues/1681">#1681</a>, <a href="https://github.com/jquery/jquery/commit/3e89a53265bfdc992d7a97a01c5d1025e48e5906">3e89a53</a>)</li>
+<li>Remove leftover -moz-box-sizing in tests (<a href="https://github.com/jquery/jquery/commit/e81b258ace257ba138022cf28374190623b0be5e">e81b258</a>)</li>
+<li>Adjust comments &amp; docs to dropping IE&lt;8 in jQuery Compat (<a href="https://github.com/jquery/jquery/commit/c309b95756b83b60fadc369edb120db4520c364a">c309b95</a>)</li>
+</ul>
+<h3>Offset</h3>
+<ul>
+<li>offsetLeft/Top on empty set returns undefined (<a href="https://github.com/jquery/jquery/issues/2319">#2319</a>, <a href="https://github.com/jquery/jquery/commit/29370190605ed5ddf5d0371c6ad886a4a4b5e0f9">2937019</a>)</li>
+<li>allow offset setter to throw for disconnected elements (<a href="https://github.com/jquery/jquery/issues/2114">#2114</a>, <a href="https://github.com/jquery/jquery/commit/0d11c1182f2012cd6eb06ce1e3fa5a495af9bee3">0d11c11</a>)</li>
+<li>allow small differences in offset.top (<a href="https://github.com/jquery/jquery/issues/2590">#2590</a>, <a href="https://github.com/jquery/jquery/commit/9f9e204bba41b7a9cde5ba7e065d817ef8b18c41">9f9e204</a>)</li>
+<li>don&#8217;t run scrollTop/scrollLeft iframe test in Android 2.3 &amp; 4.0 (<a href="https://github.com/jquery/jquery/issues/1981">#1981</a>, <a href="https://github.com/jquery/jquery/commit/0c466438d1feaec302fec13eafeeb063bbfd6a19">0c46643</a>)</li>
+<li>add tests for hidden elements + scroll (<a href="https://github.com/jquery/jquery/commit/b04124222395a05c80d4f1c3a70333fdb07bfe3d">b041242</a>)</li>
+<li>return before getBoundingClientRect to avoid error in IE8-11 (<a href="https://github.com/jquery/jquery/commit/0e4477c676db0427bb9b0bf39df8631501e62f24">0e4477c</a>)</li>
+<li>Round offset value for the sake of floating errors (<a href="https://github.com/jquery/jquery/issues/2147">#2147</a>, <a href="https://github.com/jquery/jquery/commit/62ae2d0fb7ac011bf2ad778f8158de408e785927">62ae2d0</a>)</li>
+<li>return zeros for disconnected/hidden elements (<a href="https://github.com/jquery/jquery/issues/2310">#2310</a>, <a href="https://github.com/jquery/jquery/commit/40dcc767640c41a4387a343f1ef53ac57ed631c5">40dcc76</a>)</li>
+<li>Simplified a conditional (<a href="https://github.com/jquery/jquery/commit/4287442ab8bdf8d9f008f3e84ccbf7d86d0fb5db">4287442</a>)</li>
+<li>account for scroll when calculating position (<a href="https://github.com/jquery/jquery/issues/1708">#1708</a>, <a href="https://github.com/jquery/jquery/commit/2d715940b9b6fdeed005cd006c8bf63951cf7fb2">2d71594</a>)</li>
+<li>don&#8217;t run scrollTop/scrollLeft iframe test in mobile Safari (<a href="https://github.com/jquery/jquery/commit/4ab8603669e2bbc8644e402927c33ce422d7aaa3">4ab8603</a>)</li>
+<li>simplify jQuery#offsetParent method (<a href="https://github.com/jquery/jquery/commit/74ae5444832b2fb966768a97281d2ad8c088bc58">74ae544</a>)</li>
+<li>do not run tests which break without back-incompat change (<a href="https://github.com/jquery/jquery/commit/9d1d4c272a58ced36242d90b3f0462c2bbb972a3">9d1d4c2</a>)</li>
+</ul>
+<h3>Readme</h3>
+<ul>
+<li>Fix minor style issues. Thanks @MightyBranch! (<a href="https://github.com/jquery/jquery/commit/edfc94df92982c2d840f6692291e09211d1c7cfc">edfc94d</a>)</li>
+<li>Fix punctuation in tile (<a href="https://github.com/jquery/jquery/commit/df62159296e9de8b04653ba999a32f9be7bb2a73">df62159</a>)</li>
+</ul>
+<h3>README</h3>
+<ul>
+<li>Improve build instructions (<a href="https://github.com/jquery/jquery/commit/2e9c1ead76aaae8fde004e3cacde1e36c5fd2104">2e9c1ea</a>)</li>
+<li>Update the description of the deprecated module (<a href="https://github.com/jquery/jquery/commit/1d752731011d35e985271334ff98186728949f03">1d75273</a>)</li>
+<li>various text fixes (<a href="https://github.com/jquery/jquery/commit/31b63fc23674ede657f019783ad7b942bb83f9c3">31b63fc</a>)</li>
+<li>Add selector-native.js link. Thanks @randsonjs! (<a href="https://github.com/jquery/jquery/commit/cfe2eae38df411c0f15cbbf927612bc515063bf5">cfe2eae</a>)</li>
+<li>update the Homebrew site address (<a href="https://github.com/jquery/jquery/commit/b410b15e8da1a8d285f431640ff165e634196115">b410b15</a>)</li>
+</ul>
+<h3>Release</h3>
+<ul>
+<li>bower.json is actually generated from scratch (<a href="https://github.com/jquery/jquery/commit/61224f5fef4336cd47cb26be74f9758096f7f956">61224f5</a>)</li>
+<li>update AUTHORS.txt (<a href="https://github.com/jquery/jquery/commit/ae3229c805705a01603b8f1fb094528f43b05168">ae3229c</a>)</li>
+<li>Distribute files to distribution repo (<a href="https://github.com/jquery/jquery/issues/1869">#1869</a>, <a href="https://github.com/jquery/jquery/issues/1673">#1673</a>, <a href="https://github.com/jquery/jquery/issues/2045">#2045</a>, <a href="https://github.com/jquery/jquery/commit/26eca143c2dd857b9e3d1c446a467fed16e903d2">26eca14</a>)</li>
+<li>remove antiquated release-notes.js (<a href="https://github.com/jquery/jquery/commit/7bb39f35118c33f1f7effc49112579ec9393f02c">7bb39f3</a>)</li>
+<li>properly set the dist remote when it&#8217;s a real release (<a href="https://github.com/jquery/jquery/commit/c44dd7775b387094d8c921c7e839e3c266e4f2c8">c44dd77</a>)</li>
+<li>remove revert artefacts (<a href="https://github.com/jquery/jquery/commit/3655260866cdcfe42a1117bfb9603144c9e4d829">3655260</a>)</li>
+<li>update AUTHORS.txt (<a href="https://github.com/jquery/jquery/commit/e905dcd8f33e99275e29b0333e7b255559197c81">e905dcd</a>)</li>
+<li>fix revert artefacts (<a href="https://github.com/jquery/jquery/commit/e2af987877c83e5b054e1f9cac1a8534ebed0b18">e2af987</a>)</li>
+<li>allow local and github dists (<a href="https://github.com/jquery/jquery/commit/47c21efce522204d0c3e779faa10de2ee63cedd7">47c21ef</a>)</li>
+<li>ensure files are copied to dist (<a href="https://github.com/jquery/jquery/commit/b4e139cb7bdd890c0bf7d1c64f112e44100598a5">b4e139c</a>)</li>
+<li>Remove copying of jquery-latest files (<a href="https://github.com/jquery/jquery/commit/c34ed46eee12c92cb050a53eb62daf9e1258caf9">c34ed46</a>)</li>
+<li>remove revert artefacts (<a href="https://github.com/jquery/jquery/commit/c69673fe41ee17f46545e87a31ff96cea6c68a17">c69673f</a>)</li>
+<li>push dist to same remote as project (<a href="https://github.com/jquery/jquery/commit/1ba45fcc15c894cad591d93cbb88010df5f235fe">1ba45fc</a>)</li>
+<li>fix revert artefacts (<a href="https://github.com/jquery/jquery/commit/ae88b3971c38e0d32a8b927d597426bb50263c6f">ae88b39</a>)</li>
+<li>remove sourcemap comment from all copies of minified file (<a href="https://github.com/jquery/jquery/issues/1707">#1707</a>, <a href="https://github.com/jquery/jquery/commit/a76c7812366e7e45ea29969db72d90261ef87af5">a76c781</a>)</li>
+<li>fix CDN archive creation (<a href="https://github.com/jquery/jquery/issues/1940">#1940</a>, <a href="https://github.com/jquery/jquery/commit/e0673dfedb9ad07d8e68f28a54453b975c412c33">e0673df</a>)</li>
+<li>dist can be run during a test (<a href="https://github.com/jquery/jquery/commit/aae998b5449f35dc71e87e360aee5bd0022e7c8e">aae998b</a>)</li>
+</ul>
+<h3>Selector</h3>
+<ul>
+<li>pass jQuery unit tests with selector-native (<a href="https://github.com/jquery/jquery/issues/1742">#1742</a>, <a href="https://github.com/jquery/jquery/issues/2048">#2048</a>, <a href="https://github.com/jquery/jquery/commit/88046440da8f5433b510ea705255d1df12c2963e">8804644</a>)</li>
+<li>Remove &#8220;#&#8221; exception for identifier tokens (<a href="https://github.com/jquery/jquery/commit/86e62d8b37ff9ad40e7c21c2c0c440a9cdfc550e">86e62d8</a>)</li>
+<li>Define jQuery.uniqueSort in selector-native too (<a href="https://github.com/jquery/jquery/issues/2466">#2466</a>, <a href="https://github.com/jquery/jquery/commit/bf591fb597a056bf2fc9bc474010374695b18d1a">bf591fb</a>)</li>
+<li>add test for jQuery.unique() alias (<a href="https://github.com/jquery/jquery/commit/add85afed5944ec10d68ca10e91421e031fe0a5d">add85af</a>)</li>
+<li>add jQuery.uniqueSort; deprecate jQuery.unique (<a href="https://github.com/jquery/jquery/issues/2228">#2228</a>, <a href="https://github.com/jquery/jquery/commit/e1090c3d2b2a988a5b41f1f1ed9f8d6dcae02200">e1090c3</a>)</li>
+</ul>
+<h3>Serialize</h3>
+<ul>
+<li>Handle arrays with null values (<a href="https://github.com/jquery/jquery/commit/3d7ce0a65f0707ff01a851822e57ba80adcff075">3d7ce0a</a>)</li>
+<li>Fix object detection (<a href="https://github.com/jquery/jquery/commit/14c0fe44328f22debb5b531d2b671923658542b3">14c0fe4</a>)</li>
+</ul>
+<h3>Sizzle</h3>
+<ul>
+<li>update to 2.1.1 (<a href="https://github.com/jquery/jquery/commit/7602dc708dc6d9d0ae9982aadb9fa4615a9c49fa">7602dc7</a>)</li>
+</ul>
+<h3>Support</h3>
+<ul>
+<li>Re-organize browser order, add Safari 8 (<a href="https://github.com/jquery/jquery/commit/43faf6d1f922ba44a84c93f4ff2461d208b2bf48">43faf6d</a>)</li>
+<li>Correct iOS 8 support test results, re-arrange entries (<a href="https://github.com/jquery/jquery/commit/ce308e25e57a0a040cd1ea05f00bf1cc23c1bd8a">ce308e2</a>)</li>
+</ul>
+<h3>Tests</h3>
+<ul>
+<li>Post-Summit cleanup (<a href="https://github.com/jquery/jquery/commit/f931786018058174fa63551a7a4a3fccf9de41fa">f931786</a>)</li>
+<li>Use standard external domain name (<a href="https://github.com/jquery/jquery/commit/5b554cf04e809d77026d7afba6f02a7599724377">5b554cf</a>)</li>
+<li>Make basic tests work in IE 8 (<a href="https://github.com/jquery/jquery/commit/5914b103627e3773418ad1fd8c3b034bf3748d51">5914b10</a>)</li>
+<li>Don&#8217;t load non-basic tests when basic module is selected (<a href="https://github.com/jquery/jquery/commit/855b0c8c288533948b257925a8906f7da3449eed">855b0c8</a>)</li>
+<li>Add simple tests for Android 2.3 (<a href="https://github.com/jquery/jquery/issues/2505">#2505</a>, <a href="https://github.com/jquery/jquery/commit/2c7e9c934971500a746d012c529e13ec0b560a83">2c7e9c9</a>)</li>
+<li>Lower the checks rounding error (<a href="https://github.com/jquery/jquery/commit/a44cfa00665d21c3197e25c2d63741dc15f6ffb9">a44cfa0</a>)</li>
+<li>Use QUnit URL parameter parsing (<a href="https://github.com/jquery/jquery/commit/f23a64d745759d358d423ba0557e8f74d65f76cc">f23a64d</a>)</li>
+<li>more style corrections (<a href="https://github.com/jquery/jquery/commit/c161eecce09fc66ce252d4adf64b565f726bb6d2">c161eec</a>)</li>
+<li>Disable/relax a few tests failing in Android 2.3 (<a href="https://github.com/jquery/jquery/issues/1785">#1785</a>, <a href="https://github.com/jquery/jquery/commit/1a9c9b079177a1d6420efb876e8e66bf1fb4cbe2">1a9c9b0</a>)</li>
+<li>further improvements QUnit 2.0 migration (<a href="https://github.com/jquery/jquery/commit/c8d15a2f9f108e90d3651c31e4abf45415a30fde">c8d15a2</a>)</li>
+<li>fix tests in accordance with new :visible behavior (<a href="https://github.com/jquery/jquery/commit/16713fb6097849727de2ba1b489c98e242a168c3">16713fb</a>)</li>
+<li>hotfix for c1511c673148208ab17cafa0faf37bce3b4ae392 (<a href="https://github.com/jquery/jquery/commit/3f839af50b83903279b1f3b614b86c6d4c2b72fc">3f839af</a>)</li>
+<li>lower the PHP sleep time in unreleasedXHR.html (<a href="https://github.com/jquery/jquery/commit/02e10082b25df3b47b6b98e3b35399712795b7df">02e1008</a>)</li>
+<li>Fix support tests results for Android 2.3 (<a href="https://github.com/jquery/jquery/commit/4fea389ad2b7515bc3a9081245979ab7be566b99">4fea389</a>)</li>
+<li>Add Safari 9 support tests results (<a href="https://github.com/jquery/jquery/commit/e99a3ac7066226d00ff5828de596d4a4b3818c0c">e99a3ac</a>)</li>
+<li>Add dummy modules when running basic tests (<a href="https://github.com/jquery/jquery/commit/f9af896bb8f4cb37b22d508443174c8edf40fc54">f9af896</a>)</li>
+<li>Blacklist the iframe scrollTop test in Opera 12.1x (<a href="https://github.com/jquery/jquery/commit/283a1949550e1bf1284ddf89a472b3c8b4a97c60">283a194</a>)</li>
+<li>do not define two modules with the same name (<a href="https://github.com/jquery/jquery/issues/2437">#2437</a>, <a href="https://github.com/jquery/jquery/commit/7aa46e0df8a673e6b00550bbbbed21eed50108b7">7aa46e0</a>)</li>
+<li>partially use new qunit interface (<a href="https://github.com/jquery/jquery/issues/2540">#2540</a>, <a href="https://github.com/jquery/jquery/commit/b930d14ce64937e9478405eee2828d4da091d2cb">b930d14</a>)</li>
+<li>Correct a typo in the regex matching Safari 8 (<a href="https://github.com/jquery/jquery/commit/c17543fd3c14ff86c448dbb90f9fe1223661a73b">c17543f</a>)</li>
+<li>Change quotes according to style guidelines (<a href="https://github.com/jquery/jquery/commit/c577928d45bdcc3ee8f93da89ab7aadca21919f3">c577928</a>)</li>
+<li>fix lint in restored test (<a href="https://github.com/jquery/jquery/commit/636a2bd4e080f80e3dcc1eb00a5222d8c1eee617">636a2bd</a>)</li>
+<li>Remove a trailing comma for compatibility with the compat branch (<a href="https://github.com/jquery/jquery/commit/dc8ba6af921f4c9650fb1e4cfc698b2a276fa53d">dc8ba6a</a>)</li>
+<li>make editorconfig match css style (<a href="https://github.com/jquery/jquery/commit/1da144867f3a49bbac4342bd3f3242baae108eb9">1da1448</a>)</li>
+<li>make top of the HTML suite compliant with style guide (<a href="https://github.com/jquery/jquery/commit/8356281bed643bb3d56ad02f52580a0e20dc0237">8356281</a>)</li>
+<li>Accept Android 2.3 doesn&#8217;t fire window.onerror for remote scripts (<a href="https://github.com/jquery/jquery/commit/27325311db4807f52d66e592d832c55ab0a203df">2732531</a>)</li>
+<li>Add Microsoft Edge results (from Windows 10 build 10130) (<a href="https://github.com/jquery/jquery/commit/8e111df641cca3e1b75b31a1971bfc89014b4ded">8e111df</a>)</li>
+<li>Keep test iframes around for assertions (<a href="https://github.com/jquery/jquery/commit/0fb84fa8ccefcd07febf282fd7b80262ad70add7">0fb84fa</a>)</li>
+<li>Account for array-like objects in jQuery.grep (<a href="https://github.com/jquery/jquery/commit/67b76f5986a78d868553b9aec0d0192f5259a078">67b76f5</a>)</li>
+<li>fix code style issues (<a href="https://github.com/jquery/jquery/commit/625bd303d99408bca86b7002cd42b8716e2b267e">625bd30</a>)</li>
+<li>Fix support tests results (<a href="https://github.com/jquery/jquery/commit/f6dd76709a4173be5e8d45c3f901a330f751c382">f6dd767</a>)</li>
+<li>Account for Edge in originalEvent UA-sniffs (<a href="https://github.com/jquery/jquery/issues/2357">#2357</a>, <a href="https://github.com/jquery/jquery/commit/64fd7ef3d081b5c65d541237f73a4d89f0f0ad7b">64fd7ef</a>)</li>
+<li>Remove Safari 7.0 &amp; iOS 6 support tests results (<a href="https://github.com/jquery/jquery/commit/47e2aa6593a77c94eef610ac784494884f598253">47e2aa6</a>)</li>
+<li>Remove Edge version from the user agent (<a href="https://github.com/jquery/jquery/commit/5a1217e40193c8884155ccaf415091d326ddb52a">5a1217e</a>)</li>
+<li>Tilt at a few style guide windmills (<a href="https://github.com/jquery/jquery/commit/906caebb3f3bc542904a94846e778aa8d71c0575">906caeb</a>)</li>
+<li>Accommodate page changes from the QUnit HTML reporter (<a href="https://github.com/jquery/jquery/commit/3c13f4c6297566a71102c2362347987f6d6a636e">3c13f4c</a>)</li>
+<li>Remove test/data/ua.txt (<a href="https://github.com/jquery/jquery/issues/2398">#2398</a>, <a href="https://github.com/jquery/jquery/commit/e831856490d2212bdbaff4cd76137b93ccf26d92">e831856</a>)</li>
+<li>Minor updates for QUnit 1.16 compatibility (<a href="https://github.com/jquery/jquery/commit/26276a307ce2f554b63a05ed8451155f01711c29">26276a3</a>)</li>
+<li>Update QUnit (<a href="https://github.com/jquery/jquery/commit/6748ba349650353c7bed6eec201a3192f6b2cae1">6748ba3</a>)</li>
+<li>Add iOS 9 support tests results (<a href="https://github.com/jquery/jquery/commit/1c2b5362ef40058d5b375a40362c88559f81a293">1c2b536</a>)</li>
+<li>Fix CSS relative adjustment test for round-down browsers (<a href="https://github.com/jquery/jquery/commit/48be675200e817f40fa8ec25da1be2ab0839d28d">48be675</a>)</li>
+<li>Increase QUnit timeout (<a href="https://github.com/jquery/jquery/commit/ff18d8e2060ae7c15c7694dc6bcbbeb9cbfbdaa4">ff18d8e</a>)</li>
+<li>Expand CSS relative adjustment tolerance for IE (<a href="https://github.com/jquery/jquery/commit/e22ef5d9017c44cad97ae541fefce76cc455edcb">e22ef5d</a>)</li>
+<li>don&#8217;t use deprecated argument in test declaration (<a href="https://github.com/jquery/jquery/commit/aabe94edb4880c75eeebc5b5b5d66a9ad17008fe">aabe94e</a>)</li>
+<li>Provide equal() arguments in correct order (actual, expected) (<a href="https://github.com/jquery/jquery/commit/d3d8d9751f3d14a545b26cf820dc1f51896a7b50">d3d8d97</a>)</li>
+<li>Docs: Fix various typos (<a href="https://github.com/jquery/jquery/commit/03eaadb131df925d1072afd2496ee3b41d2f1fc6">03eaadb</a>)</li>
+<li>add the current version of node and iojs to the travis config (<a href="https://github.com/jquery/jquery/commit/bd9a1385feea349f48de658875c3f1bfc75daf74">bd9a138</a>)</li>
+<li>Make regexes for iOS devices more rigid (<a href="https://github.com/jquery/jquery/commit/015d16c02dae770eda88e644ec69ce82f25c0412">015d16c</a>)</li>
+<li>Add .extend test for defined accessor properties (<a href="https://github.com/jquery/jquery/commit/9748e436ad80d6a2e1661ba4cf8d7391ed87c3ad">9748e43</a>)</li>
+<li>Fix Safari 5.1 support tests results (<a href="https://github.com/jquery/jquery/commit/e904249ee00c3375fad461c47150627fce0b02d8">e904249</a>)</li>
+<li>Really fix tests in IE 8 this time (<a href="https://github.com/jquery/jquery/commit/1b566d37a2879af12364a03c633c235a76f49925">1b566d3</a>)</li>
+</ul>
+<h3>Traversing</h3>
+<ul>
+<li>Don&#8217;t expose jQuery.dir &amp; jQuery.sibling (<a href="https://github.com/jquery/jquery/issues/2512">#2512</a>, <a href="https://github.com/jquery/jquery/commit/f9ef427d355a8a2b531aed5d112dfa4f9692105c">f9ef427</a>)</li>
+</ul>
+<p>&#8212;</p>
+<h2>1.12.0</h2>
+<h3>Ajax</h3>
+<ul>
+<li>Add support comment and fix code style issue (<a href="https://github.com/jquery/jquery/commit/e38a94a61ce92bedf3bed916a042c18a3b5ce4ed">e38a94a</a>)</li>
+<li>remove event dependency from the ajax module (<a href="https://github.com/jquery/jquery/commit/c580a529716cd89eccdbda1bf3e9636e5a38811e">c580a52</a>)</li>
+<li>Fix for request aborted in ajaxSend (<a href="https://github.com/jquery/jquery/issues/1775">#1775</a>, <a href="https://github.com/jquery/jquery/commit/73c1ceaf4280bd0318679c1ad832181f3f449814">73c1cea</a>)</li>
+<li>Fix cross-domain detection test for non-default port (<a href="https://github.com/jquery/jquery/commit/b635ee2d36f2ace7a75239de859da9fd777aa0cd">b635ee2</a>)</li>
+<li>$.post and $.get can now take an options object (<a href="https://github.com/jquery/jquery/issues/1986">#1986</a>, <a href="https://github.com/jquery/jquery/commit/26150f0910a0b0d933df92cd354c6735c3dc9078">26150f0</a>)</li>
+<li>Run the PATCH test only in IE8 on TestSwarm (<a href="https://github.com/jquery/jquery/issues/1994">#1994</a>, <a href="https://github.com/jquery/jquery/commit/2524da09c6aa2e3227246ecb1b382bbfe4cead40">2524da0</a>)</li>
+<li>make jQuery#load &#8220;type&#8221; field explicit (<a href="https://github.com/jquery/jquery/commit/1d3d2b1aa6bcd4de9e3a2d16f98685ac8726311c">1d3d2b1</a>)</li>
+<li>replace &#8220;jqXHR.complete&#8221; callback with &#8220;always&#8221; (<a href="https://github.com/jquery/jquery/commit/fd80f5970f38ff12c7fa2caa8c1de955301a6979">fd80f59</a>)</li>
+<li>move explanatory comment to appropriate place (<a href="https://github.com/jquery/jquery/commit/04fc80121756189e1270b1336b4202f99726fa14">04fc801</a>)</li>
+<li>remove use of jQuery#each second argument (<a href="https://github.com/jquery/jquery/commit/08777336be849f6241fcb3b5455b5b76af6aae61">0877733</a>)</li>
+<li>Use the native XHR for all non-local requests in IE9+ (<a href="https://github.com/jquery/jquery/issues/1684">#1684</a>, <a href="https://github.com/jquery/jquery/commit/61f812b7e7b88dd6e0078c241e4c88905ea51562">61f812b</a>)</li>
+<li>Rename Spartan to Edge in a comment (<a href="https://github.com/jquery/jquery/commit/8d88cd599f0e9c674eb17c60d528205384c12433">8d88cd5</a>)</li>
+<li>Fix the XHR fallback logic for IE8 (<a href="https://github.com/jquery/jquery/commit/bd699cb17b6347a414c0c6d105ef80a4ea1ed678">bd699cb</a>)</li>
+<li>Remove jsonp callbacks through &#8220;jQuery#removeProp&#8221; method (<a href="https://github.com/jquery/jquery/issues/2323">#2323</a>, <a href="https://github.com/jquery/jquery/commit/3d850edb13b8dfea2c09327f4561ca05cb7dc3bd">3d850ed</a>)</li>
+<li>Account for Android 2.3 not firing window.onerror on script errors (<a href="https://github.com/jquery/jquery/commit/b3eb2a13cd51133f56ed3d6755f985cea87a062d">b3eb2a1</a>)</li>
+<li>do not quote &#8220;throws&#8221; option &#8211; use dot notation instead (<a href="https://github.com/jquery/jquery/issues/2571">#2571</a>, <a href="https://github.com/jquery/jquery/commit/c530661629ac713a3ccab9691773cc6de5e84759">c530661</a>)</li>
+<li>Mitigate possible XSS vulnerability (<a href="https://github.com/jquery/jquery/issues/2432">#2432</a>, <a href="https://github.com/jquery/jquery/commit/f60729f3903d17917dc351f3ac87794de379b0cc">f60729f</a>)</li>
+<li>correct indentation (<a href="https://github.com/jquery/jquery/commit/2a8341787acc8519ff49172777c628c28c2c5ec3">2a83417</a>)</li>
+<li>improve content-type detection (<a href="https://github.com/jquery/jquery/issues/2584">#2584</a>, <a href="https://github.com/jquery/jquery/commit/3ced5abe5c7e4c90f845012859108059b03770c0">3ced5ab</a>)</li>
+<li>don&#8217;t expect cross-origin tests run in envs which not support it (<a href="https://github.com/jquery/jquery/commit/905ab09afcead6498c1ffc2f82218c51b55352a0">905ab09</a>)</li>
+<li>Catch synchronous readystatechange events (<a href="https://github.com/jquery/jquery/issues/2673">#2673</a>, <a href="https://github.com/jquery/jquery/commit/0a6e1c4b191f177fce2dac5fd3a17b76f853fd26">0a6e1c4</a>)</li>
+<li>Don&#8217;t let onreadystatechange preempt exceptions from xhr.send (<a href="https://github.com/jquery/jquery/commit/b5c6fc7ebb3ad83e174211b7858983a8652a774a">b5c6fc7</a>)</li>
+</ul>
+<h3>Attributes</h3>
+<ul>
+<li>fix IE6-7 classes (<a href="https://github.com/jquery/jquery/commit/9e2f55f47ccc055aafa07d131030ff85e2caa39e">9e2f55f</a>)</li>
+<li>don&#8217;t test SVG CSS-class manipulation in IE8 (<a href="https://github.com/jquery/jquery/commit/57fb2dc02ec286c51b456f0e460ad258f332b6ac">57fb2dc</a>)</li>
+<li>remove unnecessary element null check (<a href="https://github.com/jquery/jquery/commit/0de798d6c2277a286c90e08de669a23e6e12a4a2">0de798d</a>)</li>
+<li>fix IE8 issues (<a href="https://github.com/jquery/jquery/commit/f2bcf87c25155fd8361c744c684a0d526bd184a5">f2bcf87</a>)</li>
+<li>revert returning null for non-existant attributes (<a href="https://github.com/jquery/jquery/commit/7bce5b0ee1c8f379477f3276437ed72c59ccda54">7bce5b0</a>)</li>
+<li>remove flakey test for selected attribute (<a href="https://github.com/jquery/jquery/commit/689270e9d8333085ae73144d5a21c244d07c8cb3">689270e</a>)</li>
+<li>fix tabIndex on <img alt="" /> in IE11 (<a href="https://github.com/jquery/jquery/issues/2647">#2647</a>, <a href="https://github.com/jquery/jquery/commit/cf4092eeea01cd7bc87f1e99e79c3bb2bfcd7d8a">cf4092e</a>)</li>
+<li>revert returning null for non-elements (<a href="https://github.com/jquery/jquery/commit/a40365549195e4afdf4743f403c12599a3dd4a77">a403655</a>)</li>
+<li>add SVG class manipulation (<a href="https://github.com/jquery/jquery/issues/2199">#2199</a>, <a href="https://github.com/jquery/jquery/commit/b5b0d727740a2e5add2fa0daf0557e1e19a149cb">b5b0d72</a>)</li>
+<li>removeClass() -&gt; attr(&#8220;class&#8221;, &#8220;&#8221;) (<a href="https://github.com/jquery/jquery/commit/f5328b6a447f23fd8fb9465db36b6eb46e9d8ba6">f5328b6</a>)</li>
+<li>Use simpler boolean check vs a function call (<a href="https://github.com/jquery/jquery/commit/c003cd6bc8336927dad70889ee24e176f90b25a9">c003cd6</a>)</li>
+<li>fix failing test for new return value (<a href="https://github.com/jquery/jquery/commit/17bd6e9cf94f435807eeb538a47b5e506a01f4cb">17bd6e9</a>)</li>
+<li>return null when attribute does not exist (<a href="https://github.com/jquery/jquery/issues/2118">#2118</a>, <a href="https://github.com/jquery/jquery/commit/afca031826045e9d13454316ec3ec7388225e879">afca031</a>)</li>
+<li>Simplify the option val hook; backport a test from master (<a href="https://github.com/jquery/jquery/issues/1902">#1902</a>, <a href="https://github.com/jquery/jquery/commit/aec41a5c41df5a1b9a062950d90babdc0694b084">aec41a5</a>)</li>
+<li>fix toggleClass(boolean) in ie6/7 (<a href="https://github.com/jquery/jquery/commit/41c83f5c016a99b0d3f39d1320799b4c11df22f3">41c83f5</a>)</li>
+</ul>
+<h3>Authors</h3>
+<ul>
+<li>Update AUTHORS.txt and .mailmap (<a href="https://github.com/jquery/jquery/commit/d39fef8472e5ca970e77c211d3b116f98fc10b14">d39fef8</a>)</li>
+</ul>
+<h3>Build</h3>
+<ul>
+<li>update grunt-jscs-checker and pass with the new rules (<a href="https://github.com/jquery/jquery/commit/91e06e9aebecf67a5c4997408bf0a28fffd03f9d">91e06e9</a>)</li>
+<li>update source map options for the new grunt jshint (<a href="https://github.com/jquery/jquery/commit/181b451646f518eabb1fb4c0026e74d2f736efd2">181b451</a>)</li>
+<li>update requirejs dependency to 2.1.17 (<a href="https://github.com/jquery/jquery/issues/2290">#2290</a>, <a href="https://github.com/jquery/jquery/commit/a9296dffb05acab170f1ee76971f85349c804f08">a9296df</a>)</li>
+<li>denote that sizzle cannot be removed on this branch (<a href="https://github.com/jquery/jquery/issues/14775">#14775</a>, <a href="https://github.com/jquery/jquery/commit/764f3643a3df30316d642ac6837409e5003859a8">764f364</a>)</li>
+<li>Rearrange grunt/npm tasks into a build/dist/test pattern (<a href="https://github.com/jquery/jquery/commit/07719736b7ead25cdcf511d785ae2591a4d631d3">0771973</a>)</li>
+<li>Update the license attribute (<a href="https://github.com/jquery/jquery/issues/2331">#2331</a>, <a href="https://github.com/jquery/jquery/commit/8bf81d76d1d6d607e0b6b4dd7f5582c3c83637f9">8bf81d7</a>)</li>
+<li>append &#8220;+compat&#8221; to tag version and jQuery.fn.jquery (<a href="https://github.com/jquery/jquery/issues/2269">#2269</a>, <a href="https://github.com/jquery/jquery/commit/d18b64578859a6c28e2d4b92e558193f9db9b1d4">d18b645</a>)</li>
+<li>remove bower.json lint target (<a href="https://github.com/jquery/jquery/commit/24a6bb9fe8d9ce330056d4e974fb711a6f08c0ad">24a6bb9</a>)</li>
+<li>Update grunt-contrib-jshint (<a href="https://github.com/jquery/jquery/commit/a022da70568119688445708970bec1346c9d4217">a022da7</a>)</li>
+<li>Remove npm from dependencies (<a href="https://github.com/jquery/jquery/commit/a16b77fb89c5e6c08d87ce0d042e4620889ded7b">a16b77f</a>)</li>
+<li>Temprary disable jscs checks (<a href="https://github.com/jquery/jquery/commit/0e3fa47abb48bb5cd627b3f18e4b7f8f39338cc6">0e3fa47</a>)</li>
+<li>code style fixes (<a href="https://github.com/jquery/jquery/commit/8c507df1d5aad7e9d0b72b96fb8f6b9dcca9ba51">8c507df</a>)</li>
+<li>Upgrade to commitplease 2.0.0 (<a href="https://github.com/jquery/jquery/commit/630a5a8c0b53dcc419257f6288e6e8b6a0e4c2c3">630a5a8</a>)</li>
+<li>remove needless file and re-enable jscs (<a href="https://github.com/jquery/jquery/commit/813b7e4c8de2d4e5950d279ffdd1c171d529c764">813b7e4</a>)</li>
+<li>update Sizzle (<a href="https://github.com/jquery/jquery/issues/2042">#2042</a>, <a href="https://github.com/jquery/jquery/issues/1969">#1969</a>, <a href="https://github.com/jquery/jquery/commit/345c95ae9303ff6a70e27ec5aeb1c9e8e6936e32">345c95a</a>)</li>
+<li>1.x-master -&gt; compat (<a href="https://github.com/jquery/jquery/commit/2912ddd824228b200a0d2a1682456ee6827459a5">2912ddd</a>)</li>
+<li>Put &#8220;jQuery Compat&#8221; in banners in built files (<a href="https://github.com/jquery/jquery/commit/8cd68759352fbec0f1533ef4c491f4fe155c1904">8cd6875</a>)</li>
+<li>Update license (<a href="https://github.com/jquery/jquery/commit/9dfb9af9624d5b7d03705d34e65b0a610193f192">9dfb9af</a>)</li>
+<li>Point to files from the compat branch, not master (<a href="https://github.com/jquery/jquery/commit/b7663eabcd4ff6f56724a3aa2a6b903e4816c208">b7663ea</a>)</li>
+<li>Fix various typos (<a href="https://github.com/jquery/jquery/commit/3f9fda8fab2a58bb8506553a78d5ecc3c2a67871">3f9fda8</a>)</li>
+<li>remove node .10 from travis (<a href="https://github.com/jquery/jquery/commit/498fd24f389105049bc2eebadfa43e228b91454a">498fd24</a>)</li>
+<li>Update native-promise-only (again) (<a href="https://github.com/jquery/jquery/commit/f9f4f9d32bd35d374b9fc0d10db8d658475403a6">f9f4f9d</a>)</li>
+<li>Test on Node 5 (<a href="https://github.com/jquery/jquery/commit/06840d8b257f568dd84ea4d54d35ff25702f1e4e">06840d8</a>)</li>
+<li>code style fixes after all those reverts (<a href="https://github.com/jquery/jquery/commit/14eba98c8f189c2e6a36e640bedce2ce6db34493">14eba98</a>)</li>
+<li>ignore test dependencies for npm install (<a href="https://github.com/jquery/jquery/commit/ae7a15b780336c95a4784de097ec20cbbe608341">ae7a15b</a>)</li>
+<li>Update commitplease dev dependency (<a href="https://github.com/jquery/jquery/commit/a96ed7e24530a85686d67162ddb294066c5611b0">a96ed7e</a>)</li>
+<li>update AUTHORS.txt (<a href="https://github.com/jquery/jquery/commit/799332fd7ebae2963c176bbcb2f513348e4526ed">799332f</a>)</li>
+<li>Upgrade to grunt-bowercopy 1.0.0 (<a href="https://github.com/jquery/jquery/commit/5150442e1bf4343b28aa69e0f1ad32842533e23a">5150442</a>)</li>
+<li>add mailmap entry (<a href="https://github.com/jquery/jquery/commit/1682d36be2453007583c3c18d5ebbfa743322ff0">1682d36</a>)</li>
+<li>just tack on +compat to versions that may include labels (<a href="https://github.com/jquery/jquery/commit/8565f54257df78ac0555435b77f121c5bb826ce0">8565f54</a>)</li>
+<li>Remove unused Sizzle test files (<a href="https://github.com/jquery/jquery/commit/62f7f7be9bd6cb1f9f85dfa22af29b8a20e6d72a">62f7f7b</a>)</li>
+<li>Move all external libraries to external directory (<a href="https://github.com/jquery/jquery/commit/72e61925179aac67df234c46b94fcac829142897">72e6192</a>)</li>
+<li>update Sizzle to 1.11.1 and include license (<a href="https://github.com/jquery/jquery/commit/1c3138412ce044d02d714221bea49691a767d41b">1c31384</a>)</li>
+<li>update grunt-bowercopy (<a href="https://github.com/jquery/jquery/commit/b3edc61c54573e71c34e0397e4737d53f1d9714c">b3edc61</a>)</li>
+<li>Add &#8220;timers_ie.js&#8221; file back to the repo (<a href="https://github.com/jquery/jquery/commit/31e6697c5856ed1d3d79e457dccbf4a1078cb74b">31e6697</a>)</li>
+<li>Correct indentation issue (<a href="https://github.com/jquery/jquery/commit/d0f27a73a1917a8c052fc6fc67065f072460ab67">d0f27a7</a>)</li>
+<li>Add a comment explaining why the es3 option is needed (<a href="https://github.com/jquery/jquery/commit/b988c0e45d0d876ae7d12e7b361a25a8ea76cf2f">b988c0e</a>)</li>
+<li>Remove empty define({}) from build output (<a href="https://github.com/jquery/jquery/issues/1768">#1768</a>, <a href="https://github.com/jquery/jquery/commit/2138f158be66dc2c6c3578dda413908d11aec675">2138f15</a>)</li>
+<li>bower.json: remove moot `version` field (<a href="https://github.com/jquery/jquery/commit/3699ef463224a08233f9c37c6c7ad8235eb9a758">3699ef4</a>)</li>
+<li>update Sizzle to 2.2.1 (<a href="https://github.com/jquery/jquery/issues/2390">#2390</a>, <a href="https://github.com/jquery/jquery/commit/20cd34384d6908e0280cea9b69e09f065c4e4003">20cd343</a>)</li>
+<li>drop bower; use npm for front-end deps (<a href="https://github.com/jquery/jquery/issues/15186">#15186</a>, <a href="https://github.com/jquery/jquery/commit/79c0732ac26253feb6070de409e3643607a5a4c4">79c0732</a>)</li>
+<li>correct jscs paths (<a href="https://github.com/jquery/jquery/commit/fa8a5a90e157f26a54ce50b4e8bb8f2f4bce3500">fa8a5a9</a>)</li>
+<li>Update jscs and lint files (<a href="https://github.com/jquery/jquery/issues/2056">#2056</a>, <a href="https://github.com/jquery/jquery/commit/20ddbe4f594f78f7f1095050aabd91882dde0670">20ddbe4</a>)</li>
+<li>Add &#8220;deprecated&#8221; to the Testswarm module list (<a href="https://github.com/jquery/jquery/commit/b94af72bc8da4802abab6a5b300fb444dfcacea9">b94af72</a>)</li>
+<li>remove deprecated JSHint options (<a href="https://github.com/jquery/jquery/commit/9edd95ffd7d4ffadb6893457a738a56d7e4c18d3">9edd95f</a>)</li>
+<li>fix broken assertions caused by QUnit update (<a href="https://github.com/jquery/jquery/commit/98c77c1199660be3116a0663806f5851a3fe3acf">98c77c1</a>)</li>
+<li>space between curly and paren is optional (<a href="https://github.com/jquery/jquery/issues/2399">#2399</a>, <a href="https://github.com/jquery/jquery/commit/cbb0be6c41221ba3dae280aee07815007b127982">cbb0be6</a>)</li>
+<li>update front-end dependencies (<a href="https://github.com/jquery/jquery/commit/4089c7dae46b3a191ae1c075c5e300d5aa3c2d5d">4089c7d</a>)</li>
+<li>fix tests in AMD mode (<a href="https://github.com/jquery/jquery/commit/57652eecd96e47f39725671ffce45bfa01493380">57652ee</a>)</li>
+<li>Update grunt-contrib-uglify because of a security issue in uglify (<a href="https://github.com/jquery/jquery/commit/2da0cca7d364cc8211b10b7fe1868754aba4fca6">2da0cca</a>)</li>
+<li>Update QUnit to latest (1.17.1) (<a href="https://github.com/jquery/jquery/commit/db31206d36a3a75c011310e282e0fdc9a0f3d99d">db31206</a>)</li>
+<li>another portion of code style fixes (<a href="https://github.com/jquery/jquery/commit/f913a0131d9843d5f4e267af4268a678944f3e91">f913a01</a>)</li>
+<li>update node dependencies barring jscs (<a href="https://github.com/jquery/jquery/commit/511eb1540bba2fbd45b6399c60ca361f11e572df">511eb15</a>)</li>
+<li>account for version labels in Sizzle versions (<a href="https://github.com/jquery/jquery/issues/1939">#1939</a>, <a href="https://github.com/jquery/jquery/commit/ac70dd0c8d6e0953a714519fa7b792b71062b8fb">ac70dd0</a>)</li>
+<li>update node dependencies (<a href="https://github.com/jquery/jquery/commit/dda65fb13cce2a75cdaea963e8c1da69ff023358">dda65fb</a>)</li>
+<li>Fixed issue with base path that contain &#8216;var&#8217; (<a href="https://github.com/jquery/jquery/issues/2450">#2450</a>, <a href="https://github.com/jquery/jquery/commit/4e3f9718666e3cc98b2b149e4b68069c01418db4">4e3f971</a>)</li>
+<li>Sizzle version labels must start with a dash (<a href="https://github.com/jquery/jquery/commit/6bc0e50810416fe2c2a6c94e28e641aaaeaa16eb">6bc0e50</a>)</li>
+<li>Fix an email address of a contributor (<a href="https://github.com/jquery/jquery/commit/648280a07129205fc1559cfe13fb6108ede9b38c">648280a</a>)</li>
+<li>Speed up the Travis build (<a href="https://github.com/jquery/jquery/commit/ba352e83afcb5fca806488a1323b23d409fcbfdd">ba352e8</a>)</li>
+<li>Don&#8217;t install jsdom 3 on Node.js 0.10 &amp; 0.12 by default (<a href="https://github.com/jquery/jquery/issues/2519">#2519</a>, <a href="https://github.com/jquery/jquery/commit/5f1c7fc81e0ea7bb072268724c0eeed137eb932b">5f1c7fc</a>)</li>
+<li>Sanctify the component name status of Wrap (<a href="https://github.com/jquery/jquery/commit/abfb10c82ef91fef99ba92c287a6c5a9e8045e80">abfb10c</a>)</li>
+<li>Remove dates from copyright notice (<a href="https://github.com/jquery/jquery/commit/a0bf5bf710e98f86a49fc0c293232250f6c40ee1">a0bf5bf</a>)</li>
+<li>Specify valid components for commit messages (<a href="https://github.com/jquery/jquery/commit/6f0db5319d71261d47157c0a9ac0a2749a7b3311">6f0db53</a>)</li>
+<li>Remove a double empty line at the end of .travis.yml (<a href="https://github.com/jquery/jquery/commit/fc87a5cd5b2d264dac713ac2d6406d87dd12e674">fc87a5c</a>)</li>
+<li>Use double quotes in .travis.yml (<a href="https://github.com/jquery/jquery/commit/ca0dd7a3805cdeded88863b696afb72688d1f7b8">ca0dd7a</a>)</li>
+<li>Drop io.js testing, test on latest Node.js (<a href="https://github.com/jquery/jquery/commit/d29c394c1f1f918daef09bfc6def62c0b01b5d2d">d29c394</a>)</li>
+<li>Move test to appropriate module (<a href="https://github.com/jquery/jquery/commit/9953ae4c88fa2edea2c3dc7ae723912f547f5e29">9953ae4</a>)</li>
+<li>Update native-promise-only (<a href="https://github.com/jquery/jquery/commit/7b111310977a30d02a8260a7ed6c9c437bb1b0a5">7b11131</a>)</li>
+</ul>
+<h3>Callbacks</h3>
+<ul>
+<li>Reduce size (<a href="https://github.com/jquery/jquery/commit/18baae2efb36a6c759c0dddac7d25da9c554dff7">18baae2</a>)</li>
+<li>No object starts out locked (<a href="https://github.com/jquery/jquery/issues/1989">#1989</a>, <a href="https://github.com/jquery/jquery/commit/f5a8c649b54e8b7fde6253bd56972347f9bbe012">f5a8c64</a>)</li>
+<li>Disabling a callback should prevent firing (<a href="https://github.com/jquery/jquery/issues/1790">#1790</a>, <a href="https://github.com/jquery/jquery/commit/61df64865116ea4eac8b4f6da393ba4670f26103">61df648</a>)</li>
+<li>Change broken url to wayback one (<a href="https://github.com/jquery/jquery/commit/e4cbc973d5a5d3b86856fc702f10add36ed0e860">e4cbc97</a>)</li>
+</ul>
+<h3>CONTRIBUTING</h3>
+<ul>
+<li>Condense info and add directions to other resources (<a href="https://github.com/jquery/jquery/issues/1824">#1824</a>, <a href="https://github.com/jquery/jquery/commit/404d2aa269e87bc952691a2ad833493e3585e543">404d2aa</a>)</li>
+</ul>
+<h3>Core</h3>
+<ul>
+<li>Consistently use local reference to access() (<a href="https://github.com/jquery/jquery/commit/eeab75da0048e9708b7bfd1f3e933da7fab050de">eeab75d</a>)</li>
+<li>add support to tag-hyphenated elements (<a href="https://github.com/jquery/jquery/commit/f19595cef4a01d52ade451e90b0a1d2ceb5afe43">f19595c</a>)</li>
+<li>Remove unnecessary parameter to jQuery#constructor (<a href="https://github.com/jquery/jquery/commit/dc76dca295e6413edbac5c9aa0ffadd69a085577">dc76dca</a>)</li>
+<li>Support Symbol wrapper objects in jQuery.type (<a href="https://github.com/jquery/jquery/commit/c7cf28681eeb2a7f6d71e5e17b293c252900bda7">c7cf286</a>)</li>
+<li>simplify &#8220;each&#8221; stylesheet iteration test (<a href="https://github.com/jquery/jquery/commit/889bb1e3ee56571754793ff98d9dcf4c69fa9581">889bb1e</a>)</li>
+<li>add unit test for isPlainObject(Symbol) (<a href="https://github.com/jquery/jquery/issues/2645">#2645</a>, <a href="https://github.com/jquery/jquery/commit/d3a2fdce9773ec688ffe50e94bce9e7f4140ad6a">d3a2fdc</a>)</li>
+<li>introduce createHTMLDocument in parseHTML; Safari 8/IE8 left out (<a href="https://github.com/jquery/jquery/commit/828a718aa028ba6cde7b4076d94b10ef0853f9ee">828a718</a>)</li>
+<li>change jQuery.each and jQuery#each signatures (<a href="https://github.com/jquery/jquery/issues/2090">#2090</a>, <a href="https://github.com/jquery/jquery/commit/7cd9a363229c6ec1ceaa4debf49ee3eb20d97761">7cd9a36</a>)</li>
+<li>remove isArraylike check for nodes (<a href="https://github.com/jquery/jquery/issues/2238">#2238</a>, <a href="https://github.com/jquery/jquery/commit/d6933917d217321e3d505abe201f3bf5bf7c3d66">d693391</a>)</li>
+<li>Simplify and speed up .each (<a href="https://github.com/jquery/jquery/commit/4cc4e54298bca84d0a0b2f2eb1ee97ca619485b1">4cc4e54</a>)</li>
+<li>Support non-browser environments (<a href="https://github.com/jquery/jquery/issues/2133">#2133</a>, <a href="https://github.com/jquery/jquery/issues/2501">#2501</a>, <a href="https://github.com/jquery/jquery/commit/04ec688e806660107a0b5823fabe2fe213f63b92">04ec688</a>)</li>
+<li>CSS: Attach test nodes to documentElement, not body (<a href="https://github.com/jquery/jquery/issues/2502">#2502</a>, <a href="https://github.com/jquery/jquery/commit/9b04201ff21b6e5932dc21679774f398d6940cfa">9b04201</a>)</li>
+<li>make isNumeric test work on Symbol (<a href="https://github.com/jquery/jquery/commit/d846c25dca4adeb4262f98957f1b887fe6b29912">d846c25</a>)</li>
+<li>Don&#8217;t expose jQuery.access (<a href="https://github.com/jquery/jquery/issues/2513">#2513</a>, <a href="https://github.com/jquery/jquery/commit/12230d39e1e897d5edfaad846650a535c578c992">12230d3</a>)</li>
+<li>Adjust comments &amp; tests after dropping Safari 6 support (<a href="https://github.com/jquery/jquery/commit/5fce498e4263f11ed4c688e5304999e63c395367">5fce498</a>)</li>
+<li>.each/.map should accept an undefined/null value (<a href="https://github.com/jquery/jquery/issues/2267">#2267</a>, <a href="https://github.com/jquery/jquery/commit/15f48047bcf01389643e1561de9907c417529e83">15f4804</a>)</li>
+<li>Add a support comment for Safari 8 (<a href="https://github.com/jquery/jquery/commit/9c373c31410deb8e4a11aa7ce226d5e9169c7852">9c373c3</a>)</li>
+<li>Make jQuery objects iterable (<a href="https://github.com/jquery/jquery/issues/1693">#1693</a>, <a href="https://github.com/jquery/jquery/commit/2fa3bac7eb2021361a1d0c498c278df812ec48b9">2fa3bac</a>)</li>
+<li>Align code in intro.js with master (<a href="https://github.com/jquery/jquery/commit/fe2a584ed662ad15e0cfb2e806652e2a8724f0c8">fe2a584</a>)</li>
+<li>Update tested jsdom, drop obsolete workarounds (<a href="https://github.com/jquery/jquery/issues/2153">#2153</a>, <a href="https://github.com/jquery/jquery/commit/19c0377fcc92a765c8a15ce68119f52fad2aae1b">19c0377</a>)</li>
+<li>Standardize indexOf comparisons (<a href="https://github.com/jquery/jquery/commit/6ae222a54f687e7950a3f4c4e04bd42ca0387504">6ae222a</a>)</li>
+<li>Drop strundefined variable (<a href="https://github.com/jquery/jquery/commit/835e8c4ae39f09d11ad42d24e0210bebfa8e8320">835e8c4</a>)</li>
+<li>organize prop &amp; attr code to be similar (<a href="https://github.com/jquery/jquery/commit/d0388e9e806ca3b30e7bbaaa1c336b7c98dc5f88">d0388e9</a>)</li>
+<li>Change support.ownLast to support.ownFirst (<a href="https://github.com/jquery/jquery/issues/2406">#2406</a>, <a href="https://github.com/jquery/jquery/commit/453738ab85600d8f8201fcf89e40b68f076c5cbd">453738a</a>)</li>
+<li>Follow the AMD specification for define (<a href="https://github.com/jquery/jquery/commit/acf2d0c36b16fc85e8236776f1254a8886b32da0">acf2d0c</a>)</li>
+<li>add workaround for iOS JIT error in isArrayLike (<a href="https://github.com/jquery/jquery/issues/2145">#2145</a>, <a href="https://github.com/jquery/jquery/commit/1e7a2f3674d4bc62ba6cc537e42b2e417a9c5ba6">1e7a2f3</a>)</li>
+<li>CSS:Event: simplification of native method signatures (<a href="https://github.com/jquery/jquery/commit/49bce4712447a73ae60268f34d067cdf88a070bb">49bce47</a>)</li>
+<li>allow init to accept an alternate rootjQuery for migrate&#8217;s sake (<a href="https://github.com/jquery/jquery/issues/2101">#2101</a>, <a href="https://github.com/jquery/jquery/commit/c916aef84f12843d20c4e39d89e79cccd2547950">c916aef</a>)</li>
+</ul>
+<h3>Css</h3>
+<ul>
+<li>Fix the &#8220;sanity check&#8221; test (<a href="https://github.com/jquery/jquery/commit/da84cb6b7aa48f12d98103d40e0621ceab2b7935">da84cb6</a>)</li>
+<li>Remove non-functional unit test for negative margin (<a href="https://github.com/jquery/jquery/commit/1ece10fbeeccc92d5860e7c4de3dcbae67c17e76">1ece10f</a>)</li>
+</ul>
+<h3>CSS</h3>
+<ul>
+<li>Add a support test for the hack for .css(&#8216;marginRight&#8217;) etc. (<a href="https://github.com/jquery/jquery/commit/25bc6809c56026aa4f21dbb73eb950ba2677eb21">25bc680</a>)</li>
+<li>fix :visible/:hidden selectors for inline element w/ content (<a href="https://github.com/jquery/jquery/issues/2227">#2227</a>, <a href="https://github.com/jquery/jquery/commit/dd816dbac19d8a83f9b1e9c7d09bc0db436a74b0">dd816db</a>)</li>
+<li>fix AMD mode for the new showHide module (<a href="https://github.com/jquery/jquery/commit/0b6846c6b77b0f810c42021090154e1910de135a">0b6846c</a>)</li>
+<li>fix visible/hidden for IE6/7 (<a href="https://github.com/jquery/jquery/commit/ecf52b948bcc7c9a28b5b2f93a0764868f09428e">ecf52b9</a>)</li>
+<li>use isFinite in place of redundant isNumeric (<a href="https://github.com/jquery/jquery/commit/24ab83659e3565642aac0f487ef555112601ed2b">24ab836</a>)</li>
+<li>Protect against getBoundingClientRect exceptions (<a href="https://github.com/jquery/jquery/commit/c40b12a6bd30649066babc6f8c16b53a14b110dd">c40b12a</a>)</li>
+<li>elements are hidden when either offsetWidth or offsetHeight is zero (<a href="https://github.com/jquery/jquery/issues/10406">#10406</a>, <a href="https://github.com/jquery/jquery/issues/13132">#13132</a>, <a href="https://github.com/jquery/jquery/commit/7b9b98d6e3f5a72089fa53b0f32f6f1e54abaa29">7b9b98d</a>)</li>
+<li>Add an integration test for issue gh-1764 (<a href="https://github.com/jquery/jquery/commit/7ee0feaca65f37780aac4924705a0ec37c56094e">7ee0fea</a>)</li>
+<li>Don&#8217;t name the anonymous swap function (<a href="https://github.com/jquery/jquery/commit/e847574fc755b5339f3de41bcebd5b2a3e140cfe">e847574</a>)</li>
+<li>Fix the pixelMarginRight support test in IE8 (<a href="https://github.com/jquery/jquery/commit/4a67512f8bfb1b7b19837fb1f8920a33061933e3">4a67512</a>)</li>
+<li>Improve a comment explaining IE11 fullscreen bug (<a href="https://github.com/jquery/jquery/commit/589534008873c4c083d14b07cc36c9b2ae4c5399">5895340</a>)</li>
+<li>Removed redundant &#8220;to the number&#8221; in comment (<a href="https://github.com/jquery/jquery/commit/b59b819ffec6e2b3171625e45d33e61ff7b9dbfe">b59b819</a>)</li>
+<li>Fix get upper case alpha opacity in IE8 (<a href="https://github.com/jquery/jquery/issues/1705">#1705</a>, <a href="https://github.com/jquery/jquery/commit/c5e8e12cef31fee89965891669ecdca6436be319">c5e8e12</a>)</li>
+<li>Support relative adjustment in any applicable unit (<a href="https://github.com/jquery/jquery/issues/1711">#1711</a>, <a href="https://github.com/jquery/jquery/commit/6fb2cefc602cf8bd8b85373f480e978bb8978e37">6fb2cef</a>)</li>
+<li>make the getStyles function more readable (<a href="https://github.com/jquery/jquery/commit/bf282ea8e20892af2d1d2c76b93b0c1f2141db97">bf282ea</a>)</li>
+<li>Add animation-iteration-count to cssNumber, fix tests (<a href="https://github.com/jquery/jquery/issues/2792">#2792</a>, <a href="https://github.com/jquery/jquery/commit/01fb17be63d3d08789303f2e0eb7b6fcccc8fd56">01fb17b</a>)</li>
+<li>Work around an IE11 fullscreen dimensions bug (<a href="https://github.com/jquery/jquery/issues/1764">#1764</a>, <a href="https://github.com/jquery/jquery/commit/6df1bf9be818b8955f94113aecc689fdf7a2e172">6df1bf9</a>)</li>
+<li>remove revert artefact (<a href="https://github.com/jquery/jquery/commit/fc6ac9d1d5240c098998ded476582e36b284212e">fc6ac9d</a>)</li>
+<li>Don&#8217;t expose jQuery.swap (<a href="https://github.com/jquery/jquery/issues/2058">#2058</a>, <a href="https://github.com/jquery/jquery/commit/02a9d9f94b623ea8664b7b39fd57feb7de6c6a14">02a9d9f</a>)</li>
+<li>Correct typo in the comment (<a href="https://github.com/jquery/jquery/commit/787ffbf5fa9a1afb5883edc576e954337b069bb6">787ffbf</a>)</li>
+<li>Remove use of getDefaultComputedStyle (<a href="https://github.com/jquery/jquery/commit/44c9c4f7519adb0b8c676251e67f4de0dc2a5276">44c9c4f</a>)</li>
+<li>Don&#8217;t cache unrecognized CSS property names (<a href="https://github.com/jquery/jquery/issues/2015">#2015</a>, <a href="https://github.com/jquery/jquery/commit/42ea7468250f1b612684a71b8643ae25367ff469">42ea746</a>)</li>
+<li>Correct misrepresentation of &#8220;auto&#8221; horizontal margins as 0 (<a href="https://github.com/jquery/jquery/issues/2237">#2237</a>, <a href="https://github.com/jquery/jquery/commit/214e1634ab9b1d13d53647dd5de3bdf7a091d49c">214e163</a>)</li>
+<li>fix reliableHiddenOffsets support test for IE6-7 (<a href="https://github.com/jquery/jquery/commit/77f9b1e8037b1e4dc12e64cf10240f4b97383c30">77f9b1e</a>)</li>
+<li>fix dependency order for amd (<a href="https://github.com/jquery/jquery/commit/e185aa3f06a0da69dc001b81425354b9c05e40fd">e185aa3</a>)</li>
+<li>Use pre-defined displays for html and body (<a href="https://github.com/jquery/jquery/commit/b05b6a22197009d589e478f77e1dfebf43c6ffc4">b05b6a2</a>)</li>
+<li>Add unit tests for negative margins and positioning (<a href="https://github.com/jquery/jquery/commit/ae30fb6c27a2121578d3ce7ca6e2ba1d205545b8">ae30fb6</a>)</li>
+<li>Clean up memory leak in reliableMarginRight (<a href="https://github.com/jquery/jquery/issues/1795">#1795</a>, <a href="https://github.com/jquery/jquery/commit/fa70df692eff16ad5d64a65ec565542d0690f732">fa70df6</a>)</li>
+</ul>
+<h3>Data</h3>
+<ul>
+<li>Use a PDF object instead of a Java applet for acceptData testing (<a href="https://github.com/jquery/jquery/issues/1938">#1938</a>, <a href="https://github.com/jquery/jquery/commit/4e3c48f239f0ed265a53a33dfda1ba7dc6223db4">4e3c48f</a>)</li>
+<li>Don&#8217;t expose jQuery.acceptData (<a href="https://github.com/jquery/jquery/issues/2555">#2555</a>, <a href="https://github.com/jquery/jquery/commit/bec2ba231288ec4abba63c3a5ca8ad26715a318b">bec2ba2</a>)</li>
+<li>use removeAttribute in cleanData to bypass Chrome bug (<a href="https://github.com/jquery/jquery/issues/1664">#1664</a>, <a href="https://github.com/jquery/jquery/commit/9d1d90e7a274cae7f5f587bd28613044ea24264f">9d1d90e</a>)</li>
+<li>backport cleanData tests from gh-2480 (<a href="https://github.com/jquery/jquery/commit/624d6a8580a7e1108c81a6a777dc1be3d408bddf">624d6a8</a>)</li>
+<li>test that delete is not used on DOM nodes (<a href="https://github.com/jquery/jquery/commit/5a7674d6356c1d8c8a485e1739db1c3ae087f9d1">5a7674d</a>)</li>
+</ul>
+<h3>Deferred</h3>
+<ul>
+<li>pass lint in new catch tests (<a href="https://github.com/jquery/jquery/commit/203979d15391877c1d8ca2674e89dd16cba95029">203979d</a>)</li>
+<li>Always handle progress callbacks before done/fail (<a href="https://github.com/jquery/jquery/issues/2013">#2013</a>, <a href="https://github.com/jquery/jquery/issues/2010">#2010</a>, <a href="https://github.com/jquery/jquery/commit/35295f1c20d6f4ce724840ecad00d347ca5a1295">35295f1</a>)</li>
+<li>Fix $.when with resolved deferred and progress callbacks (<a href="https://github.com/jquery/jquery/commit/efb98f85bab7f2ec9f38d6991d7b1bc683a514ce">efb98f8</a>)</li>
+</ul>
+<h3>Deprecated</h3>
+<ul>
+<li>fix amd mode for the deprecated module (<a href="https://github.com/jquery/jquery/commit/bd11778168e5d96b513a03015864aa0fc9536acb">bd11778</a>)</li>
+</ul>
+<h3>Dimensions</h3>
+<ul>
+<li>allow modification of coordinates argument (<a href="https://github.com/jquery/jquery/commit/1eedf0e9ea4dc2d12edf28e77b33ae23de01af3b">1eedf0e</a>)</li>
+</ul>
+<h3>Docs</h3>
+<ul>
+<li>Rename 1.x to compat (<a href="https://github.com/jquery/jquery/commit/8992ac86cc4b8321177426c8b1bc7a1842bbfa45">8992ac8</a>)</li>
+<li>remove redundant instruction from the readme (<a href="https://github.com/jquery/jquery/issues/2359">#2359</a>, <a href="https://github.com/jquery/jquery/commit/e6a492d3b6a1b219a36ef1485c1e1a06967c26e7">e6a492d</a>)</li>
+<li>correct grunt command in README.md (<a href="https://github.com/jquery/jquery/commit/38ac3c43ffdd79e6d8fd6ef5d652228fbc5ac33f">38ac3c4</a>)</li>
+<li>Clarify custom build instructions (<a href="https://github.com/jquery/jquery/commit/8e738f0aa89ca333dac61a1d1d0c4964762464c1">8e738f0</a>)</li>
+<li>Fix various spelling mistakes (<a href="https://github.com/jquery/jquery/commit/6af92cafcadba74c22b8d94779472e1f71b99e30">6af92ca</a>)</li>
+<li>1.x-master branch -&gt; compat branch; 2.x branch -&gt; master branch (<a href="https://github.com/jquery/jquery/commit/b8a084374cc51aa6060e121e6bdc0e1f3ceb3576">b8a0843</a>)</li>
+<li>&#8220;npm run build&#8221; was missing from the contributing guides (<a href="https://github.com/jquery/jquery/commit/5da5035039c48fd00e3effa5135e257ccda79454">5da5035</a>)</li>
+</ul>
+<h3>Effects</h3>
+<ul>
+<li>Finish should call progress (<a href="https://github.com/jquery/jquery/issues/2283">#2283</a>, <a href="https://github.com/jquery/jquery/commit/f71e32d4b46f3be293304d40ed6dc85cf30d6a7b">f71e32d</a>)</li>
+<li>Add tests for jQuery.Tween (<a href="https://github.com/jquery/jquery/commit/6b10f9d7e9fb6d062d2bbda49196544cd059b05c">6b10f9d</a>)</li>
+<li>Remove tests for jQuery.Animation &amp; jQuery.Tween (<a href="https://github.com/jquery/jquery/commit/bc53033080f1b3ea47ce722d6e375ac44e8f694d">bc53033</a>)</li>
+<li>add tests for jQuery.easing._default in Animation and Tween (<a href="https://github.com/jquery/jquery/commit/b9b5c23fd74c2d3786739c9e6911c811c56a205e">b9b5c23</a>)</li>
+<li>set default easing using jQuery.easing._default (<a href="https://github.com/jquery/jquery/issues/2219">#2219</a>, <a href="https://github.com/jquery/jquery/commit/b7f9e62642f4534329bf473861c7737669b1e8c4">b7f9e62</a>)</li>
+<li>Remove needless operations in tests (<a href="https://github.com/jquery/jquery/commit/13040b655a33543c5d8f2142678faebfa10b37bc">13040b6</a>)</li>
+<li>add back support.shrinkWrapBlocks() for ie6 (<a href="https://github.com/jquery/jquery/commit/1f85ded20444ab9b1c48ff33bfaa00668941e98b">1f85ded</a>)</li>
+<li>fix failing tests in IE8 (<a href="https://github.com/jquery/jquery/commit/fe6afa8268e01f36bb0d1b88c13d704560039c3f">fe6afa8</a>)</li>
+<li>Fix tests (<a href="https://github.com/jquery/jquery/commit/29561bca8f33f4bf03a7186eb9c38a3cb18a8993">29561bc</a>)</li>
+<li>Adding unit tests for jQuery.Animation (<a href="https://github.com/jquery/jquery/commit/0ff805772ad046ff1e9ecf1f9958408ce0cfcfcd">0ff8057</a>)</li>
+</ul>
+<h3>Event</h3>
+<ul>
+<li>Use form prop so that a propHook can be used (<a href="https://github.com/jquery/jquery/issues/2332">#2332</a>, <a href="https://github.com/jquery/jquery/commit/ead83b9c8a6b751f31f0197ff0364e95a1ca24cd">ead83b9</a>)</li>
+<li>improve originalEvent hack (<a href="https://github.com/jquery/jquery/commit/37c3d087824b51e742126252ced8be592858102d">37c3d08</a>)</li>
+<li>Remove an internal argument to the on method (<a href="https://github.com/jquery/jquery/commit/473d2db9fdf2dbbef260da82fcb80b2e050132d0">473d2db</a>)</li>
+<li>Empty namespaces should be uneventfully ignored (<a href="https://github.com/jquery/jquery/commit/51564bbd39506d2076a5c82bdf87db92e81c26c9">51564bb</a>)</li>
+<li>fix incorrect test (<a href="https://github.com/jquery/jquery/commit/e73a67f2e214a1fe3f628b3eed7bc4a3bdbe6d18">e73a67f</a>)</li>
+<li>add test for window scrollTop/Left logic in iframes (<a href="https://github.com/jquery/jquery/commit/2c14b00a863278bbee9817a2fd5e7f72560477a0">2c14b00</a>)</li>
+<li>Move .bind() and .delegate() to deprecated (<a href="https://github.com/jquery/jquery/issues/2288">#2288</a>, <a href="https://github.com/jquery/jquery/commit/7e78c2ec81dbb7bac9222864c4981ed0a54b66e5">7e78c2e</a>)</li>
+<li>Add reference to data module (<a href="https://github.com/jquery/jquery/commit/2866da9e12b7cf339667ae894ffe072f4eb673de">2866da9</a>)</li>
+<li>Normalize mouse event properties in drag events (<a href="https://github.com/jquery/jquery/issues/1925">#1925</a>, <a href="https://github.com/jquery/jquery/commit/5b0b1b77dbc41c144959ef2fe8de603555beb39b">5b0b1b7</a>)</li>
+<li>HTML5 drop events inherit from MouseEvent (<a href="https://github.com/jquery/jquery/issues/2009">#2009</a>, <a href="https://github.com/jquery/jquery/commit/a05de404d8459752a34bf65297df5ac780bac554">a05de40</a>)</li>
+<li>Add a note about a mouseenter bug in Chrome (<a href="https://github.com/jquery/jquery/commit/f3e3a208dedd24072ab15361a925e60c997bbb2d">f3e3a20</a>)</li>
+<li>provide verbose info for focus(in | out) &amp; rename support props (<a href="https://github.com/jquery/jquery/commit/401a351bd25f396099f26d71ea610c30b2d498a8">401a351</a>)</li>
+<li>Restore the `constructor` property on jQuery.Event prototype (<a href="https://github.com/jquery/jquery/issues/15090">#15090</a>, <a href="https://github.com/jquery/jquery/commit/d4a998f62fde4b9347b99571a7d000b53731909a">d4a998f</a>)</li>
+<li>correct support comment (<a href="https://github.com/jquery/jquery/commit/fae2daadaa2039aa3b683416e49c664d499ea6fd">fae2daa</a>)</li>
+<li>Reduce differences from master (<a href="https://github.com/jquery/jquery/commit/3923bb8400b149f483b7115d0edd2f304348b189">3923bb8</a>)</li>
+<li>remove preDispatch hook &amp; simplify &#8220;simulate&#8221; signature (<a href="https://github.com/jquery/jquery/commit/05e54ce798cbb1a8b357e000cc9d691f7bb6c616">05e54ce</a>)</li>
+<li>add support comment (<a href="https://github.com/jquery/jquery/commit/0fc5bebb63decb57dfe4247ea836fbf402d92ad1">0fc5beb</a>)</li>
+<li>Reduce differences from master (<a href="https://github.com/jquery/jquery/commit/e4c5f878511f10710e5231848036b992cf49c380">e4c5f87</a>)</li>
+<li>Update support comments for mouseenter/mouseleave implementation (<a href="https://github.com/jquery/jquery/commit/d176001e6e4f0dda877ae17f56277f9ec8e30c9a">d176001</a>)</li>
+<li>Copy detail property to jQuery.Event on native events (<a href="https://github.com/jquery/jquery/issues/1867">#1867</a>, <a href="https://github.com/jquery/jquery/commit/a90ff8c8c79bfcc32afd340a12f016f20a31d8b6">a90ff8c</a>)</li>
+<li>correct an unfinished comment (<a href="https://github.com/jquery/jquery/commit/ac23f91cbedcdcd20284485baaaf68be4b7f7436">ac23f91</a>)</li>
+<li>Fix delegated radio events when arrow keys are used (<a href="https://github.com/jquery/jquery/issues/2343">#2343</a>, <a href="https://github.com/jquery/jquery/commit/657c2f818075111684ff8e0406dbb74f2b8cdc21">657c2f8</a>)</li>
+<li>Fully clean up events in unit test (<a href="https://github.com/jquery/jquery/commit/ef93f9545263f3ed456367506ac7226c921cd243">ef93f95</a>)</li>
+</ul>
+<h3>Manipulation</h3>
+<ul>
+<li>re-expose domManip until 3.0 (<a href="https://github.com/jquery/jquery/issues/2225">#2225</a>, <a href="https://github.com/jquery/jquery/commit/95de105778c2865e90984eed62e83ed790701170">95de105</a>)</li>
+<li>increase delay of data-URI test (<a href="https://github.com/jquery/jquery/commit/30ace26c42954497e44f19e8c7fa100de45c489e">30ace26</a>)</li>
+<li>support data-URI scripts insertion (<a href="https://github.com/jquery/jquery/commit/bc1902ddc08502d60ee77e00ea95d454666d7e56">bc1902d</a>)</li>
+<li>don&#8217;t test data-URI with script element in IE8 (<a href="https://github.com/jquery/jquery/commit/503e54564a8a88b7e968b64a920f2eeceffb0b74">503e545</a>)</li>
+<li>Detect sneaky no-content replaceWith input (<a href="https://github.com/jquery/jquery/issues/2204">#2204</a>, <a href="https://github.com/jquery/jquery/commit/4cafb58ba43a85c1870b1ac6b233af262514997e">4cafb58</a>)</li>
+<li>privatize internal domManip() function (<a href="https://github.com/jquery/jquery/issues/2225">#2225</a>, <a href="https://github.com/jquery/jquery/commit/590eff6397e830454d2ecf734da7f995a1b89492">590eff6</a>)</li>
+<li>Plug an IE8 memory leak in noCloneEvent feature detect (<a href="https://github.com/jquery/jquery/issues/1840">#1840</a>, <a href="https://github.com/jquery/jquery/commit/faf295a6d85ea716bd795609efdd855938144512">faf295a</a>)</li>
+<li>Make an HTML interception point (<a href="https://github.com/jquery/jquery/issues/1747">#1747</a>, <a href="https://github.com/jquery/jquery/commit/fb25bacf9b809a08c29e76decd8cda1579fdf192">fb25bac</a>)</li>
+<li>privatize buildFragment() function (<a href="https://github.com/jquery/jquery/issues/2224">#2224</a>, <a href="https://github.com/jquery/jquery/commit/63c1414a54188685a0bf15ef000cbf5ad75626a6">63c1414</a>)</li>
+<li>improve test for data-URI (<a href="https://github.com/jquery/jquery/commit/a467f8653a6fab2903148df80ab0ce9f5f4fd04f">a467f86</a>)</li>
+<li>Update html5shiv elements (<a href="https://github.com/jquery/jquery/issues/15241">#15241</a>, <a href="https://github.com/jquery/jquery/commit/a9533893b9e5e9a248139f5794c5d6099382cf14">a953389</a>)</li>
+<li>correct wrapMap assign (<a href="https://github.com/jquery/jquery/commit/a5be90fb293e329500bb13ccd979161dddfcd075">a5be90f</a>)</li>
+<li>Remove an internal argument to the remove method (<a href="https://github.com/jquery/jquery/issues/2301">#2301</a>, <a href="https://github.com/jquery/jquery/commit/b819be3e2f35ae64abc26ff9a2fe944e1ffbb7e0">b819be3</a>)</li>
+<li>Don&#8217;t provide the parser with sloppy table markup (<a href="https://github.com/jquery/jquery/issues/2493">#2493</a>, <a href="https://github.com/jquery/jquery/commit/81b6e46522d8c680f6c38d5e95c732b2b47130b9">81b6e46</a>)</li>
+<li>Switch rnoInnerhtml to a version more performant in IE (<a href="https://github.com/jquery/jquery/issues/2563">#2563</a>, <a href="https://github.com/jquery/jquery/commit/29266e00e91b2ad42793f7c12965662917d8fce4">29266e0</a>)</li>
+<li>add support to tag-hyphenated elements (<a href="https://github.com/jquery/jquery/commit/5d522f5c740f1f919a630a5f6ec3d40fad840ff7">5d522f5</a>)</li>
+<li>blacklist IE8 from running tests for tag-hyphenated elems (<a href="https://github.com/jquery/jquery/commit/87bb713cc0e5b5aca86b6839894e9f3d8d635b36">87bb713</a>)</li>
+</ul>
+<h3>Misc</h3>
+<ul>
+<li>Mac OS is now OS X, thanks @xfq (<a href="https://github.com/jquery/jquery/commit/598946d09f5cd9df8575c615a57a9d546a95257a">598946d</a>)</li>
+<li>Need for speed removed by 9ad6e7e (<a href="https://github.com/jquery/jquery/commit/519d99a1c3c5713d2905f1b07c2f52af277001fb">519d99a</a>)</li>
+<li>Update all references to bugs.jquery.com (<a href="https://github.com/jquery/jquery/issues/1681">#1681</a>, <a href="https://github.com/jquery/jquery/commit/49c720e16a7181a491f7561c2051f42c7b811709">49c720e</a>)</li>
+</ul>
+<h3>Offset</h3>
+<ul>
+<li>return before getBoundingClientRect to avoid error in IE8-11 (<a href="https://github.com/jquery/jquery/commit/25e8620da9c6e245516d8ac1b0f9ddc896838883">25e8620</a>)</li>
+<li>fix iframe scrollTop/Left test for IE8 (<a href="https://github.com/jquery/jquery/commit/d632699c6b2b1b06dd7cbdec982d930f59fd8119">d632699</a>)</li>
+<li>fix iframe scrollTop/Left test for IE8 and iPhone (<a href="https://github.com/jquery/jquery/commit/62a333e0646d3011377ed13a6fcfbb08e91e2bef">62a333e</a>)</li>
+<li>Round offset value for the sake of floating errors (<a href="https://github.com/jquery/jquery/issues/2147">#2147</a>, <a href="https://github.com/jquery/jquery/commit/cd63e9c622b82a110d8453cc9a128fcf9ea6ade4">cd63e9c</a>)</li>
+<li>don&#8217;t run scrollTop/scrollLeft iframe test in Android 2.3 &amp; 4.0 (<a href="https://github.com/jquery/jquery/issues/1981">#1981</a>, <a href="https://github.com/jquery/jquery/commit/f2ea60cfe88f3aa74aed1bccac60ed15929e23e8">f2ea60c</a>)</li>
+<li>return zeros for disconnected/hidden elements (<a href="https://github.com/jquery/jquery/issues/2310">#2310</a>, <a href="https://github.com/jquery/jquery/commit/63f19a95b9bfffdc7b8800f89a9def768cc3aebd">63f19a9</a>)</li>
+<li>account for scroll when calculating position (<a href="https://github.com/jquery/jquery/issues/1708">#1708</a>, <a href="https://github.com/jquery/jquery/commit/0654711e0d929187249ca9507ae5881c72947843">0654711</a>)</li>
+<li>do not run tests which break without back-incompat change (<a href="https://github.com/jquery/jquery/commit/9f2dcb93f848a698602cb7cde1128e7e6907d9cc">9f2dcb9</a>)</li>
+<li>getBounding doesn&#8217;t return width/height in IE8. Fixes test. (<a href="https://github.com/jquery/jquery/commit/3b1de112675a5c39410f3ba18c433a6ee4bd4e17">3b1de11</a>)</li>
+<li>no need to check for ownerDocument (<a href="https://github.com/jquery/jquery/commit/523de777f933d3f50cdf1fe7473a23a368aedcad">523de77</a>)</li>
+<li>revert to jQuery.contains for IE8&#8217;s sake (compat only) (<a href="https://github.com/jquery/jquery/commit/6df399073c6027608dff84bbd3b71e62df6c1c9b">6df3990</a>)</li>
+<li>allow small differences in offset.top (<a href="https://github.com/jquery/jquery/issues/2590">#2590</a>, <a href="https://github.com/jquery/jquery/commit/d047073d2bc4f507ed98c157739b1e3d0417b3f6">d047073</a>)</li>
+<li>add tests for hidden elements + scroll (<a href="https://github.com/jquery/jquery/commit/a0a5c0be2def09f8d380a69d8e6f000169123990">a0a5c0b</a>)</li>
+</ul>
+<h3>Readme</h3>
+<ul>
+<li>Fix punctuation in tile (<a href="https://github.com/jquery/jquery/commit/a751bfe6724e2e5f667f91538ef4f2d10344e997">a751bfe</a>)</li>
+</ul>
+<h3>README</h3>
+<ul>
+<li>various text fixes (<a href="https://github.com/jquery/jquery/commit/3d77c2ee1ee49975af47b3371c09a8ae77d93c15">3d77c2e</a>)</li>
+<li>update the Homebrew site address (<a href="https://github.com/jquery/jquery/commit/d588c852f06d3a2731aebd038f16e9e3206b399d">d588c85</a>)</li>
+<li>Improve build instructions (<a href="https://github.com/jquery/jquery/commit/07afc284bcb46881727230700f39e12d5f3fb96d">07afc28</a>)</li>
+<li>Update the description of the deprecated module (<a href="https://github.com/jquery/jquery/commit/2a3018cec9154189ea4317e259390864ce8d81cd">2a3018c</a>)</li>
+</ul>
+<h3>Release</h3>
+<ul>
+<li>ensure files are copied to dist (<a href="https://github.com/jquery/jquery/commit/f5029f586aa7ee8478817778cda1f0aabf673f70">f5029f5</a>)</li>
+<li>fix CDN archive creation (<a href="https://github.com/jquery/jquery/issues/1940">#1940</a>, <a href="https://github.com/jquery/jquery/commit/7352216ca83e0233d2a5ec2fc4ed6583e7bfdbf1">7352216</a>)</li>
+<li>remove sourcemap comment from all copies of minified file (<a href="https://github.com/jquery/jquery/issues/1707">#1707</a>, <a href="https://github.com/jquery/jquery/commit/f71d7f56e96480d2115bff5542ded04ce6546ec9">f71d7f5</a>)</li>
+<li>push dist to same remote as project (<a href="https://github.com/jquery/jquery/commit/5e5489cea5e1f4469219e1e3e1ca76c16ba20030">5e5489c</a>)</li>
+<li>Distribute files to distribution repo (<a href="https://github.com/jquery/jquery/issues/1869">#1869</a>, <a href="https://github.com/jquery/jquery/issues/1673">#1673</a>, <a href="https://github.com/jquery/jquery/issues/2045">#2045</a>, <a href="https://github.com/jquery/jquery/commit/fc76a97b990508cc612c5cf805e62fc6e8bfae18">fc76a97</a>)</li>
+<li>update AUTHORS.txt (<a href="https://github.com/jquery/jquery/commit/ce4822c046c154b92e0c46b8e51395a611f9f47b">ce4822c</a>)</li>
+<li>compat -&gt; 1.x. Remove compat-specific release semantics (<a href="https://github.com/jquery/jquery/commit/25d0afa51e08c00556c9e6906851d771a851ae23">25d0afa</a>)</li>
+<li>update AUTHORS.txt (<a href="https://github.com/jquery/jquery/commit/8b0618c295c2b8c509e5f6a27f82c4e3a7f47826">8b0618c</a>)</li>
+<li>update AUTHORS.txt again (<a href="https://github.com/jquery/jquery/commit/0398d903719b493e80f5098cc4383c94e9d94343">0398d90</a>)</li>
+<li>properly set the dist remote when it&#8217;s a real release (<a href="https://github.com/jquery/jquery/commit/9162122ba80e507eb02568761252fcea30391104">9162122</a>)</li>
+<li>Remove copying of jquery-latest files (<a href="https://github.com/jquery/jquery/commit/16fcc5e9e2e6daa42661527dc69311230b5c5044">16fcc5e</a>)</li>
+<li>dist can be run during a test (<a href="https://github.com/jquery/jquery/commit/dcd2c8f3e37d7fe47420b1b95d75e7a0c957abde">dcd2c8f</a>)</li>
+<li>allow local and github dists (<a href="https://github.com/jquery/jquery/commit/3a4a95c7b62cd86dad7c0b47df073f6c44ae6dec">3a4a95c</a>)</li>
+</ul>
+<h3>Selector</h3>
+<ul>
+<li>add test for jQuery.unique() alias (<a href="https://github.com/jquery/jquery/commit/17ce9edf1e60f14983b4ff970c9511689c876d5c">17ce9ed</a>)</li>
+<li>Remove &#8220;#&#8221; exception for identifier tokens (<a href="https://github.com/jquery/jquery/commit/41f522ace1518f7f6f22f2e227350b0bdf78e62b">41f522a</a>)</li>
+<li>add jQuery.uniqueSort; deprecate jQuery.unique (<a href="https://github.com/jquery/jquery/issues/2228">#2228</a>, <a href="https://github.com/jquery/jquery/commit/d9d930f79e9e4edb7339199cd758dc654e053a3b">d9d930f</a>)</li>
+</ul>
+<h3>Serialize</h3>
+<ul>
+<li>Handle arrays with null values (<a href="https://github.com/jquery/jquery/commit/f0b86ec050305ac1fbddd4943361b423d86feb4b">f0b86ec</a>)</li>
+<li>Fix object detection (<a href="https://github.com/jquery/jquery/commit/a9930565f157df4bcae63c108aeb9f4825c7314a">a993056</a>)</li>
+</ul>
+<h3>Sizzle</h3>
+<ul>
+<li>update 2.1.1 (<a href="https://github.com/jquery/jquery/commit/238bc32a11a3299bcd350848b976a1cae8c9e781">238bc32</a>)</li>
+</ul>
+<h3>Support</h3>
+<ul>
+<li>Correct iOS 8 support test results, re-arrange entries (<a href="https://github.com/jquery/jquery/commit/a4e31a8e2c214e4a021856b44a23368d103c169d">a4e31a8</a>)</li>
+<li>Re-organize browser order, add Safari 8 (<a href="https://github.com/jquery/jquery/commit/7e7086780507946e83cc9837bfb5d951b6eafb00">7e70867</a>)</li>
+</ul>
+<h3>Test</h3>
+<ul>
+<li>Switch leftover andSelf to addBack (<a href="https://github.com/jquery/jquery/commit/2ea57c1002c877c2771955932bff053c47831779">2ea57c1</a>)</li>
+</ul>
+<h3>Tests</h3>
+<ul>
+<li>Expand CSS relative adjustment tolerance for IE (<a href="https://github.com/jquery/jquery/commit/9d255b3e50ef2fce9c4f96cb3a3b2c4e71e63068">9d255b3</a>)</li>
+<li>Post-Summit cleanup (<a href="https://github.com/jquery/jquery/commit/a93d1d7d78a38be8d2c40d615f56f823c660e0ae">a93d1d7</a>)</li>
+<li>Add iOS 9 support tests results (<a href="https://github.com/jquery/jquery/commit/dec9ab9d3fe29686b8922e978ebf1504becc85e9">dec9ab9</a>)</li>
+<li>Remove Safari 7.0 &amp; iOS 6 support tests results (<a href="https://github.com/jquery/jquery/commit/602c34d45bf3cdc71b2f7e1344b75dc1489dd870">602c34d</a>)</li>
+<li>Make regexes for iOS devices more rigid (<a href="https://github.com/jquery/jquery/commit/83391859bda90f630bf02a5e04d82e9f1babeb1f">8339185</a>)</li>
+<li>Do not define two modules with the same name (<a href="https://github.com/jquery/jquery/issues/2437">#2437</a>, <a href="https://github.com/jquery/jquery/commit/85aed35cb50703e3252cac2e4195baf2f1830c55">85aed35</a>)</li>
+<li>lower the PHP sleep time in unreleasedXHR.html (<a href="https://github.com/jquery/jquery/commit/eac265ccdd4ed51a8fb232f6a4568b6c055f65c1">eac265c</a>)</li>
+<li>Add dummy modules when running basic tests (<a href="https://github.com/jquery/jquery/commit/5fb689debcab0e9b0969d595b03b911d974eca1f">5fb689d</a>)</li>
+<li>fix code style issues (<a href="https://github.com/jquery/jquery/commit/8cac6da55d78de0f0901927fa20ad70759938a71">8cac6da</a>)</li>
+<li>Account for array-like objects in jQuery.grep (<a href="https://github.com/jquery/jquery/commit/6e466af010c8265b3fb3dd73ff5fa7f66d8de8ad">6e466af</a>)</li>
+<li>Docs: Fix various typos (<a href="https://github.com/jquery/jquery/commit/ef6cd83ab04d96b8ed9487ee57707100d97bf18c">ef6cd83</a>)</li>
+<li>fix support tests in ie9 (<a href="https://github.com/jquery/jquery/commit/729c75f4ff2c9e096d367497913fa0c865a21029">729c75f</a>)</li>
+<li>Account for Edge in originalEvent UA-sniffs (<a href="https://github.com/jquery/jquery/issues/2357">#2357</a>, <a href="https://github.com/jquery/jquery/commit/4c3e63b47ca78a761d5408c48bd921cde97d8d4c">4c3e63b</a>)</li>
+<li>Fix the expando-removal test failure in IE 8 (<a href="https://github.com/jquery/jquery/issues/2596">#2596</a>, <a href="https://github.com/jquery/jquery/commit/4b1cff65ce6014f7d35f33d222bddd67f74a6f8d">4b1cff6</a>)</li>
+<li>make top of the HTML suite compliant with style guide (<a href="https://github.com/jquery/jquery/commit/bc9e573651d99626d2c8faa3f0ef204a6178dddf">bc9e573</a>)</li>
+<li>Add Safari 9 support tests results (<a href="https://github.com/jquery/jquery/commit/99f41c23fd9ba20ea1a18da3cc20f2cffb31c614">99f41c2</a>)</li>
+<li>Provide equal() arguments in correct order (actual, expected) (<a href="https://github.com/jquery/jquery/commit/4503a61ff10af737d385168479392a09fd63f7f5">4503a61</a>)</li>
+<li>do not create data cache when fetching single property (<a href="https://github.com/jquery/jquery/commit/087409679716f85fff6fa497a3b7efd1620e31ec">0874096</a>)</li>
+<li>Increase QUnit timeout (<a href="https://github.com/jquery/jquery/commit/c0a07778fd3a1f6c91fda67916ad492553ef2282">c0a0777</a>)</li>
+<li>Really fix tests in IE 8 this time (<a href="https://github.com/jquery/jquery/commit/1b48eef4caf7fa3aba0ee1a3473e0d46487d20ea">1b48eef</a>)</li>
+<li>Disable/relax a few tests failing in Android 2.3 (<a href="https://github.com/jquery/jquery/issues/1785">#1785</a>, <a href="https://github.com/jquery/jquery/commit/704de8180f220afa1efd7bd65e9aeb9007a4f238">704de81</a>)</li>
+<li>add the current version of node and iojs to the travis config (<a href="https://github.com/jquery/jquery/commit/dd2e02715366d6959ae2c61c3e11fecb481374f4">dd2e027</a>)</li>
+<li>Use QUnit URL parameter parsing (<a href="https://github.com/jquery/jquery/commit/fb98ea49b63ec444bb6f24c65b49a3e6cebcfc99">fb98ea4</a>)</li>
+<li>fix support values for android (<a href="https://github.com/jquery/jquery/commit/d224acbe47965397e3fe5bac569c4559e20aa997">d224acb</a>)</li>
+<li>Use standard external domain name (<a href="https://github.com/jquery/jquery/commit/36806891657b0a3b7c4a12d9698f2ebf552fd712">3680689</a>)</li>
+<li>Partially use new qunit interface (<a href="https://github.com/jquery/jquery/issues/2540">#2540</a>, <a href="https://github.com/jquery/jquery/commit/4543815eeda0d7299e701311ca4ac38f23dbaf3a">4543815</a>)</li>
+<li>Remove test/data/ua.txt (<a href="https://github.com/jquery/jquery/issues/2398">#2398</a>, <a href="https://github.com/jquery/jquery/commit/d8037c6d5267569b56221148164b4df71f6ae612">d8037c6</a>)</li>
+<li>Lower the checks rounding error (<a href="https://github.com/jquery/jquery/commit/1390d0736f6cff7a75ec0730967a98e26df1aa13">1390d07</a>)</li>
+<li>use assert syntax in restored test (<a href="https://github.com/jquery/jquery/commit/56b965655a293a6e1f09bf9c952d6175e6dba42b">56b9656</a>)</li>
+<li>don&#8217;t use deprecated argument in test declaration (<a href="https://github.com/jquery/jquery/commit/b8b111e337e75010adf6bc610913f7e2084741bf">b8b111e</a>)</li>
+<li>Tilt at a few style guide windmills (<a href="https://github.com/jquery/jquery/commit/4365133defc4b78f4f55db932dd9b8c33f2b86b2">4365133</a>)</li>
+<li>Make basic tests work in IE 8 (<a href="https://github.com/jquery/jquery/commit/f709a284e2ae343d9425a567a663ccd7adcd21d0">f709a28</a>)</li>
+<li>Remove Edge version from the user agent (<a href="https://github.com/jquery/jquery/commit/1d052bdbe621ca111bab3314604dc682d900d716">1d052bd</a>)</li>
+<li>Don&#8217;t load non-basic tests when basic module is selected (<a href="https://github.com/jquery/jquery/commit/06454d118f506baa351995c2a0337cba72ce5787">06454d1</a>)</li>
+<li>Minor updates for QUnit 1.16 compatibility (<a href="https://github.com/jquery/jquery/commit/f6f8848fbe477fa93fd27ac7f10885dd6e97f633">f6f8848</a>)</li>
+<li>Update QUnit (<a href="https://github.com/jquery/jquery/commit/b6e31a88332e70f7691b75afe187c7070e70e4fb">b6e31a8</a>)</li>
+<li>Fix merge conflict (<a href="https://github.com/jquery/jquery/commit/d07774ae0632a8a43ff490562c0e9bb3ae63e2dc">d07774a</a>)</li>
+<li>Backport basic tests from master (<a href="https://github.com/jquery/jquery/issues/2505">#2505</a>, <a href="https://github.com/jquery/jquery/commit/c7d458fb9e86603ba43e3e7ee292e5655419dfa6">c7d458f</a>)</li>
+<li>Keep test iframes around for assertions (<a href="https://github.com/jquery/jquery/commit/06128a9d7737310697ddeeacda3843bdf4793db3">06128a9</a>)</li>
+<li>Restore IE8 workarounds (Sinon timers for IE &amp; HTML5 shiv) (<a href="https://github.com/jquery/jquery/commit/0b07c652506c957e1de9eb8a620bc35f6c78296a">0b07c65</a>)</li>
+<li>correct revert artefact (<a href="https://github.com/jquery/jquery/commit/b85f32f74e54032c8347d5b045993615a9fabded">b85f32f</a>)</li>
+<li>Add .extend test for defined accessor properties (<a href="https://github.com/jquery/jquery/commit/15f79201c40fda064d184392da33b88a727720da">15f7920</a>)</li>
+<li>further improvements QUnit 2.0 migration (<a href="https://github.com/jquery/jquery/commit/2f0cedc9972efa4bf9eb656001a098d9c51e53ec">2f0cedc</a>)</li>
+<li>Correct a typo in the regex matching Safari 8 (<a href="https://github.com/jquery/jquery/commit/ef332c7c7b14533a078860e3e1527acfa59a26a7">ef332c7</a>)</li>
+<li>more style corrections (<a href="https://github.com/jquery/jquery/commit/d8b7e7b0bd047f02890de2874cafdd3e0f8dd608">d8b7e7b</a>)</li>
+<li>Change quotes according to style guidelines (<a href="https://github.com/jquery/jquery/commit/52491ae3f0e2455b31686ec611546dc99e30d944">52491ae</a>)</li>
+<li>Fix CSS relative adjustment test for round-down browsers (<a href="https://github.com/jquery/jquery/commit/4a8000b51a9854e21361e435e4c9b9cbd8ac458a">4a8000b</a>)</li>
+<li>Add Microsoft Edge results (from Windows 10 build 10130) (<a href="https://github.com/jquery/jquery/commit/546593bdd29752def705b172380b737ce8758ba9">546593b</a>)</li>
+<li>fix tests in accordance with new :visible behavior (<a href="https://github.com/jquery/jquery/commit/cbd51c50b3b38574ba86093df34f88eaae5d294f">cbd51c5</a>)</li>
+<li>Accommodate page changes from the QUnit HTML reporter (<a href="https://github.com/jquery/jquery/commit/b747537f9e26b35e43d785ec3b98a2cad3e4bf46">b747537</a>)</li>
+</ul>
+<h3>Traversing</h3>
+<ul>
+<li>Don&#8217;t expose jQuery.dir &amp; jQuery.sibling (<a href="https://github.com/jquery/jquery/issues/2512">#2512</a>, <a href="https://github.com/jquery/jquery/commit/8c851bfdb952f2aa0b71bf30194184f954af2215">8c851bf</a>)</li>
+</ul>
+<h3>Wrap</h3>
+<ul>
+<li>correct tests length (<a href="https://github.com/jquery/jquery/commit/f21d43a1146256379d7f5b7cb537ed59aeebdeb4">f21d43a</a>)</li>
+</ul>
+			<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			14 thoughts on &ldquo;<span>jQuery 2.2 and 1.12 Released</span>&rdquo;		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-553904">
+		<article id="comment-553904" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/5665c40ef0e684b8b90d1a1784778b4c?s=68&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/5665c40ef0e684b8b90d1a1784778b4c?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://xn--beylikdzevdenevenakliyat-1scb.net/' rel='external nofollow' class='url'>Beylikdüzü Evden Eve Nakliyat</a></span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553904"><time pubdate datetime="2016-01-08T18:57:02+00:00">January 8, 2016 at 6:57 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>Bilgiler gayet aç?klay?c? yaz?lm?? ama sayfada biraz görsel koyabilir din. Sonuç olarak sizi sürekli takip ediyorum ve gerçekten çok ho?uma gidiyor bu site, ba?ar?lar?n?z devam?n? diliyorum.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-553908">
+		<article id="comment-553908" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/625edc9d617a6e5d2abf0d368dc33ce3?s=68&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/625edc9d617a6e5d2abf0d368dc33ce3?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Bill</span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553908"><time pubdate datetime="2016-01-09T19:03:09+00:00">January 9, 2016 at 7:03 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>The href selector is throwing an exception in jquery 2.2.0 when using smooth scrolling snippet.</p>
+<p><a href="https://css-tricks.com/snippets/jquery/smooth-scrolling/" rel="nofollow">https://css-tricks.com/snippets/jquery/smooth-scrolling/</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-553912">
+		<article id="comment-553912" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/8d832d0b7cf821bbdeedacc14238f79f?s=68&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/8d832d0b7cf821bbdeedacc14238f79f?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.dubaitourist.ir/' rel='external nofollow' class='url'>dubai tour</a></span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553912"><time pubdate datetime="2016-01-10T09:24:39+00:00">January 10, 2016 at 9:24 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>thanks for information Timmy</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-553915">
+		<article id="comment-553915" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/0b7a8f72bee96b5fa02e7edaa75f4c01?s=68&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/0b7a8f72bee96b5fa02e7edaa75f4c01?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">martijn</span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553915"><time pubdate datetime="2016-01-11T04:43:10+00:00">January 11, 2016 at 4:43 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>mmm does jquery 3.0.0-alpha1 will get the same update/fixes soon ?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-553917">
+		<article id="comment-553917" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/8e3f3bfe07cc442cdbaf0854a1ecab09?s=68&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/8e3f3bfe07cc442cdbaf0854a1ecab09?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.annebebektv.com' rel='external nofollow' class='url'>Anne Bebek</a></span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553917"><time pubdate datetime="2016-01-11T08:53:36+00:00">January 11, 2016 at 8:53 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>The href selector is throwing an exception in jquery 2.2.0 when using smooth scrolling snippet.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-553920">
+		<article id="comment-553920" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/808635a3f1ce1fb5e3fffc63db85535d?s=68&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/808635a3f1ce1fb5e3fffc63db85535d?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Jonathan</span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553920"><time pubdate datetime="2016-01-11T12:12:27+00:00">January 11, 2016 at 12:12 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>For the href error add quotes, instead of [href=val] use [href=&#8221;val&#8221;]</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-timmywil bypostauthor even thread-even depth-1" id="li-comment-553921">
+		<article id="comment-553921" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/6b57220ae48e1ac5d02227bdada8a4d6?s=68&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/6b57220ae48e1ac5d02227bdada8a4d6?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Timmy Willison</span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553921"><time pubdate datetime="2016-01-11T12:52:02+00:00">January 11, 2016 at 12:52 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>Yup, the href selector issue is actually showing up because we fixed a bug. &#8220;a[href^=#]&#8221; is not a valid selector. Use &#8220;&#8221;a[href^=&#8217;#&#8217;]&#8221; and not only will it work again, but it will go through querySelectorAll.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-553922">
+		<article id="comment-553922" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/72ea0622f7b690ed82f5261b16ff8cef?s=68&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/72ea0622f7b690ed82f5261b16ff8cef?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn">Micha? Go??biowski</span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553922"><time pubdate datetime="2016-01-11T12:52:31+00:00">January 11, 2016 at 12:52 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>Yup, the snippet is buggy, `[href=#]` is not a valid selector, it&#8217;s just that older jQuery versions were incorrectly allowing it. You need to quote.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-553924">
+		<article id="comment-553924" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/3e6dbaded479cebb3d9983a482b4ab3b?s=68&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/3e6dbaded479cebb3d9983a482b4ab3b?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.kolaytv.com' rel='external nofollow' class='url'>Kolay Tv</a></span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553924"><time pubdate datetime="2016-01-12T18:15:29+00:00">January 12, 2016 at 6:15 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>Thank you for this new version.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-553925">
+		<article id="comment-553925" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/7b5a08493a71ca3e8abc5b0a4d46492f?s=68&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/7b5a08493a71ca3e8abc5b0a4d46492f?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://hovertree.com/' rel='external nofollow' class='url'>hovertree</a></span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553925"><time pubdate datetime="2016-01-12T20:29:06+00:00">January 12, 2016 at 8:29 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>Very Good!I will use the new version from now on.<br />
+<a href="http://hovertree.com/menu/jquery/" rel="nofollow">http://hovertree.com/menu/jquery/</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-553960">
+		<article id="comment-553960" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/8d9aba79be37c3e972c9d572ee7dc66b?s=68&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/8d9aba79be37c3e972c9d572ee7dc66b?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='https://franciskim.co' rel='external nofollow' class='url'>Francis Kim</a></span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553960"><time pubdate datetime="2016-01-18T05:44:03+00:00">January 18, 2016 at 5:44 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>The latest and greatest. jQuery for the win!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-553961">
+		<article id="comment-553961" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://1.gravatar.com/avatar/4d20be1320266750bc2f8fd8a1f819e4?s=68&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/4d20be1320266750bc2f8fd8a1f819e4?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://nambaongu.com.vn/bai-viet/co-so-ban-bich-phoi-nam-bao-ngu-xam-trang-vang-nhat.nbn' rel='external nofollow' class='url'>phôi n?m bào ng?</a></span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553961"><time pubdate datetime="2016-01-18T08:09:43+00:00">January 18, 2016 at 8:09 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>Thank you for this new version. Very Good!I will use the new version from now on.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-553978">
+		<article id="comment-553978" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://2.gravatar.com/avatar/b74819f1b752f06b5d6f70e1b1fdf1b1?s=68&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/b74819f1b752f06b5d6f70e1b1fdf1b1?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.ogrencikredisi.com' rel='external nofollow' class='url'>Ö?renci Kredisi</a></span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-553978"><time pubdate datetime="2016-01-21T10:44:49+00:00">January 21, 2016 at 10:44 am</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>The latest and greatest. jQuery for the win!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-554001">
+		<article id="comment-554001" class="comment">
+			<div class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt='' src='http://0.gravatar.com/avatar/c3c2f33a608bdcb8d25d30a6a6438d31?s=68&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/c3c2f33a608bdcb8d25d30a6a6438d31?s=136&amp;d=mm&amp;r=g 2x' class='avatar avatar-68 photo' height='68' width='68' /><span class="fn"><a href='http://www.canlitvizle.co/' rel='external nofollow' class='url'>TV</a></span> on <a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/#comment-554001"><time pubdate datetime="2016-01-24T18:03:41+00:00">January 24, 2016 at 6:03 pm</time></a> <span class="says">said:</span>
+									</div><!-- .comment-author .vcard -->
+
+				
+			</div>
+
+			<div class="comment-content"><p>There are stil some problems on this version.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2016/01/08/jquery-2-2-and-1-12-released/#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="http://blog.jquery.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+					<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8"  aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='3936' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="eeb422c8fd" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="173"/></p>				</form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+	</div>
+	<div id="sidebar" class="widget-area" role="complementary">
+	<aside class="widget">
+		<h3 class="widget-title">Categories</h3>
+		<ul>
+				<li class="cat-item cat-item-16"><a href="http://blog.jquery.com/category/events/" >Events</a>
+</li>
+	<li class="cat-item cat-item-20"><a href="http://blog.jquery.com/category/foundation/" >Foundation</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://blog.jquery.com/category/jquery/" >jQuery</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://blog.jquery.com/category/jquery-ui/" >jQuery UI</a>
+</li>
+	<li class="cat-item cat-item-24"><a href="http://blog.jquery.com/category/projects/" >Projects</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://blog.jquery.com/category/weekly-news/" >Weekly News</a>
+</li>
+		</ul>
+	</aside>
+	<aside class="widget">
+		<h3 class="widget-title">Recent Posts</h3>
+		<ul>
+			<li><a href="http://blog.jquery.com/2016/01/14/jquery-3-0-beta-released/">jQuery 3.0 Beta Released</a></li><li><a href="http://blog.jquery.com/2016/01/14/ten-years-of-jquery-and-beyond/">Ten Years of jQuery and Beyond</a></li><li><a href="http://blog.jquery.com/2016/01/13/jquery-migrate-1-3-0-released/">jQuery Migrate 1.3.0 Released</a></li><li><a href="http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/">jQuery 2.2 and 1.12 Released</a></li><li><a href="http://blog.jquery.com/2015/12/16/living-up-to-our-commitment-to-diversity/">Living up to Our Commitment to Diversity</a></li><li><a href="http://blog.jquery.com/2015/12/14/invest-in-yourself/">Invest in Yourself</a></li><li><a href="http://blog.jquery.com/2015/11/19/grunt-rebooted/">Grunt, Rebooted</a></li><li><a href="http://blog.jquery.com/2015/11/05/pep-0-4-0/">PEP 0.4.0</a></li><li><a href="http://blog.jquery.com/2015/09/23/jquery-foundation-web-excellence-program-powered-by-jquery/">jQuery Foundation Web Excellence Program - Powered by jQuery</a></li><li><a href="http://blog.jquery.com/2015/09/01/jquery-foundation-and-dojo-foundation-to-merge/">jQuery Foundation and Dojo Foundation to Merge</a></li>		</ul>
+	</aside>
+	<aside class="widget">
+		<h3 class="widget-title">Archives</h3>
+		<ul>
+				<li><a href='http://blog.jquery.com/2016/01/'>January 2016</a></li>
+	<li><a href='http://blog.jquery.com/2015/12/'>December 2015</a></li>
+	<li><a href='http://blog.jquery.com/2015/11/'>November 2015</a></li>
+	<li><a href='http://blog.jquery.com/2015/09/'>September 2015</a></li>
+	<li><a href='http://blog.jquery.com/2015/07/'>July 2015</a></li>
+	<li><a href='http://blog.jquery.com/2015/04/'>April 2015</a></li>
+	<li><a href='http://blog.jquery.com/2015/03/'>March 2015</a></li>
+	<li><a href='http://blog.jquery.com/2015/02/'>February 2015</a></li>
+	<li><a href='http://blog.jquery.com/2015/01/'>January 2015</a></li>
+	<li><a href='http://blog.jquery.com/2014/12/'>December 2014</a></li>
+	<li><a href='http://blog.jquery.com/2014/10/'>October 2014</a></li>
+	<li><a href='http://blog.jquery.com/2014/09/'>September 2014</a></li>
+	<li><a href='http://blog.jquery.com/2014/08/'>August 2014</a></li>
+	<li><a href='http://blog.jquery.com/2014/07/'>July 2014</a></li>
+	<li><a href='http://blog.jquery.com/2014/05/'>May 2014</a></li>
+	<li><a href='http://blog.jquery.com/2014/04/'>April 2014</a></li>
+	<li><a href='http://blog.jquery.com/2014/03/'>March 2014</a></li>
+	<li><a href='http://blog.jquery.com/2014/01/'>January 2014</a></li>
+	<li><a href='http://blog.jquery.com/2013/12/'>December 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/11/'>November 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/10/'>October 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/09/'>September 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/08/'>August 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/07/'>July 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/06/'>June 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/05/'>May 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/04/'>April 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/03/'>March 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/02/'>February 2013</a></li>
+	<li><a href='http://blog.jquery.com/2013/01/'>January 2013</a></li>
+	<li><a href='http://blog.jquery.com/2012/12/'>December 2012</a></li>
+	<li><a href='http://blog.jquery.com/2012/11/'>November 2012</a></li>
+	<li><a href='http://blog.jquery.com/2012/10/'>October 2012</a></li>
+	<li><a href='http://blog.jquery.com/2012/09/'>September 2012</a></li>
+	<li><a href='http://blog.jquery.com/2012/08/'>August 2012</a></li>
+	<li><a href='http://blog.jquery.com/2012/07/'>July 2012</a></li>
+	<li><a href='http://blog.jquery.com/2012/06/'>June 2012</a></li>
+	<li><a href='http://blog.jquery.com/2012/05/'>May 2012</a></li>
+	<li><a href='http://blog.jquery.com/2012/04/'>April 2012</a></li>
+	<li><a href='http://blog.jquery.com/2012/03/'>March 2012</a></li>
+	<li><a href='http://blog.jquery.com/2012/01/'>January 2012</a></li>
+	<li><a href='http://blog.jquery.com/2011/12/'>December 2011</a></li>
+	<li><a href='http://blog.jquery.com/2011/11/'>November 2011</a></li>
+	<li><a href='http://blog.jquery.com/2011/10/'>October 2011</a></li>
+	<li><a href='http://blog.jquery.com/2011/09/'>September 2011</a></li>
+	<li><a href='http://blog.jquery.com/2011/08/'>August 2011</a></li>
+	<li><a href='http://blog.jquery.com/2011/06/'>June 2011</a></li>
+	<li><a href='http://blog.jquery.com/2011/05/'>May 2011</a></li>
+	<li><a href='http://blog.jquery.com/2011/04/'>April 2011</a></li>
+	<li><a href='http://blog.jquery.com/2011/03/'>March 2011</a></li>
+	<li><a href='http://blog.jquery.com/2011/02/'>February 2011</a></li>
+	<li><a href='http://blog.jquery.com/2011/01/'>January 2011</a></li>
+	<li><a href='http://blog.jquery.com/2010/12/'>December 2010</a></li>
+	<li><a href='http://blog.jquery.com/2010/11/'>November 2010</a></li>
+	<li><a href='http://blog.jquery.com/2010/10/'>October 2010</a></li>
+	<li><a href='http://blog.jquery.com/2010/09/'>September 2010</a></li>
+	<li><a href='http://blog.jquery.com/2010/08/'>August 2010</a></li>
+	<li><a href='http://blog.jquery.com/2010/07/'>July 2010</a></li>
+	<li><a href='http://blog.jquery.com/2010/06/'>June 2010</a></li>
+	<li><a href='http://blog.jquery.com/2010/04/'>April 2010</a></li>
+	<li><a href='http://blog.jquery.com/2010/03/'>March 2010</a></li>
+	<li><a href='http://blog.jquery.com/2010/02/'>February 2010</a></li>
+	<li><a href='http://blog.jquery.com/2010/01/'>January 2010</a></li>
+	<li><a href='http://blog.jquery.com/2009/12/'>December 2009</a></li>
+	<li><a href='http://blog.jquery.com/2009/10/'>October 2009</a></li>
+	<li><a href='http://blog.jquery.com/2009/08/'>August 2009</a></li>
+	<li><a href='http://blog.jquery.com/2009/07/'>July 2009</a></li>
+	<li><a href='http://blog.jquery.com/2009/06/'>June 2009</a></li>
+	<li><a href='http://blog.jquery.com/2009/05/'>May 2009</a></li>
+	<li><a href='http://blog.jquery.com/2009/04/'>April 2009</a></li>
+	<li><a href='http://blog.jquery.com/2009/03/'>March 2009</a></li>
+	<li><a href='http://blog.jquery.com/2009/02/'>February 2009</a></li>
+	<li><a href='http://blog.jquery.com/2009/01/'>January 2009</a></li>
+	<li><a href='http://blog.jquery.com/2008/12/'>December 2008</a></li>
+	<li><a href='http://blog.jquery.com/2008/11/'>November 2008</a></li>
+	<li><a href='http://blog.jquery.com/2008/10/'>October 2008</a></li>
+	<li><a href='http://blog.jquery.com/2008/09/'>September 2008</a></li>
+	<li><a href='http://blog.jquery.com/2008/08/'>August 2008</a></li>
+	<li><a href='http://blog.jquery.com/2008/07/'>July 2008</a></li>
+	<li><a href='http://blog.jquery.com/2008/06/'>June 2008</a></li>
+	<li><a href='http://blog.jquery.com/2008/05/'>May 2008</a></li>
+	<li><a href='http://blog.jquery.com/2008/03/'>March 2008</a></li>
+	<li><a href='http://blog.jquery.com/2008/02/'>February 2008</a></li>
+	<li><a href='http://blog.jquery.com/2008/01/'>January 2008</a></li>
+	<li><a href='http://blog.jquery.com/2007/12/'>December 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/11/'>November 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/10/'>October 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/09/'>September 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/08/'>August 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/07/'>July 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/06/'>June 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/05/'>May 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/04/'>April 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/03/'>March 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/02/'>February 2007</a></li>
+	<li><a href='http://blog.jquery.com/2007/01/'>January 2007</a></li>
+	<li><a href='http://blog.jquery.com/2006/12/'>December 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/11/'>November 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/10/'>October 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/09/'>September 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/08/'>August 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/07/'>July 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/06/'>June 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/05/'>May 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/04/'>April 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/03/'>March 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/02/'>February 2006</a></li>
+	<li><a href='http://blog.jquery.com/2006/01/'>January 2006</a></li>
+		</ul>
+	</aside>
+</div>
+</div>
+
+	</div>
+</div>
+
+<footer class="clearfix simple">
+	<div class="constrain">
+		<div class="row">
+			<div class="six columns offset-by-three">
+				<h3><span>Books</span></h3>
+				<ul class="books">
+					<li>
+						<a href="http://www.packtpub.com/learning-jquery-with-simple-javascript-techniques-fourth-edition/book">
+							<img src="http://blog.jquery.com/wp-content/themes/jquery/content/books/learning-jquery-4th-ed.jpg" alt="Learning jQuery 4th Edition by Karl Swedberg and Jonathan Chaffer" width="92" height="114">
+							Learning jQuery Fourth Edition
+							<cite>Karl Swedberg and Jonathan Chaffer</cite>
+						</a>
+					</li>
+					<li>
+						<a href="http://www.manning.com/derosa?a_aid=141d9491&a_bid=bdd5b7ad">
+							<img src="http://blog.jquery.com/wp-content/themes/jquery/content/books/jquery-in-action.jpg" alt="jQuery in Action by Bear Bibeault, Yehuda Katz, and Aurelio De Rosa" width="92" height="114">
+							jQuery in Action
+							<cite>Bear Bibeault, Yehuda Katz, and Aurelio De Rosa</cite>
+						</a>
+					</li>
+					<li>
+						<a href="http://www.syncfusion.com/resources/techportal/ebooks/jquery?utm_medium=BizDev-jQuery.org0513">
+							<img src="http://blog.jquery.com/wp-content/themes/jquery/content/books/jquery-succinctly.jpg" alt="jQuery Succinctly by Cody Lindley" width="92" height="114">
+							jQuery Succinctly
+							<cite>Cody Lindley</cite>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		
+<div id="legal">
+	<ul class="footer-site-links">
+			<li><a class="icon-pencil" href="http://learn.jquery.com/">Learning Center</a></li>
+			<li><a class="icon-group" href="http://forum.jquery.com/">Forum</a></li>
+			<li><a class="icon-wrench" href="http://api.jquery.com/">API</a></li>
+			<li><a class="icon-twitter" href="http://twitter.com/jquery">Twitter</a></li>
+			<li><a class="icon-comments" href="http://irc.jquery.org/">IRC</a></li>
+			<li><a class="icon-github" href="https://github.com/jquery">GitHub</a></li>
+	</ul>
+	<p class="copyright">
+		Copyright 2016 <a href="https://jquery.org/team/">The jQuery Foundation</a>.
+		<a href="https://jquery.org/license/">jQuery License</a>
+		<span class="sponsor-line"><a href="http://mediatemple.net" rel="noindex,nofollow" class="mt-link">Web hosting by Media Temple</a> | <a href="http://www.maxcdn.com" rel="noindex,nofollow" class="mc-link">CDN by MaxCDN</a> | <a href="http://wordpress.org/" class="wp-link">Powered by WordPress</a> | Thanks: <a href="https://jquery.org/members/">Members</a>, <a href="https://jquery.org/sponsors/">Sponsors</a></span>
+	</p>
+</div>
+
+	</div>
+</footer>
+
+<script type='text/javascript' src='http://blog.jquery.com/wp-content/plugins/akismet/_inc/form.js?ver=3.1.5'></script>
+<script type='text/javascript' src='http://blog.jquery.com/wp-includes/js/wp-embed.min.js?ver=4.4.1'></script>
+
+</body>
+</html>
