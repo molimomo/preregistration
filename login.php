@@ -33,6 +33,7 @@
 		if(empty($errSID) && empty($errDate) && empty($errMsg)){
 			session_start();
 			$_SESSION["sid"] = $sid;
+			$_SESSION["dob"] = $dob;
 			header("Location: studentInfo.php");
 		}
 	}
