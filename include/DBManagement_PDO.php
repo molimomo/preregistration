@@ -37,7 +37,7 @@
 	function getTableFields($table){
 		try{
 			$dbc = connectToDB();
-			$query = "SELECT * FROM ".$table." LIMIT 0";
+			$query = "SELECT TOP 1 * FROM ".$table;
 			$results = $dbc->query($query);
 			for($i=0;$i<$results->columnCount();$i++){
 				$col = $results->getColumnMeta($i);
