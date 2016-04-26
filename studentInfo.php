@@ -24,17 +24,20 @@
 		<title>Knowledge Systems Institute :: Graduate School of Computer Science :: Online Pre-Registration</title>
 	</head>
 <body>
-	<h1>Pre-register for Courses</h1>
-	<?php
-		displayStudentInfo();	
-	?>
-	<h2>History</h2>
-	<?php
-		displayTakenCourse();
-	?>	
-	<h2>Course Information</h2>
-	<?php
-		getCourseInfo("BA501");
-	?>
+	<div>
+		<h1>Pre-register for Courses</h1>
+		<?php displayStudentInfo(); ?>
+	</div>
+
+	<div>
+		<h2>Registration</h2>
+	</div>
+
+	<div>
+		<h2>History</h2>
+		<?php displayCurrentCourse(); ?>
+		<?php displayTakenCourse(); ?>	
+		<?php displayWaivedCourse(); ?>	
+	</div>
 </body>
 </html>

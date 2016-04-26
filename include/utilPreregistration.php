@@ -27,22 +27,54 @@
 		return $date;
 	}
 
+	function displayWaivedCourse(){
+		
+	}
+
+	function getLevel($cid){
+		// Check the last character of class id
+		if(!is_numeric(substr($cid,-1)))
+			return 500;
+		
+		// Check the last 3 characters
+		return (intval(substr($cid,-3))>400)?500:300;	
+	}
+
+	function displayCurrentCourse(){
+		displayCourse(true);
+	}
+	
 	function displayTakenCourse(){
+		displayCourse(false);
+	}
+
+	function displayCourse($cur){
 		global $firstname, $lastname;
 		$dbc = connectToDB();
-		$query = "SELECT DISTINCT reg.CLASS, reg.GRADE, course.STARTS, course.TITLE 
+
+		$query =$cur? "SELECT DISTINCT reg.CLASS, reg.GRADE, course.STARTS, course.TITLE 
 					FROM STUDENT AS stu, REGISTER AS reg, COURSE AS course 
 					WHERE reg.FIRSTNAME=:firstname
 						AND reg.LASTNAME=:lastname 
 						AND reg.CLASS=course.CLASS
 						AND reg.STARTS=course.STARTS
+						AND reg.GRADE=''
+					ORDER BY course.STARTS":
+					"SELECT DISTINCT reg.CLASS, reg.GRADE, course.STARTS, course.TITLE 
+					FROM STUDENT AS stu, REGISTER AS reg, COURSE AS course 
+					WHERE reg.FIRSTNAME=:firstname
+						AND reg.LASTNAME=:lastname 
+						AND reg.CLASS=course.CLASS
+						AND reg.STARTS=course.STARTS
+						AND reg.GRADE!=''
 					ORDER BY course.STARTS";
+		$header = $cur?"Current":"Taken";
 		$stmt = $dbc->prepare($query);
 		$stmt->bindParam(":firstname",$firstname,PDO::PARAM_STR);
 		$stmt->bindParam(":lastname",$lastname,PDO::PARAM_STR);
 		$stmt->execute();
 		closeDB($dbc);	
-		echo "<h3>Taken Courses</h3>
+		echo "<h3>".$header." Courses</h3>
 				<table width=\"100%\" align=\"left\" border=\"1\">
 				<tr  align=\"left\">
 					<th align=\"center\">Class</th>
@@ -83,7 +115,7 @@
 			$program = $result["PROGRAM"];
 
 			// Display Student's Personal Information
-			echo "<h2>Student Profile</h2>
+			echo "<h2>Profile</h2>
 				<table width=\"100%\" align=\"left\">
 				<tr align=\"left\">
 					<th><strong>First Name</strong></th>
@@ -116,22 +148,6 @@
 					<td>".$result["PRE_EDUCATION"]."</td>
 				</tr>
 				<tr align=\"left\">
-					<th colspan=\"3\"><strong>Address</strong></th>
-				</tr>
-				<tr align=\"left\">
-					<td>".$result["STREET"]."</td>
-				</tr>
-				<tr align=\"left\">
-					<th><strong>City</strong></th>
-					<th><strong>State</strong></th>
-					<th><strong>Zip Code</strong></th>
-				</tr>
-				<tr align=\"left\">
-					<td>".$result["CITY"]."</td>
-					<td>".$result["STATE"]."</td>
-					<td>".$result["ZIP"]."</td>
-				</tr>
-				<tr align=\"left\">
 					<th><strong>Cohort</strong></th>
 					<th><strong>Occupation</strong></th>
 					<th><strong>Degree(s) Earned</strong></th>
@@ -140,6 +156,13 @@
 					<td>".$result["COHORT"]."</td>
 					<td>".$result["COMPANY"]."</td>
 					<td>".$result["PRE_DEGREE"]."</td>
+				</tr>
+				<tr align=\"left\">
+					<th colspan=\"3\"><strong>Address</strong></th>
+				</tr>
+				<tr align=\"left\">
+					<td colspan=\"3\">".$result["STREET"].", "
+						.$result["CITY"].", ".$result["STATE"].", ".$result["ZIP"]."</td>
 				</tr>
 			</table>";	
 		}
