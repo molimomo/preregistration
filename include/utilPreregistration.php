@@ -1,9 +1,10 @@
 <?php
 	require_once "commonUtil.php";
+	require_once "valueMapping.php";
 	function getCourseInfo($cid){
 		global $program;
 		$dbc = connectToDB();
-		$query = "SELECT CORE, AREA, PREREQUISITE
+		$query = "SELECT TITLE, DESCRIPTION, CORE, AREA, PREREQUISITE
 					FROM ALL$ 
 					WHERE CODE=:cid";
 		$stmt = $dbc->prepare($query);
@@ -11,6 +12,8 @@
 		$stmt->execute();
 		closeDB($dbc);
 		if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+			$results["TITLE"] = $row["TITLE"];
+			$results["DESCRIPTION"] = $row["DESCRIPTION"];
 			$results["CORE"] = (strpos($row["CORE"],$program)!==false)?'V':"";
 			$results["AREA"] = (strpos($row["AREA"],$program)!==false)?'V':"";
 			$results["PREREQUISITE"] = $row["PREREQUISITE"];
@@ -27,10 +30,35 @@
 		return $date;
 	}
 
-	function displayWaivedCourse(){
-		
+	function getCurQuery(){
+		return "SELECT DISTINCT reg.CLASS, reg.GRADE, course.STARTS, course.TITLE 
+					FROM STUDENT AS stu, REGISTER AS reg, COURSE AS course 
+					WHERE reg.FIRSTNAME=:firstname
+						AND reg.LASTNAME=:lastname 
+						AND reg.CLASS=course.CLASS
+						AND reg.STARTS=course.STARTS
+					 	AND reg.GRADE=''
+				 		ORDER BY course.STARTS";
 	}
 
+	function getTakenQuery(){
+		return "SELECT DISTINCT reg.CLASS, reg.GRADE, course.STARTS, course.TITLE 
+					FROM STUDENT AS stu, REGISTER AS reg, COURSE AS course 
+					WHERE reg.FIRSTNAME=:firstname
+						AND reg.LASTNAME=:lastname 
+						AND reg.CLASS=course.CLASS
+						AND reg.STARTS=course.STARTS
+					 	AND reg.GRADE!=''
+				 		ORDER BY course.STARTS";
+	}
+
+	function getWaivedQuery(){
+		return "SELECT CLASS, EXAMINE, WAIVED_DATE
+					FROM COURSEWAIVED
+					WHERE FIRSTNAME=:firstname
+						AND LASTNAME=:lastname";
+	}
+	
 	function getLevel($cid){
 		// Check the last character of class id
 		if(!is_numeric(substr($cid,-1)))
@@ -40,35 +68,48 @@
 		return (intval(substr($cid,-3))>400)?500:300;	
 	}
 
+	function displayHistory(){
+		displayCourse(DISPLAY_CUR);
+		displayCourse(DISPLAY_TAKEN);
+		displayCourse(DISPLAY_WAIVED);
+	}
+
 	function displayCurrentCourse(){
-		displayCourse(true);
+		displayCourse(DISPLAY_CUR);
 	}
 	
 	function displayTakenCourse(){
-		displayCourse(false);
+		displayCourse(DISPLAY_TAKEN);
 	}
 
-	function displayCourse($cur){
+	function displayWaivedCourse(){
+		displayCourse(DISPLAY_WAIVED);
+	}
+
+	function displayCourse($display){
 		global $firstname, $lastname;
 		$dbc = connectToDB();
-
-		$query =$cur? "SELECT DISTINCT reg.CLASS, reg.GRADE, course.STARTS, course.TITLE 
-					FROM STUDENT AS stu, REGISTER AS reg, COURSE AS course 
-					WHERE reg.FIRSTNAME=:firstname
-						AND reg.LASTNAME=:lastname 
-						AND reg.CLASS=course.CLASS
-						AND reg.STARTS=course.STARTS
-						AND reg.GRADE=''
-					ORDER BY course.STARTS":
-					"SELECT DISTINCT reg.CLASS, reg.GRADE, course.STARTS, course.TITLE 
-					FROM STUDENT AS stu, REGISTER AS reg, COURSE AS course 
-					WHERE reg.FIRSTNAME=:firstname
-						AND reg.LASTNAME=:lastname 
-						AND reg.CLASS=course.CLASS
-						AND reg.STARTS=course.STARTS
-						AND reg.GRADE!=''
-					ORDER BY course.STARTS";
-		$header = $cur?"Current":"Taken";
+		$query = "";
+		$header = "";
+		$condition = "";
+		switch($display){
+			case DISPLAY_CUR:
+				$header = "Current";
+				$query = getCurQuery();
+				break;
+			case DISPLAY_TAKEN:
+				$header = "Taken";
+				$query = getTakenQuery();
+				break;
+			case DISPLAY_WAIVED:
+				global $waivedType;
+				$header = "Waived";
+				$query = getWaivedQuery();
+				break;
+			default:
+				exit("Invalid display option!");
+				break;
+		}
 		$stmt = $dbc->prepare($query);
 		$stmt->bindParam(":firstname",$firstname,PDO::PARAM_STR);
 		$stmt->bindParam(":lastname",$lastname,PDO::PARAM_STR);
@@ -86,12 +127,18 @@
 					<th align=\"center\">Pre-requisite</th>
 				</tr>";
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+			$info = getCourseInfo($row["CLASS"]);
         	echo "<tr align=\"left\">";
             echo "<td align=\"center\">".$row["CLASS"]."</td>";
-            echo "<td>".$row["TITLE"]."</td>";
-            echo "<td align=\"center\">".$row["GRADE"]."</td>";
-            echo "<td align=\"center\">".dateConvert($row["STARTS"])."</td>";
-			$info = getCourseInfo($row["CLASS"]);
+            echo "<td>".$info["TITLE"]."</td>";
+			if($display==DISPLAY_WAIVED){
+				echo "<td align=\"center\">".$waivedType[intval($row["EXAMINE"])]."</td>";
+            	echo "<td align=\"center\">".dateConvert($row["WAIVED_DATE"])."</td>";
+			}
+			else{
+				echo "<td align=\"center\">".$row["GRADE"]."</td>";
+            	echo "<td align=\"center\">".dateConvert($row["STARTS"])."</td>";
+			}
             echo "<td>".$info["CORE"]."</td>";
             echo "<td align=\"center\">".$info["AREA"]."</td>";
             echo "<td>".$info["PREREQUISITE"]."</td>";
@@ -101,7 +148,7 @@
 	}
 
 	function displayStudentInfo(){
-		global $sid, $dob, $firstname, $lastname, $program;
+		global $sid, $dob, $firstname, $lastname, $program, $preEducation, $preDegree;
 		$dbc = connectToDB();
 		$query = "SELECT * FROM STUDENT WHERE ID=:sid";
 		$stmt = $dbc->prepare($query);
@@ -145,7 +192,7 @@
 				<tr align=\"left\">
 					<td>".$result["ID"]."</td>
 					<td>".$result["MR_MS"]."</td>
-					<td>".$result["PRE_EDUCATION"]."</td>
+					<td>".$preEducation[$result["PRE_EDUCATION"]]."</td>
 				</tr>
 				<tr align=\"left\">
 					<th><strong>Cohort</strong></th>
@@ -155,7 +202,7 @@
 				<tr align=\"left\">
 					<td>".$result["COHORT"]."</td>
 					<td>".$result["COMPANY"]."</td>
-					<td>".$result["PRE_DEGREE"]."</td>
+					<td>".$preDegree[$result["PRE_DEGREE"]]."</td>
 				</tr>
 				<tr align=\"left\">
 					<th colspan=\"3\"><strong>Address</strong></th>
