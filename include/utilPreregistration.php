@@ -1,10 +1,55 @@
 <?php
 	require_once "commonUtil.php";
 	require_once "valueMapping.php";
+
+	// Display Pre-Registration Form
+	function displayProspectiveCourse(){
+		$semester = SEMESTER;
+		$dbc = connectToDB();
+		$query = "SELECT *
+					FROM COURSE
+					WHERE SEMESTER=:semester
+					ORDER BY CLASS";
+		$stmt = $dbc->prepare($query);
+		$stmt->bindParam(":semester",$semester,PDO::PARAM_STR);
+		$stmt->execute();
+		closeDB($dbc);
+		echo "<h3>Pre-registration Courses</h3>";
+		echo "<form id=\"registrationForm\" method=\"post\" action=\"studentInfo.php\">";
+		echo "<table width=\"100%\" align=\"left\" border=\"1\">";
+		echo "	<tr>
+					<th align=\"center\"><strong>Check</strong></th>
+					<th align=\"center\"><strong>Class</strong></th>
+					<th align=\"center\"><strong>Days</strong></th>
+					<th align=\"center\"><strong>Starts</strong></th>
+					<th align=\"center\"><strong>Times</strong></th>
+					<th align=\"center\"><strong>Title</strong></th>
+					<th align=\"center\"><strong>Core</strong></th>
+					<th align=\"center\"><strong>Area</strong></th>
+					<th align=\"center\"><strong>Pre-requisite</strong></th>
+					<th align=\"center\"><strong>Notes</strong></th>
+				</tr>";
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+			$info = getCourseInfo($row["CLASS"]);
+			echo "<tr><td><input type=\"checkbox\" name=\"selectedCourse[]\" value=\"".$row["CLASS"]."\"></td>".
+				"<td>".$row["CLASS"]."</td>". 
+				"<td>".$row["DAYS"]."</td>". 
+				"<td>".dateConvert($row["STARTS"])."</td>". 
+				"<td>".$row["TIMES"]."</td>". 
+				"<td>".$row["TITLE"]."</td>". 
+				"<td>".$info["CORE"]."</td>". 
+				"<td>".$info["AREA"]."</td>". 
+				"<td>".$info["PREREQUISITE"]."</td>".
+				"<td>".""."</td><tr>";
+		} 
+		echo "</table><p align=\"center\"><input type=\"submit\" name=\"submit\" id=\"submit\" value=\"submit\"></p></form><br>";
+	}
+
+	// Get Extra Course Information (CORE, AREA, DESCRIPTION)	
 	function getCourseInfo($cid){
 		global $program;
 		$dbc = connectToDB();
-		$query = "SELECT TITLE, DESCRIPTION, CORE, AREA, PREREQUISITE
+		$query = "SELECT *
 					FROM ALL$ 
 					WHERE CODE=:cid";
 		$stmt = $dbc->prepare($query);
@@ -12,24 +57,20 @@
 		$stmt->execute();
 		closeDB($dbc);
 		if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$results["TITLE"] = $row["TITLE"];
-			$results["DESCRIPTION"] = $row["DESCRIPTION"];
-			$results["CORE"] = (strpos($row["CORE"],$program)!==false)?'V':"";
-			$results["AREA"] = (strpos($row["AREA"],$program)!==false)?'V':"";
-			$results["PREREQUISITE"] = $row["PREREQUISITE"];
-			return $results;
-		}
-		else{
-			exit("Cannot Find Course Information!");
+			$row["CORE"] = (strpos($row["CORE"],$program)!==false)?'V':"";
+			$row["AREA"] = (strpos($row["AREA"],$program)!==false)?'V':"";
+			return $row;
 		}
 	}
 
+	// Convert datetime format in MSSQL to m/d/y
 	function dateConvert($datetime){
 		$newDate = new DateTime($datetime);
 		$date = $newDate->format("m/d/Y");
 		return $date;
 	}
 
+	// Get Query for selecting current courses
 	function getCurQuery(){
 		return "SELECT DISTINCT reg.CLASS, reg.GRADE, course.STARTS, course.TITLE 
 					FROM STUDENT AS stu, REGISTER AS reg, COURSE AS course 
@@ -40,7 +81,9 @@
 					 	AND reg.GRADE=''
 				 		ORDER BY course.STARTS";
 	}
-
+	
+	
+	// Get Query for selecting taken courses
 	function getTakenQuery(){
 		return "SELECT DISTINCT reg.CLASS, reg.GRADE, course.STARTS, course.TITLE 
 					FROM STUDENT AS stu, REGISTER AS reg, COURSE AS course 
@@ -52,42 +95,57 @@
 				 		ORDER BY course.STARTS";
 	}
 
+	// Get Query for selecting waived courses
 	function getWaivedQuery(){
 		return "SELECT CLASS, EXAMINE, WAIVED_DATE
 					FROM COURSEWAIVED
 					WHERE FIRSTNAME=:firstname
 						AND LASTNAME=:lastname";
 	}
-	
-	function getLevel($cid){
+
+	// Get Course Level	
+	/*function getLevel($cid){
 		// Check the last character of class id
 		if(!is_numeric(substr($cid,-1)))
 			return 500;
 		
 		// Check the last 3 characters
 		return (intval(substr($cid,-3))>400)?500:300;	
+	}*/
+	function getLevel(){
+
 	}
 
+	function displayRecords(){
+		global $curCourse, $takenCourse, $waivedCourse;
+		echo "current records:<br>";
+		foreach($curCourse as $course=>$grade){
+			echo $course." - ".$grade."<br>";
+		}
+		echo "taken records:<br>";
+		foreach($takenCourse as $course=>$grade){
+			echo $course." - ".$grade."<br>";
+		}
+		echo "waived records:<br>";
+		foreach($waivedCourse as $course=>$grade){
+			echo $course." - ".$grade."<br>";
+		}
+	}		
+
+
+
+	// Display student's course history
 	function displayHistory(){
-		displayCourse(DISPLAY_CUR);
-		displayCourse(DISPLAY_TAKEN);
-		displayCourse(DISPLAY_WAIVED);
+		global $curCourse, $takenCourse, $waivedCourse;
+		$curCourse = displayCourse(DISPLAY_CUR);
+		$takenCourse = displayCourse(DISPLAY_TAKEN);
+		$waivedCourse =  displayCourse(DISPLAY_WAIVED);
 	}
 
-	function displayCurrentCourse(){
-		displayCourse(DISPLAY_CUR);
-	}
-	
-	function displayTakenCourse(){
-		displayCourse(DISPLAY_TAKEN);
-	}
-
-	function displayWaivedCourse(){
-		displayCourse(DISPLAY_WAIVED);
-	}
-
+	// General Function to display Courses 
 	function displayCourse($display){
 		global $firstname, $lastname;
+		$record = array();
 		$dbc = connectToDB();
 		$query = "";
 		$header = "";
@@ -115,38 +173,47 @@
 		$stmt->bindParam(":lastname",$lastname,PDO::PARAM_STR);
 		$stmt->execute();
 		closeDB($dbc);	
-		echo "<h3>".$header." Courses</h3>
-				<table width=\"100%\" align=\"left\" border=\"1\">
-				<tr  align=\"left\">
-					<th align=\"center\">Class</th>
-					<th align=\"center\">Title</th>
-					<th align=\"center\">Grade</th>
-					<th align=\"center\">Date</th>
-					<th align=\"center\">Core</th>
-					<th align=\"center\">Area</th>
-					<th align=\"center\">Pre-requisite</th>
-				</tr>";
-		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$info = getCourseInfo($row["CLASS"]);
-        	echo "<tr align=\"left\">";
-            echo "<td align=\"center\">".$row["CLASS"]."</td>";
-            echo "<td>".$info["TITLE"]."</td>";
-			if($display==DISPLAY_WAIVED){
-				echo "<td align=\"center\">".$waivedType[intval($row["EXAMINE"])]."</td>";
-            	echo "<td align=\"center\">".dateConvert($row["WAIVED_DATE"])."</td>";
-			}
-			else{
-				echo "<td align=\"center\">".$row["GRADE"]."</td>";
-            	echo "<td align=\"center\">".dateConvert($row["STARTS"])."</td>";
-			}
-            echo "<td>".$info["CORE"]."</td>";
-            echo "<td align=\"center\">".$info["AREA"]."</td>";
-            echo "<td>".$info["PREREQUISITE"]."</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
+		echo "<h3>".$header." Courses</h3>";
+		if($stmt->rowCount()){
+				echo"<table width=\"100%\" align=\"left\" border=\"1\">
+						<tr  align=\"left\">
+							<th align=\"center\">Class</th>
+							<th align=\"center\">Title</th>
+							<th align=\"center\">Grade</th>
+							<th align=\"center\">Date</th>
+							<th align=\"center\">Core</th>
+							<th align=\"center\">Area</th>
+							<th align=\"center\">Pre-requisite</th>
+						</tr>";
+				while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+					$info = getCourseInfo($row["CLASS"]);
+					echo "<tr align=\"left\">";
+					echo "<td align=\"center\">".$row["CLASS"]."</td>";
+					echo "<td>".$info["TITLE"]."</td>";
+					if($display==DISPLAY_WAIVED){
+						$record[$row["CLASS"]] = $waivedType[intval($row["EXAMINE"])];
+						echo "<td align=\"center\">".$waivedType[intval($row["EXAMINE"])]."</td>";
+						echo "<td align=\"center\">".dateConvert($row["WAIVED_DATE"])."</td>";
+					}
+					else{
+						$record[$row["CLASS"]] = $row["GRADE"];
+						echo "<td align=\"center\">".$row["GRADE"]."</td>";
+						echo "<td align=\"center\">".dateConvert($row["STARTS"])."</td>";
+					}
+					echo "<td>".$info["CORE"]."</td>";
+					echo "<td align=\"center\">".$info["AREA"]."</td>";
+					echo "<td>".$info["PREREQUISITE"]."</td>";
+					echo "</tr>";
+				}
+				echo "</table>";
+		}
+		else{
+			echo "<p>N/A</p><br>";
+		}
+		return $record;
 	}
 
+	// Display student's personal information 
 	function displayStudentInfo(){
 		global $sid, $dob, $firstname, $lastname, $program, $preEducation, $preDegree;
 		$dbc = connectToDB();
@@ -239,34 +306,5 @@
 	function isValid($sid, $dob){
 		return isExist("STUDENT", "ID", $sid)
 				&& isMatch($sid, $dob);
-	}
-
-	// Generate select menu for year
-	function yearMenu(){
-		$beginYear = 1950;
-		$endYear = 2010;
-		echo "<select name=\"year\">";
-		for($i=$beginYear; $i<=$endYear; $i++){
-			echo "<option value=\"".$i."\">".$i."</option>";
-		}	
-		echo "</select>";
-	}
-
-	// Generate select menu for month
-	function monthMenu(){
-		echo "<select name=\"month\">";
-		for($i=1; $i<=12; $i++){
-			echo "<option value=\"".$i."\">".jdmonthname(gregoriantojd($i,1,1), 0)."</option>";
-		}	
-		echo "</select>";
-	}
-
-	// Generate select menu for day
-	function dayMenu(){
-		echo "<select name=\"day\">";
-		for($i=1; $i<=31; $i++){
-			echo "<option value=\"".$i."\">".$i."</option>";
-		}	
-		echo "</select>";
 	}
 ?>

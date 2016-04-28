@@ -15,7 +15,11 @@
 		- DISPLAY_CUR
 		- DISPLAY_TAKEN
 		- DISPLAY_WAIVED
+		- SEMESTER
 	*/
+
+	// Semester
+	define("SEMESTER","SPRING/2016");
 
 	// Pre-Education
 	$preEducation[0] = "Others";
@@ -57,8 +61,8 @@
 	$status[18] = "OTHERS";
 
 	// Waived Examine
-	$waivedType[0] = "TRASFERRED_WAIVER";	
-	$waivedType[1] = "KSI_WAIVER";	
+	$waivedType[0] = "Transferred waiver";	
+	$waivedType[1] = "KSI waiver examined";	
 	
 	// Degree
 	define("NON_DEGREE",0);
