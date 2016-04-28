@@ -2,14 +2,106 @@
 	require_once "commonUtil.php";
 	require_once "valueMapping.php";
 
+
+	// Convert Time to Slot
+	function convertToSlot($time){
+		if(empty(trim($time))){
+			return "N/A";
+		}
+		$time = substr($time, 0, -2); 
+		$slot = explode("-",$time);
+		$frame = array();
+		for($i=0;$i<count($slot);$i++){
+			$tmp = explode(":",$slot[$i]);
+			array_push($frame,  intval($tmp[0].$tmp[1]));
+		}
+		if($frame[1]>=1200){
+			return "Morning";
+		}
+		else{
+			$frame[0]+=1200;
+			$frame[1]+=1200;
+			if($frame[0] > $frame[1]){
+				return($frame[0]>=2400)?"Evening":"Morning";
+			}
+			else{
+				return($frame[0]>=1700)?"Night":"Evening";
+			}
+		}
+	}
+
+	// Check Couses Time Conflict
+	function checkConflict($selected){
+		$courseTime = array();
+		for($i=0;$i<count($selected);$i++){
+			$selInfo = explode("/",$selected[$i]);
+			$courseTime[$i] = $selInfo;
+		}
+
+		for($i=0;$i<count($selected)-1;$i++){
+			for($j=$i+1;$j<count($selected);$j++){
+				if($courseTime[$i][1] == $courseTime[$j][1]){
+					$slot1 = convertToSlot($courseTime[$i][2]);
+					$slot2 = convertToSlot($courseTime[$j][2]);
+					if(($slot1 == $slot2) && ($slot1!="N/A")){
+						return $selected[$i]." & ".$selected[$j];
+					}
+				}
+			}
+		}
+		return "";
+	}
+
+	// Get Note for student's preregistration form
+	function getNotes($cid){
+		global $curCourse, $takenCourse, $waivedCourse;
+		$notes ="";
+		// Check Current Course
+		if(isset($curCourse[$cid])){
+			$notes .= "Enrolling<br>";
+		}	
+
+		// Check Taken Courses
+		if(isset($takenCourse[$cid])){
+			$notes .= "Taken<br>";
+		}
+
+		// Check Waived Course
+		if(isset($waivedCourse[$cid])){
+			$notes .= "Waived<br>";
+		}
+
+		// Check Distance Learning Course
+		if($cid[strlen($cid)-1] === 'X'){
+			$notes .= "Distance Learning";
+		}
+		
+		return $notes;
+	}
+
+	// Display a single course information in pre-registration form
+	function listCourseInfo($row){
+		$info = getCourseInfo($row["CLASS"]);
+		echo "<tr><td align=\"center\"><input type=\"checkbox\" name=\"selectedCourse[]\" value=\"".$row["CLASS"]."/".$row["DAYS"]."/".$row["TIMES"]."\"></td>".
+			"<td align=\"center\">".$row["CLASS"]."</td>". 
+			"<td align=\"center\">".$row["DAYS"]."</td>". 
+			"<td align=\"center\">".dateConvert($row["STARTS"])."</td>". 
+			"<td align=\"center\">".$row["TIMES"]."</td>". 
+			"<td>".$row["TITLE"]."</td>". 
+			"<td align=\"center\">".$info["CORE"]."</td>". 
+			"<td align=\"center\">".$info["AREA"]."</td>". 
+			"<td>".$info["PREREQUISITE"]."</td>".
+			"<td align=\"center\" id=\"notes\">".getNotes($row["CLASS"])."</td><tr>";	
+	}
+
 	// Display Pre-Registration Form
-	function displayProspectiveCourse(){
+	function displayPreregistrationForm(){
 		$semester = SEMESTER;
 		$dbc = connectToDB();
 		$query = "SELECT *
 					FROM COURSE
 					WHERE SEMESTER=:semester
-					ORDER BY CLASS";
+					ORDER BY TIMES";
 		$stmt = $dbc->prepare($query);
 		$stmt->bindParam(":semester",$semester,PDO::PARAM_STR);
 		$stmt->execute();
@@ -30,19 +122,17 @@
 					<th align=\"center\"><strong>Notes</strong></th>
 				</tr>";
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$info = getCourseInfo($row["CLASS"]);
-			echo "<tr><td><input type=\"checkbox\" name=\"selectedCourse[]\" value=\"".$row["CLASS"]."\"></td>".
-				"<td>".$row["CLASS"]."</td>". 
-				"<td>".$row["DAYS"]."</td>". 
-				"<td>".dateConvert($row["STARTS"])."</td>". 
-				"<td>".$row["TIMES"]."</td>". 
-				"<td>".$row["TITLE"]."</td>". 
-				"<td>".$info["CORE"]."</td>". 
-				"<td>".$info["AREA"]."</td>". 
-				"<td>".$info["PREREQUISITE"]."</td>".
-				"<td>".""."</td><tr>";
+			listCourseInfo($row);	
 		} 
-		echo "</table><p align=\"center\"><input type=\"submit\" name=\"submit\" id=\"submit\" value=\"submit\"></p></form><br>";
+		echo "<tr>
+				<td align=\"center\">Comments:</td>
+				<td colspan=\"4\"><textarea name=\"comments\" id=\"comment\" cols=\"75\" rows=\"5\"></textarea></td>
+				<td colspan=\"5\"><b><u>This form does not confirm your registration to the selected courses: please await confirmation via email from an Academic Advisor or Administrative Officer. If you still have question, please contact KSI Office: office@ksi.edu, (847) 679-3135</u></b></td>
+			   </tr>
+				<tr>
+					<td colspan=\"10\" align=\"center\"><input type=\"submit\" name=\"submit\" id=\"submit\" value=\"submit\"></td>
+				</tr>";
+		echo "</table></form>";
 	}
 
 	// Get Extra Course Information (CORE, AREA, DESCRIPTION)	
@@ -131,8 +221,6 @@
 			echo $course." - ".$grade."<br>";
 		}
 	}		
-
-
 
 	// Display student's course history
 	function displayHistory(){
