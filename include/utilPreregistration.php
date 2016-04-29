@@ -96,6 +96,7 @@
 
 	// Display Pre-Registration Form
 	function displayPreregistrationForm(){
+		global $firstname, $lastname;
 		$semester = SEMESTER;
 		$dbc = connectToDB();
 		$query = "SELECT *
@@ -126,13 +127,16 @@
 		} 
 		echo "<tr>
 				<td align=\"center\">Comments:</td>
-				<td colspan=\"4\"><textarea name=\"comments\" id=\"comment\" cols=\"75\" rows=\"5\"></textarea></td>
+				<td colspan=\"4\"><textarea name=\"comments\" id=\"comments\" cols=\"75\" rows=\"5\"></textarea></td>
 				<td colspan=\"5\"><b><u>This form does not confirm your registration to the selected courses: please await confirmation via email from an Academic Advisor or Administrative Officer. If you still have question, please contact KSI Office: office@ksi.edu, (847) 679-3135</u></b></td>
 			   </tr>
 				<tr>
 					<td colspan=\"10\" align=\"center\"><input type=\"submit\" name=\"submit\" id=\"submit\" value=\"submit\"></td>
 				</tr>";
-		echo "</table></form>";
+		echo "</table>
+		<input type=\"hidden\" name=\"firstname\" value=\"".$firstname."\"".">".
+		"<input type=\"hidden\" name=\"lastname\" value=\"".$lastname."\"".">".
+		"</form>";
 	}
 
 	// Get Extra Course Information (CORE, AREA, DESCRIPTION)	

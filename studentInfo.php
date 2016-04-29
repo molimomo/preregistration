@@ -24,9 +24,9 @@
 	// Error messages for PHP validation
 	$errMsg="";	
 
-	// PHP Validation
+	// Form Submission
 	if($_SERVER["REQUEST_METHOD"]=="POST"){
-		//echo "R U READY?";
+		//Validation for selected courses
 		if(!isset($_POST["selectedCourse"])){
 			$errMsg.="You have to select at least 1 course!<br>";
 		}
@@ -35,6 +35,15 @@
 			if(!empty($conflict)){
 				$errMsg.="You have conflict schedule! ".$conflict."<br>";
 			}
+		}
+		// Submit Form
+		if(empty($errMsg)){
+			session_start();
+			$_SESSION["firstname"] = $_POST["firstname"];
+			$_SESSION["lastname"] = $_POST["lastname"];
+			$_SESSION["selectedCourse"] = $_POST["selectedCourse"];
+			$_SESSION["comments"] = $_POST["comments"];
+			header("Location: processForm.php");
 		}
 	}
 	ob_flush();
