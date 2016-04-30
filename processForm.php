@@ -2,12 +2,24 @@
 	/*function sendEmailToOffice(){
 
 	}
+	*/
 
-	function saveToDB(){
-
+	// Save StudentID and CourseID into database
+	function saveToDB($studentID, $courseIDs){
+		$dbc = connectToDB();
+		$date = date("m-d-Y");
+		for($i=0;$i<count($courseIDs);$i++){
+			$query = "INSERT INTO PRE_REGISTER (StudentID, CourseID, SubmitTime)
+				VALUES(:studentID, :courseID, :date)";
+			$stmt = $dbc->prepare($query);
+			$stmt->bindParam(":studentID",$studentID,PDO::PARAM_STR);
+			$stmt->bindParam(":courseID",$courseIDs[$i],PDO::PARAM_STR);
+			$stmt->bindParam(":date",$date,PDO::PARAM_STR);
+			$stmt->execute();
+		}
+		closeDB($dbc);
 	}
 
-	*/
 	function getCourseFee($class, $fee){
 		global $statusMap;
 		if(strcmp("CIS600A",$class)!=0 
@@ -35,6 +47,7 @@
 		$materialFee= $courseCnt * MATERIAL_FEE; 
 		$estimatedFee = 0;
 		$onlineCnt = 0;
+		$courseIDs = array();
 		echo "<h2>The information you provided in Pre-Registration:</h2><br>";
 		displayStudentInfo($sid, $dob);
 		echo "<h2>Selected Courses and Estimated Fee</h2>";
@@ -51,9 +64,10 @@
 				</tr>";
 		for($i=0;$i<$courseCnt;$i++){
 			// Split selected string to extract course information
-			// Class/Day/Time/Tuition/Title
+			// Class/Day/Time/Tuition/Title/CourseID
 			$tmp = explode("/",$selected[$i]);
 			$courseFee = getCourseFee($tmp[0], $tmp[3]);
+			array_push($courseIDs, $tmp[5]);
 			$estimatedFee+=$courseFee;
 			if(isOnline($tmp[0])){
 				$onlineCnt++;
@@ -74,9 +88,8 @@
 					<td align=\"center\"><strong>$totalFee</strong> </td></tr>";
 		echo "</table>";
 		//sendToOffice();
-		//saveToDB();
+		saveToDB($_SESSION["studentID"], $courseIDs);
 	}
-
 ?>
 <?php
 	ob_start();
@@ -95,8 +108,6 @@
 		!isset($_SESSION["selectedCourse"])){
 		exit("You don't have permission to access this page.");
 	}
-	
-	$selected = $_SESSION["selectedCourse"];
 	ob_flush();
 ?>
 <!DOCTYPE html>

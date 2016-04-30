@@ -84,7 +84,7 @@
 	function listCourseInfo($row){
 		$info = getCourseInfo($row["CLASS"]);
 		echo "<tr><td align=\"center\"><input type=\"checkbox\" name=\"selectedCourse[]\" 
-			value=\"".$row["CLASS"]."/".$row["DAYS"]."/".$row["TIMES"]."/".$row["TUITION"]."/".$row["TITLE"]."\"></td>".
+			value=\"".$row["CLASS"]."/".$row["DAYS"]."/".$row["TIMES"]."/".$row["TUITION"]."/".$row["TITLE"]."/".$row["CourseID"]."\"></td>".
 			"<td align=\"center\">".$row["CLASS"]."</td>". 
 			"<td align=\"center\">".$row["DAYS"]."</td>". 
 			"<td align=\"center\">".dateConvert($row["STARTS"])."</td>". 
