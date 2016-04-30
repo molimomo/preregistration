@@ -11,12 +11,24 @@
 		- EXAMINE			(in COURSEWAIVED table)
 		- DEGREE			(in COURSE table)
 	
-		* (constant in program)
+		* (constants in program)
 		- DISPLAY_CUR
 		- DISPLAY_TAKEN
 		- DISPLAY_WAIVED
 		- SEMESTER
+		- DOMESTIC_RATE
+		- INTERNATIONAL_RATE
+		- ONLINE_LAB_FEE
+		- ONSITE_LAB_FEE
+		- MATERIAL_FEE
 	*/
+
+	// Tuition Constants
+	define("DOMESTIC_RATE", 1);
+	define("INTERNATIONAL_RATE", 1.2);
+	define("ONLINE_LAB_FEE", 150.0);
+	define("ONSITE_LAB_FEE", 50.0);
+	define("MATERIAL_FEE", 5.0);
 
 	// Semester
 	define("SEMESTER","SPRING/2016");
@@ -40,25 +52,25 @@
 	$preDegree[10] = "Master of Industrial Technology and Operations";
 	
 	// Status
-	$status[0] = "Part-Time";
-	$status[1] = "";
-	$status[2] = "Full-Time";
-	$status[3] = "J-1";
-	$status[4] = "F-1";
-	$status[5] = "F-2";
-	$status[6] = "H-1";
-	$status[7] = "H-4";
-	$status[8] = "G-1";
-	$status[9] = "M-1";
-	$status[10] = "B-1";
-	$status[11] = "B-2";
-	$status[12] = "WITH DRAW";
-	$status[13] = "CPT";
-	$status[14] = "OPT";
-	$status[15] = "GREEN CARD";
-	$status[16] = "NOT IN US";
-	$status[17] = "OUT OF STATUS";
-	$status[18] = "OTHERS";
+	$statusMap[0] = "Part-Time";
+	$statusMap[1] = "";
+	$statusMap[2] = "Full-Time";
+	$statusMap[3] = "J-1";
+	$statusMap[4] = "F-1";
+	$statusMap[5] = "F-2";
+	$statusMap[6] = "H-1";
+	$statusMap[7] = "H-4";
+	$statusMap[8] = "G-1";
+	$statusMap[9] = "M-1";
+	$statusMap[10] = "B-1";
+	$statusMap[11] = "B-2";
+	$statusMap[12] = "WITH DRAW";
+	$statusMap[13] = "CPT";
+	$statusMap[14] = "OPT";
+	$statusMap[15] = "GREEN CARD";
+	$statusMap[16] = "NOT IN US";
+	$statusMap[17] = "OUT OF STATUS";
+	$statusMap[18] = "OTHERS";
 
 	// Waived Examine
 	$waivedType[0] = "Transferred waiver";	

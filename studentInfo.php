@@ -16,7 +16,7 @@
 	// Global varaibles for further usages
 	$sid = $_SESSION['sid'];
 	$dob = $_SESSION['dob'];
-	$firstname = $lastname = $program = "";	
+	$firstname = $lastname = $program = $status = $studentID = "";	
 	$curCourse = array();		// Array to store student's current courses
     $takenCourse = array();		// Array to store student's taken courses
     $waivedCourse = array();	// Array to store student's waived courses
@@ -43,6 +43,10 @@
 			$_SESSION["lastname"] = $_POST["lastname"];
 			$_SESSION["selectedCourse"] = $_POST["selectedCourse"];
 			$_SESSION["comments"] = $_POST["comments"];
+			$_SESSION["status"] = $_POST["status"];
+			$_SESSION["dob"] = $_POST["dob"];
+			$_SESSION["studentID"] = $_POST["studentID"];	// PK in database
+			$_SESSION["sid"] = $_POST["sid"];				// Format: SXXXX
 			header("Location: processForm.php");
 		}
 	}
@@ -57,7 +61,7 @@
 <body>
 	<p>
 		<h1>Pre-register for Courses</h1>
-		<?php displayStudentInfo(); ?>
+		<?php displayStudentInfo($sid, $dob); ?>
 	</p>
 	<p>
 		<h2>History</h2>

@@ -3,7 +3,8 @@
 	require_once "valueMapping.php";
 
 
-	// Convert Time to Slot
+	// Convert Time to Slot 
+	// (Morning, Evening, Night, N/A)
 	function convertToSlot($time){
 		if(empty(trim($time))){
 			return "N/A";
@@ -82,7 +83,8 @@
 	// Display a single course information in pre-registration form
 	function listCourseInfo($row){
 		$info = getCourseInfo($row["CLASS"]);
-		echo "<tr><td align=\"center\"><input type=\"checkbox\" name=\"selectedCourse[]\" value=\"".$row["CLASS"]."/".$row["DAYS"]."/".$row["TIMES"]."\"></td>".
+		echo "<tr><td align=\"center\"><input type=\"checkbox\" name=\"selectedCourse[]\" 
+			value=\"".$row["CLASS"]."/".$row["DAYS"]."/".$row["TIMES"]."/".$row["TUITION"]."/".$row["TITLE"]."\"></td>".
 			"<td align=\"center\">".$row["CLASS"]."</td>". 
 			"<td align=\"center\">".$row["DAYS"]."</td>". 
 			"<td align=\"center\">".dateConvert($row["STARTS"])."</td>". 
@@ -96,7 +98,7 @@
 
 	// Display Pre-Registration Form
 	function displayPreregistrationForm(){
-		global $firstname, $lastname;
+		global $firstname, $lastname, $sid, $dob,$status, $studentID;
 		$semester = SEMESTER;
 		$dbc = connectToDB();
 		$query = "SELECT *
@@ -136,6 +138,10 @@
 		echo "</table>
 		<input type=\"hidden\" name=\"firstname\" value=\"".$firstname."\"".">".
 		"<input type=\"hidden\" name=\"lastname\" value=\"".$lastname."\"".">".
+		"<input type=\"hidden\" name=\"studentID\" value=\"".$studentID."\"".">".
+		"<input type=\"hidden\" name=\"status\" value=\"".$status."\"".">".
+		"<input type=\"hidden\" name=\"sid\" value=\"".$sid."\"".">".
+		"<input type=\"hidden\" name=\"dob\" value=\"".$dob."\"".">".
 		"</form>";
 	}
 
@@ -144,7 +150,7 @@
 		global $program;
 		$dbc = connectToDB();
 		$query = "SELECT *
-					FROM ALL$ 
+					FROM COURSE_CATALOG 
 					WHERE CODE=:cid";
 		$stmt = $dbc->prepare($query);
 		$stmt->bindParam(":cid",$cid,PDO::PARAM_STR);
@@ -306,8 +312,8 @@
 	}
 
 	// Display student's personal information 
-	function displayStudentInfo(){
-		global $sid, $dob, $firstname, $lastname, $program, $preEducation, $preDegree;
+	function displayStudentInfo($sid, $dob){
+		global $firstname, $lastname, $program, $preEducation, $preDegree, $status, $studentID;
 		$dbc = connectToDB();
 		$query = "SELECT * FROM STUDENT WHERE ID=:sid";
 		$stmt = $dbc->prepare($query);
@@ -319,7 +325,8 @@
 			$firstname = $result["FIRSTNAME"];
 			$lastname = $result["LASTNAME"];
 			$program = $result["PROGRAM"];
-
+			$status = $result["STATUS"];
+			$studentID = $result["StudentID"];
 			// Display Student's Personal Information
 			echo "<h2>Profile</h2>
 				<table width=\"100%\" align=\"left\">
