@@ -92,7 +92,7 @@
 					<td colspan=\"4\"><strong>".$_SESSION["changeMajor"]."</strong></td></tr>";
 		echo "</table>";
 		//sendToOffice();
-		//saveToDB($_SESSION["studentID"], $courseIDs);
+		saveToDB($_SESSION["studentID"], $courseIDs);
 	}
 ?>
 <?php
