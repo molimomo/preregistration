@@ -86,9 +86,13 @@
 					$onlineCnt. " Online courses * $".ONLINE_LAB_FEE."</td><td align=\"center\">". $labFee ."</td></tr>";
 		echo "<tr><td align=\"right\" colspan=\"4\"><strong>Total:</strong></td>
 					<td align=\"center\"><strong>$totalFee</strong> </td></tr>";
+		echo "<tr><td align=\"center\"><strong>Comments:</strong></td>
+					<td colspan=\"4\">".$_SESSION["comments"]."</td></tr>";
+		echo "<tr><td align=\"center\"><strong>Considering Changing Major?:</strong></td>
+					<td colspan=\"4\"><strong>".$_SESSION["changeMajor"]."</strong></td></tr>";
 		echo "</table>";
 		//sendToOffice();
-		saveToDB($_SESSION["studentID"], $courseIDs);
+		//saveToDB($_SESSION["studentID"], $courseIDs);
 	}
 ?>
 <?php
@@ -102,9 +106,9 @@
 
 	if(!isset($_SESSION["firstname"]) ||
 		!isset($_SESSION["lastname"]) ||
-		!isset($_SESSION["comments"]) ||
 		!isset($_SESSION["studentID"]) ||
 		!isset($_SESSION["status"]) ||
+		!isset($_SESSION["changeMajor"]) ||
 		!isset($_SESSION["selectedCourse"])){
 		exit("You don't have permission to access this page.");
 	}
@@ -116,7 +120,7 @@
 		<title>Pre-Registration Completed Page </title>
 	</head>
 	<body>
-		<h1 align="center">Pre-registration Form Successfully Submitted </h1>
+		<h1 align="center" style="color:red">Pre-registration Form Successfully Submitted </h1>
 		<p>
 			<?php displayResult(); ?>
 		</p>

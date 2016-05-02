@@ -42,10 +42,11 @@
 			$_SESSION["firstname"] = $_POST["firstname"];
 			$_SESSION["lastname"] = $_POST["lastname"];
 			$_SESSION["selectedCourse"] = $_POST["selectedCourse"];
-			$_SESSION["comments"] = $_POST["comments"];
+			$_SESSION["comments"] = santitizeString($_POST["comments"]);
 			$_SESSION["status"] = $_POST["status"];
+			$_SESSION["changeMajor"] = ($_POST["changeMajor"]==1)?"YES":"No";
 			$_SESSION["dob"] = $_POST["dob"];
-			$_SESSION["studentID"] = $_POST["studentID"];	// PK in database
+			$_SESSION["studentID"] = $_POST["studentID"];	// PK in STUDENT table
 			$_SESSION["sid"] = $_POST["sid"];				// Format: SXXXX
 			header("Location: processForm.php");
 		}
