@@ -1,7 +1,10 @@
 <?php
 	require_once "commonUtil.php";
 	require_once "valueMapping.php";
+	require_once "PHPMailer/PHPMailerAutoload.php";
 
+	// Include SMTP account login information
+	require_once "loginSMTP.php";
 
 	// Convert Time to Slot 
 	// (Morning, Evening, Night, N/A)
@@ -334,7 +337,7 @@
 			$status = $result["STATUS"];
 			$studentID = $result["StudentID"];
 			// Display Student's Personal Information
-			echo "<h2>Profile</h2>
+			$info ="<h2>Profile</h2>
 				<table width=\"100%\" align=\"left\">
 				<tr align=\"left\">
 					<th><strong>First Name</strong></th>
@@ -384,6 +387,8 @@
 						.$result["CITY"].", ".$result["STATE"].", ".$result["ZIP"]."</td>
 				</tr>
 			</table>";	
+		echo $info;
+		return $info;
 		}
 		else{
 			exit("Cannot find Student Information");

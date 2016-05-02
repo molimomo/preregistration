@@ -21,10 +21,6 @@
 			}
 			//echo $row["CourseCnt"]."<br>";
 		}	
-
-
-
-
 	}
 	
 	function listPreRegistedStudents(){

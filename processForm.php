@@ -1,8 +1,26 @@
 <?php
-	/*function sendEmailToOffice(){
-
+	function sendEmailToOffice($studentInfo, $selectedInfo){
+		$mail = new PHPMailer;
+		$comment = $_SESSION["comments"];
+		$changeMajor = $_SESSION["changeMajor"];
+		$mail->isSMTP();            // Set mailer to use SMTP
+    	$mail->SMTPDebug = mailDebugLevel;
+   	 	$mail->Host = mailHost;
+    	$mail->SMTPAuth = true;         // Enable SMTP authentication
+    	$mail->Username = mailUsername;
+    	$mail->Password = mailPassword;
+    	$mail->SMTPSecure = mailSMTPSecure;
+    	$mail->Port = mailPort;
+    	$mail->setFrom(mailUsername,"KSI Preregistration");
+    	$mail->addAddress(mailRecipient);
+    	$mail->isHTML(true);            // Set email format to HTML
+    	$mail->Subject = 'KSI pre-registration from submitted';
+    	$mailBody =	$studentInfo.$selectedInfo;
+		$mail->Body    = $mailBody;
+    	$mail->AltBody = $mailBody;
+    	return ($mail->Send());	
 	}
-	*/
+	
 
 	// Save StudentID and CourseID into database
 	function saveToDB($studentID, $courseIDs){
@@ -48,14 +66,15 @@
 		$estimatedFee = 0;
 		$onlineCnt = 0;
 		$courseIDs = array();
+		$selectedInfo ="";
 		echo "<h2>The information you provided in Pre-Registration:</h2><br>";
-		displayStudentInfo($sid, $dob);
-		echo "<h2>Selected Courses and Estimated Fee</h2>";
-		echo "<table width=\"100%\" align=\"center\" border=\"1\">";
-		echo "<tr>
+		$studentInfo = displayStudentInfo($sid, $dob);
+		$selectedInfo ="<h2>Selected Courses and Estimated Fee</h2>";
+		$selectedInfo.= "<table width=\"100%\" align=\"center\" border=\"1\">";
+		$selectedInfo.= "<tr>
 				<th colspan=\"5\">Item</th>
 				</tr>";
-		echo "<tr>
+		$selectedInfo.= "<tr>
 				<th>Class</th>
 				<th>Title</th>
 				<th>Day</th>
@@ -72,27 +91,28 @@
 			if(isOnline($tmp[0])){
 				$onlineCnt++;
 			}
-			echo "<tr>
+			$selectedInfo.= "<tr>
 					<td align=\"center\">".$tmp[0]."</td><td>".$tmp[4]."</td><td align=\"center\">".$tmp[1]."</td><td align=\"center\">".$tmp[2]."</td>";
-			echo "<td align=\"center\">". $courseFee ."</td></tr>";
+			$selectedInfo.= "<td align=\"center\">". $courseFee ."</td></tr>";
 		}
-		echo "<tr><td align=\"right\" colspan=\"4\">Material Fee: ".$courseCnt." courses * $".MATERIAL_FEE."</td>
+		$selectedInfo.= "<tr><td align=\"right\" colspan=\"4\">Material Fee: ".$courseCnt." courses * $".MATERIAL_FEE."</td>
 				<td align=\"center\">". $materialFee ."</td></tr>";
 		$labFee = $onlineCnt * ONLINE_LAB_FEE + ONSITE_LAB_FEE;
 		$totalFee = $estimatedFee + $materialFee + $labFee;
-		echo "<tr>
+		$selectedInfo.= "<tr>
 				<td align=\"right\" colspan=\"4\">Lab Fee: ".($courseCnt-$onlineCnt).
 					" Onsite courses - $".ONSITE_LAB_FEE." + ".
 					$onlineCnt. " Online courses * $".ONLINE_LAB_FEE."</td><td align=\"center\">". $labFee ."</td></tr>";
-		echo "<tr><td align=\"right\" colspan=\"4\"><strong>Total:</strong></td>
+		$selectedInfo.= "<tr><td align=\"right\" colspan=\"4\"><strong>Total:</strong></td>
 					<td align=\"center\"><strong>$totalFee</strong> </td></tr>";
-		echo "<tr><td align=\"center\"><strong>Comments:</strong></td>
+		$selectedInfo.= "<tr><td align=\"center\"><strong>Comments:</strong></td>
 					<td colspan=\"4\">".$_SESSION["comments"]."</td></tr>";
-		echo "<tr><td align=\"center\"><strong>Considering Changing Major?:</strong></td>
+		$selectedInfo.= "<tr><td align=\"center\"><strong>Considering Changing Major?:</strong></td>
 					<td colspan=\"4\"><strong>".$_SESSION["changeMajor"]."</strong></td></tr>";
-		echo "</table>";
-		//sendToOffice();
-		saveToDB($_SESSION["studentID"], $courseIDs);
+		$selectedInfo.= "</table>";
+		echo $selectedInfo;
+		sendEmailToOffice($studentInfo, $selectedInfo);
+		//saveToDB($_SESSION["studentID"], $courseIDs);
 	}
 ?>
 <?php
@@ -126,9 +146,3 @@
 		</p>
 	</body>
 </html>
-
-
-
-
-
-
