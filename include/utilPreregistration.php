@@ -48,7 +48,8 @@
 					$slot1 = convertToSlot($courseTime[$i][2]);
 					$slot2 = convertToSlot($courseTime[$j][2]);
 					if(($slot1 == $slot2) && ($slot1!="N/A")){
-						return $selected[$i]." & ".$selected[$j];
+						return $courseTime[$i][0]."/".$courseTime[$i][1]."/".$courseTime[$i][2].
+								" and ".$courseTime[$j][0]."/".$courseTime[$j][1]."/".$courseTime[$j][2];
 					}
 				}
 			}
@@ -191,7 +192,6 @@
 				 		ORDER BY course.STARTS";
 	}
 	
-	
 	// Get Query for selecting taken courses
 	function getTakenQuery(){
 		return "SELECT DISTINCT reg.CLASS, reg.GRADE, course.STARTS, course.TITLE 
@@ -211,35 +211,6 @@
 					WHERE FIRSTNAME=:firstname
 						AND LASTNAME=:lastname";
 	}
-
-	// Get Course Level	
-	/*function getLevel($cid){
-		// Check the last character of class id
-		if(!is_numeric(substr($cid,-1)))
-			return 500;
-		
-		// Check the last 3 characters
-		return (intval(substr($cid,-3))>400)?500:300;	
-	}*/
-	function getLevel(){
-
-	}
-
-	function displayRecords(){
-		global $curCourse, $takenCourse, $waivedCourse;
-		echo "current records:<br>";
-		foreach($curCourse as $course=>$grade){
-			echo $course." - ".$grade."<br>";
-		}
-		echo "taken records:<br>";
-		foreach($takenCourse as $course=>$grade){
-			echo $course." - ".$grade."<br>";
-		}
-		echo "waived records:<br>";
-		foreach($waivedCourse as $course=>$grade){
-			echo $course." - ".$grade."<br>";
-		}
-	}		
 
 	// Display student's course history
 	function displayHistory(){
@@ -307,7 +278,7 @@
 						echo "<td align=\"center\">".$row["GRADE"]."</td>";
 						echo "<td align=\"center\">".dateConvert($row["STARTS"])."</td>";
 					}
-					echo "<td>".$info["CORE"]."</td>";
+					echo "<td align=\"center\">".$info["CORE"]."</td>";
 					echo "<td align=\"center\">".$info["AREA"]."</td>";
 					echo "<td>".$info["PREREQUISITE"]."</td>";
 					echo "</tr>";
@@ -394,6 +365,22 @@
 			exit("Cannot find Student Information");
 		} 
 	}
+
+	// Check whether student already submitted pre-regiatration.
+	function isRegistered($sid){
+		$dbc = connectToDB();
+		$query = "SELECT * 
+					FROM PRE_REGISTER 
+					WHERE StudentID=(SELECT StudentID 
+										FROM STUDENT
+										WHERE ID=:sid)";
+		$stmt = $dbc->prepare($query);
+		$stmt->bindParam(':sid',$sid,PDO::PARAM_STR);
+		$stmt->execute();
+		closeDB($dbc);
+		return ($row = $stmt->fetch(PDO::FETCH_ASSOC));
+	}
+
 	// Check the Date of Birth is match or not
     function isMatch($sid, $dob){
 		$dbc = connectToDB();

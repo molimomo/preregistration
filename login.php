@@ -24,10 +24,16 @@
 			$errDate = "Invalid Date!<br>";
 		}	
 
-		// Check the existence of user
+		// Check the existence of student
 		if(!isValid($sid, $dob)){
 			$errMsg = "Cannot find this record! Please check again!";
 		}
+
+		// Check whether the student is registered
+		//if(isRegistered($sid)){
+		//	$errMsg = "You are already registered, please contact KSI office if you want to update your previous submission!";
+		//}
+
 
 		// Submit user's information to handling page
 		if(empty($errSID) && empty($errDate) && empty($errMsg)){
