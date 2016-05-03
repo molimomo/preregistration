@@ -39,8 +39,6 @@
 		// Submit Form
 		if(empty($errMsg)){
 			session_start();
-			$_SESSION["firstname"] = $_POST["firstname"];
-			$_SESSION["lastname"] = $_POST["lastname"];
 			$_SESSION["selectedCourse"] = $_POST["selectedCourse"];
 			$_SESSION["comments"] = santitizeString($_POST["comments"]);
 			$_SESSION["status"] = $_POST["status"];

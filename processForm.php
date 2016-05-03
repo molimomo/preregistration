@@ -38,6 +38,7 @@
 		closeDB($dbc);
 	}
 
+	// Get tuition fee according to class and status.
 	function getCourseFee($class, $fee){
 		global $statusMap;
 		if(strcmp("CIS600A",$class)!=0 
@@ -52,6 +53,7 @@
 		return $fee * $rate;
 	}
 
+	// Check whether the class is online or not
 	function isOnline($class){
 		return (substr($class, -1) == 'X');
 	}
@@ -124,9 +126,7 @@
 		session_start();
 	}		
 
-	if(!isset($_SESSION["firstname"]) ||
-		!isset($_SESSION["lastname"]) ||
-		!isset($_SESSION["studentID"]) ||
+	if(!isset($_SESSION["studentID"]) ||
 		!isset($_SESSION["status"]) ||
 		!isset($_SESSION["changeMajor"]) ||
 		!isset($_SESSION["selectedCourse"])){

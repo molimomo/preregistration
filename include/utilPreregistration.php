@@ -108,7 +108,7 @@
 		$query = "SELECT *
 					FROM COURSE
 					WHERE SEMESTER=:semester
-					ORDER BY TIMES";
+					ORDER BY CLASS";
 		$stmt = $dbc->prepare($query);
 		$stmt->bindParam(":semester",$semester,PDO::PARAM_STR);
 		$stmt->execute();
@@ -146,9 +146,7 @@
 					<td colspan=\"10\" align=\"center\"><input type=\"submit\" name=\"submit\" id=\"submit\" value=\"submit\"></td>
 				</tr>";
 		echo "</table>
-		<input type=\"hidden\" name=\"firstname\" value=\"".$firstname."\"".">".
-		"<input type=\"hidden\" name=\"lastname\" value=\"".$lastname."\"".">".
-		"<input type=\"hidden\" name=\"studentID\" value=\"".$studentID."\"".">".
+		<input type=\"hidden\" name=\"studentID\" value=\"".$studentID."\"".">".
 		"<input type=\"hidden\" name=\"status\" value=\"".$status."\"".">".
 		"<input type=\"hidden\" name=\"sid\" value=\"".$sid."\"".">".
 		"<input type=\"hidden\" name=\"dob\" value=\"".$dob."\"".">".
@@ -308,7 +306,7 @@
 			$status = $result["STATUS"];
 			$studentID = $result["StudentID"];
 			// Display Student's Personal Information
-			$info ="<h2>Profile</h2>
+			$studentInfo ="<h2>Profile</h2>
 				<table width=\"100%\" align=\"left\">
 				<tr align=\"left\">
 					<th><strong>First Name</strong></th>
@@ -358,8 +356,8 @@
 						.$result["CITY"].", ".$result["STATE"].", ".$result["ZIP"]."</td>
 				</tr>
 			</table>";	
-		echo $info;
-		return $info;
+		echo $studentInfo;
+		return $studentInfo;
 		}
 		else{
 			exit("Cannot find Student Information");
