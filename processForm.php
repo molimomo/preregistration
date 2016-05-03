@@ -111,6 +111,10 @@
 					<td colspan=\"4\">".$_SESSION["comments"]."</td></tr>";
 		$selectedInfo.= "<tr><td align=\"center\"><strong>Considering Changing Major?:</strong></td>
 					<td colspan=\"4\"><strong>".$_SESSION["changeMajor"]."</strong></td></tr>";
+		$selectedInfo.= "<tr><td align=\"center\"><strong>Address Changed?:</strong></td>
+					<td colspan=\"4\"><strong>".$_SESSION["changeAddr"]." ".$_SESSION["newAddr"]."</strong></td></tr>";
+		$selectedInfo.= "<tr><td align=\"center\"><strong>Phone Changed?:</strong></td>
+					<td colspan=\"4\"><strong>".$_SESSION["changePhone"]." ".$_SESSION["newPhone"]."</strong></td></tr>";
 		$selectedInfo.= "</table>";
 		echo $selectedInfo;
 		sendEmailToOffice($studentInfo, $selectedInfo);

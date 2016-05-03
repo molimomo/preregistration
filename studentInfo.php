@@ -42,8 +42,12 @@
 			$_SESSION["selectedCourse"] = $_POST["selectedCourse"];
 			$_SESSION["comments"] = santitizeString($_POST["comments"]);
 			$_SESSION["status"] = $_POST["status"];
-			$_SESSION["changeMajor"] = ($_POST["changeMajor"]==1)?"YES":"No";
+			$_SESSION["changeMajor"] = ($_POST["changeMajor"]==1)?"YES":"NO";
+			$_SESSION["changeAddr"] = ($_POST["changeAddr"]==1)?"YES":"NO";
+			$_SESSION["changePhone"] = ($_POST["changePhone"]==1)?"YES":"NO";
 			$_SESSION["dob"] = $_POST["dob"];
+			$_SESSION["newAddr"] = santitizeString($_POST["newAddr"]);
+			$_SESSION["newPhone"] = santitizeString($_POST["newPhone"]);
 			$_SESSION["studentID"] = $_POST["studentID"];	// PK in STUDENT table
 			$_SESSION["sid"] = $_POST["sid"];				// Format: SXXXX
 			header("Location: processForm.php");

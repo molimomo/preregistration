@@ -142,8 +142,26 @@
 					No<input type=\"radio\" name=\"changeMajor\" value=\"0\" checked=\"checked\"> 
 					</td>
 				</tr>
-				<tr>
-					<td colspan=\"10\" align=\"center\"><input type=\"submit\" name=\"submit\" id=\"submit\" value=\"submit\"></td>
+			<tr>
+				<td colspan=\"2\">Has your address changed?
+					Yes<input type=\"radio\" name=\"changeAddr\" value=\"1\"> 
+					No<input type=\"radio\" name=\"changeAddr\" value=\"0\" checked=\"checked\"> 
+				</td>
+				<td colspan=\"8\">				   
+					If Yes, please enter your new address: <input type=\"text\" name=\"newAddr\" id=\"newAddr\" size=\"100\">
+				</td>
+				</tr>
+			<tr>
+				<td colspan=\"2\">Has your phone changed?
+					Yes<input type=\"radio\" name=\"changePhone\" value=\"1\"> 
+					No<input type=\"radio\" name=\"changePhone\" value=\"0\" checked=\"checked\"> 
+				</td>
+				<td colspan=\"8\">				   
+					If Yes, please enter your new phone number: <input type=\"text\" name=\"newPhone\" id=\"newPhone\" size=\"100\">
+				</td>
+				</tr>
+			<tr>
+				<td colspan=\"10\" align=\"center\"><input type=\"submit\" name=\"submit\" id=\"submit\" value=\"submit\"></td>
 				</tr>";
 		echo "</table>
 		<input type=\"hidden\" name=\"studentID\" value=\"".$studentID."\"".">".
