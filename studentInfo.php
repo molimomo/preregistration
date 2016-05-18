@@ -17,9 +17,19 @@
 	$sid = $_SESSION['sid'];
 	$dob = $_SESSION['dob'];
 	$firstname = $lastname = $program = $status = $studentID = "";	
-	$curCourse = array();		// Array to store student's current courses
-    $takenCourse = array();		// Array to store student's taken courses
-    $waivedCourse = array();	// Array to store student's waived courses
+	
+	// Array to store student's current courses
+	$curCourse = array();		
+	
+	// Array to store student's taken courses
+    $takenCourse = array();		
+	
+	// Array to store student's waived courses
+    $waivedCourse = array();
+
+	// Array to store course and its prerequitsite
+	$prerequisiteInfo = array();
+
 
 	// Error messages for PHP validation
 	$errMsg="";	
@@ -27,6 +37,8 @@
 	// Form Submission
 	if($_SERVER["REQUEST_METHOD"]=="POST"){
 		//Validation for selected courses
+		
+		// 1. Empty selection
 		if(!isset($_POST["selectedCourse"])){
 			$errMsg.="You have to select at least 1 course!<br>";
 		}
@@ -36,8 +48,12 @@
 				$errMsg.="You have conflict schedule! ".$conflict."<br>";
 			}
 		}
+
+		// 2. Check Pre-Requisite
+		$errMsg .= checkPrerequitsite($_POST["selectedCourse"]);
+
 		// Submit Form
-		if(empty($errMsg)){
+	/*	if(empty($errMsg)){
 			session_start();
 			$_SESSION["selectedCourse"] = $_POST["selectedCourse"];
 			$_SESSION["comments"] = santitizeString($_POST["comments"]);
@@ -51,7 +67,7 @@
 			$_SESSION["studentID"] = $_POST["studentID"];	// PK in STUDENT table
 			$_SESSION["sid"] = $_POST["sid"];				// Format: SXXXX
 			header("Location: processForm.php");
-		}
+		}*/
 	}
 	ob_flush();
 ?>
@@ -68,7 +84,7 @@
 	</p>
 	<p>
 		<h2>History</h2>
-		<?php displayHistory()?>
+		<?php displayHistory();?>
 	</p>
 	<p>
 		<h2>Pre-Registration</h2>

@@ -4,21 +4,21 @@
 		$comment = $_SESSION["comments"];
 		$changeMajor = $_SESSION["changeMajor"];
 		$mail->isSMTP();            // Set mailer to use SMTP
-    		$mail->SMTPDebug = mailDebugLevel;
+    	$mail->SMTPDebug = mailDebugLevel;
    	 	$mail->Host = mailHost;
-    		$mail->SMTPAuth = true;         // Enable SMTP authentication
-    		$mail->Username = mailUsername;
-    		$mail->Password = mailPassword;
-    		$mail->SMTPSecure = mailSMTPSecure;
-    		$mail->Port = mailPort;
-    		$mail->setFrom(mailUsername,"KSI Preregistration");
-    		$mail->addAddress(mailRecipient);
-    		$mail->isHTML(true);            // Set email format to HTML
-    		$mail->Subject = 'New pre-registration form submitted';
-    		$mailBody =	$studentInfo.$selectedInfo;
+		$mail->SMTPAuth = true;         // Enable SMTP authentication
+		$mail->Username = mailUsername;
+		$mail->Password = mailPassword;
+		$mail->SMTPSecure = mailSMTPSecure;
+		$mail->Port = mailPort;
+		$mail->setFrom(mailUsername,"KSI Preregistration");
+		$mail->addAddress(mailRecipient);
+		$mail->isHTML(true);            // Set email format to HTML
+		$mail->Subject = 'New pre-registration form submitted';
+		$mailBody =	$studentInfo.$selectedInfo;
 		$mail->Body    = $mailBody;
-    		$mail->AltBody = $mailBody;
-    		return ($mail->Send());	
+    	$mail->AltBody = $mailBody;
+    	return ($mail->Send());	
 	}
 	
 
@@ -53,11 +53,6 @@
 		return $fee * $rate;
 	}
 
-	// Check whether the class is online or not
-	function isOnline($class){
-		return (substr($class, -1) == 'X');
-	}
-	
 	// Display the result that student 
 	function displayResult(){
 		$selected = $_SESSION["selectedCourse"];

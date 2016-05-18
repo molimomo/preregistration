@@ -6,6 +6,54 @@
 	// Include SMTP account login information
 	require_once "loginSMTP.php";
 
+	// Check prerequisite courses with "or" delimiter
+	function checkPreOr($courses){
+
+	}
+
+	// Check prerequisite courses with "and" delimiter
+	function checkPreAnd($courses){
+
+	}
+
+	// Check Prerequitsite Courses
+	function checkPrerequitsite($selected){
+		$dbc = connectToDB();
+		$query = "SELECT PREREQUISITE
+					FROM COURSE_CATALOG
+					WHERE CODE=:code";
+		$stmt = $dbc->prepare($query);
+		$stmt->bindParam(':code', $code);
+		$result = "";
+
+		foreach($selected as $sel){
+			$tmp = explode("/",$sel);
+			$code = $tmp[0];
+			echo $code;
+			$stmt->execute();
+			if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+				$prerequisite = $row["PREREQUISITE"];
+				echo " - pre: ".$prerequisite."<br>";
+				
+				if(strpos(" or ", $prerequisite)!==false){
+					checkPreOr($prerequisite);
+				}
+				else if(strpos(" and ", $prerequisite)!==false){
+					checkPreAnd($prerequisite);
+				}
+				else{
+					checkHistory($prerequisite);	
+				}
+			}
+			else{
+				echo " - Got nothing!<br>";
+			}
+		}
+		closeDB($dbc);
+		return $result; 
+	}	
+
+
 	// Convert Time to Slot 
 	// (Morning, Evening, Night, N/A)
 	function convertToSlot($time){
@@ -77,19 +125,55 @@
 		}
 
 		// Check Distance Learning Course
-		if($cid[strlen($cid)-1] === 'X'){
+		if(isOnline($cid)){
 			$notes .= "Distance Learning";
 		}
 		
 		return $notes;
 	}
+	
+	// Check Course is online or not
+	function isOnline($cid){
+		return ($cid[strlen($cid)-1] === 'X');
+	}
+
+	// Check visa status
+	function isInternational(){
+		global $status, $statusMap;
+		return strcmp($statusMap[$status],"GREEN CARD") != 0;
+	}
+
+	// Check the ability of courses
+	// 0: Available
+	// 1: International student cannot select online courses
+	// 2: Student has undone prerequisite courses
+	function checkAvailability($course){
+		// Check visa status
+		if(isInternational() && isOnline($course)){
+			return 1;
+		}	
+
+		// Check prerequistise
+		$preCheck = checkPrerequitsite($course);
+		if(!empty($preCheck)){
+			return 2;
+		}
+		return 0;	
+	} 
 
 	// Display a single course information in pre-registration form
 	function listCourseInfo($row){
+		global $status, $statusMap;
+		$isInternational = (strcmp($statusMap[$status],"GREEN CARD") != 0);
 		$info = getCourseInfo($row["CLASS"]);
-		echo "<tr><td align=\"center\"><input type=\"checkbox\" name=\"selectedCourse[]\" 
-			value=\"".$row["CLASS"]."/".$row["DAYS"]."/".$row["TIMES"]."/".$row["TUITION"]."/".$row["TITLE"]."/".$row["CourseID"]."\"></td>".
-			"<td align=\"center\">".$row["CLASS"]."</td>". 
+		if( ($isInternational === true) && (isOnline($row["CLASS"]))){
+			echo "<tr><td></td>" ;
+		}
+		else{
+			echo "<tr><td align=\"center\"><input type=\"checkbox\" name=\"selectedCourse[]\" 
+			value=\"".$row["CLASS"]."/".$row["DAYS"]."/".$row["TIMES"]."/".$row["TUITION"]."/".$row["TITLE"]."/".$row["CourseID"]."\"></td>";
+		}
+		echo "<td align=\"center\">".$row["CLASS"]."</td>". 
 			"<td align=\"center\">".$row["DAYS"]."</td>". 
 			"<td align=\"center\">".dateConvert($row["STARTS"])."</td>". 
 			"<td align=\"center\">".$row["TIMES"]."</td>". 
@@ -98,11 +182,15 @@
 			"<td align=\"center\">".$info["AREA"]."</td>". 
 			"<td>".$info["PREREQUISITE"]."</td>".
 			"<td align=\"center\" id=\"notes\">".getNotes($row["CLASS"])."</td><tr>";	
+		//$prerequisiteInfo[$row["CLASS"]] = $info["PREREQUISITE"];
+		//echo"size of pre: ".count($prerequisiteInfo)."<br>";
 	}
 
 	// Display Pre-Registration Form
 	function displayPreregistrationForm(){
-		global $firstname, $lastname, $sid, $dob,$status, $studentID;
+		global $firstname, $lastname, 
+				$sid, $dob,$status, 
+				$studentID, $prerequisiteInfo;
 		$semester = SEMESTER;
 		$dbc = connectToDB();
 		$query = "SELECT *
@@ -132,7 +220,7 @@
 			listCourseInfo($row);	
 		} 
 		echo "<tr>
-				<td align=\"center\">Comments:</td>
+				<td align=\"center\" colspan=\"2\">Comments or Special Request:</td>
 				<td colspan=\"4\"><textarea name=\"comments\" id=\"comments\" cols=\"75\" rows=\"5\"></textarea></td>
 				<td colspan=\"5\"><b><u>This form does not confirm your registration to the selected courses: please await confirmation via email from an Academic Advisor or Administrative Officer. If you still have question, please contact KSI Office: office@ksi.edu, (847) 679-3135</u></b></td>
 			   </tr>
@@ -168,6 +256,7 @@
 		"<input type=\"hidden\" name=\"status\" value=\"".$status."\"".">".
 		"<input type=\"hidden\" name=\"sid\" value=\"".$sid."\"".">".
 		"<input type=\"hidden\" name=\"dob\" value=\"".$dob."\"".">".
+		"<input type=\"hidden\" name=\"prerequisiteInfo\" value=\"".$prerequisiteInfo."\"".">".
 		"</form>";
 	}
 
@@ -175,7 +264,7 @@
 	function getCourseInfo($cid){
 		global $program;
 		$dbc = connectToDB();
-		$query = "SELECT *
+		$query = "SELECT TITLE, CORE, AREA, PREREQUISITE
 					FROM COURSE_CATALOG 
 					WHERE CODE=:cid";
 		$stmt = $dbc->prepare($query);
@@ -183,8 +272,8 @@
 		$stmt->execute();
 		closeDB($dbc);
 		if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$row["CORE"] = (strpos($row["CORE"],$program)!==false)?'V':"";
-			$row["AREA"] = (strpos($row["AREA"],$program)!==false)?'V':"";
+			$row["CORE"] = (strpos($row["CORE"],$program)!==false)?'X':"";
+			$row["AREA"] = (strpos($row["AREA"],$program)!==false)?'X':"";
 			return $row;
 		}
 	}
@@ -238,7 +327,7 @@
 
 	// General Function to display Courses 
 	function displayCourse($display){
-		global $firstname, $lastname;
+		global $firstname, $lastname, $prerequisite;
 		$record = array();
 		$dbc = connectToDB();
 		$query = "";
@@ -296,7 +385,8 @@
 					}
 					echo "<td align=\"center\">".$info["CORE"]."</td>";
 					echo "<td align=\"center\">".$info["AREA"]."</td>";
-					echo "<td>".$info["PREREQUISITE"]."</td>";
+					//echo "<td>".$info["PREREQUISITE"]."</td>";
+					echo "<td>".$prerequisite[$row["CLASS"]]."</td>";
 					echo "</tr>";
 				}
 				echo "</table>";
@@ -367,10 +457,14 @@
 					<td>".$preDegree[$result["PRE_DEGREE"]]."</td>
 				</tr>
 				<tr align=\"left\">
-					<th colspan=\"3\"><strong>Address</strong></th>
+					<th><strong>Advisor</strong></th>
+					<th><strong>Thesis Advisor</strong></th>
+					<th><strong>Address</strong></th>
 				</tr>
 				<tr align=\"left\">
-					<td colspan=\"3\">".$result["STREET"].", "
+					<td>".$result["ADVISOR"]."</td>
+					<td>".$result["THESIS_ADVISOR"]."</td>
+					<td>".$result["STREET"].", "
 						.$result["CITY"].", ".$result["STATE"].", ".$result["ZIP"]."</td>
 				</tr>
 			</table>";	
