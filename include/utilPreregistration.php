@@ -8,16 +8,42 @@
 
 	// Check prerequisite courses with "or" delimiter
 	function checkPreOr($courses){
-
+		$pCourses = explode(" or ", $courses);
+		for($i=0;$i<count($pCourses);$i++){
+			if(isInHistory($pCourses[$i])){
+				return "";
+			}
+		}
+		return $courses;
 	}
 
 	// Check prerequisite courses with "and" delimiter
 	function checkPreAnd($courses){
+		$pCourses = explode(" and ", $courses);
+		for($i=0;$i<count($pCourses);$i++){
+			if(!isInHistory($pCourses[$i])){
+				return $courses;
+			}
+		}
+	}
 
+	// Check student's history with prerequisite courses
+	function isInHistory($course){
+		global $takenCourse, $waivedCourse;
+		//echo "# of waived: ".count($waivedCourse)."<br>";
+		// Check Waived Course and Taken Courses
+		/*if(array_key_exists($course, $waivedCourse)){
+			echo "exist in waived!<br>";
+		}
+		if(array_key_exists($course, $takenCourse)){
+			echo "exist in taken!<br>";
+		}*/
+		return array_key_exists($course, $waivedCourse) 
+				|| array_key_exists($course, $takenCourse);	
 	}
 
 	// Check Prerequitsite Courses
-	function checkPrerequitsite($selected){
+	function checkPrerequitsite($code){
 		$dbc = connectToDB();
 		$query = "SELECT PREREQUISITE
 					FROM COURSE_CATALOG
@@ -26,31 +52,24 @@
 		$stmt->bindParam(':code', $code);
 		$result = "";
 
-		foreach($selected as $sel){
-			$tmp = explode("/",$sel);
-			$code = $tmp[0];
-			echo $code;
-			$stmt->execute();
-			if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-				$prerequisite = $row["PREREQUISITE"];
-				echo " - pre: ".$prerequisite."<br>";
-				
-				if(strpos(" or ", $prerequisite)!==false){
-					checkPreOr($prerequisite);
-				}
-				else if(strpos(" and ", $prerequisite)!==false){
-					checkPreAnd($prerequisite);
-				}
-				else{
-					checkHistory($prerequisite);	
-				}
+		$stmt->execute();
+		if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+			$prerequisite = trim($row["PREREQUISITE"]);
+			if(strpos($prerequisite," or ")!==false){
+				$result .= checkPreOr($prerequisite);
 			}
-			else{
-				echo " - Got nothing!<br>";
+			else if(strpos($prerequisite," and ")!==false){
+				$result .= checkPreAnd($prerequisite);
+			}
+			else if(!empty($prerequisite)){
+				$result .= isInHistory($prerequisite)?"":$prerequisite;	
 			}
 		}
+		else{
+			//echo " - Got nothing!<br>";
+		}
 		closeDB($dbc);
-		return $result; 
+		return empty($result)?"":"You have to take ".$result." prerequisite first!<br>";
 	}	
 
 
@@ -126,7 +145,7 @@
 
 		// Check Distance Learning Course
 		if(isOnline($cid)){
-			$notes .= "Distance Learning";
+			$notes .= "Distance Learning<br>";
 		}
 		
 		return $notes;
@@ -148,30 +167,31 @@
 	// 1: International student cannot select online courses
 	// 2: Student has undone prerequisite courses
 	function checkAvailability($course){
-		// Check visa status
+		$result ="";
+		// Check visa status and course type
 		if(isInternational() && isOnline($course)){
-			return 1;
+			$result .= "You cannot take this Online Course!<br>";
 		}	
-
 		// Check prerequistise
-		$preCheck = checkPrerequitsite($course);
-		if(!empty($preCheck)){
-			return 2;
-		}
-		return 0;	
+		$result .= checkPrerequitsite($course);
+		return $result;	
 	} 
 
 	// Display a single course information in pre-registration form
 	function listCourseInfo($row){
 		global $status, $statusMap;
-		$isInternational = (strcmp($statusMap[$status],"GREEN CARD") != 0);
+		//$isInternational = (strcmp($statusMap[$status],"GREEN CARD") != 0);
 		$info = getCourseInfo($row["CLASS"]);
-		if( ($isInternational === true) && (isOnline($row["CLASS"]))){
+		//if( ($isInternational === true) && (isOnline($row["CLASS"]))){
+		$availabilityRes = checkAvailability($row["CLASS"]);
+		if(!empty($availabilityRes)){
 			echo "<tr><td></td>" ;
 		}
 		else{
-			echo "<tr><td align=\"center\"><input type=\"checkbox\" name=\"selectedCourse[]\" 
-			value=\"".$row["CLASS"]."/".$row["DAYS"]."/".$row["TIMES"]."/".$row["TUITION"]."/".$row["TITLE"]."/".$row["CourseID"]."\"></td>";
+			echo "<tr><td align=\"center\"><input type=\"checkbox\" 
+				name=\"selectedCourse[]\" value=\"".$row["CLASS"]."/".$row["DAYS"].
+				"/".$row["TIMES"]."/".$row["TUITION"].
+				"/".$row["TITLE"]."/".$row["CourseID"]."\"></td>";
 		}
 		echo "<td align=\"center\">".$row["CLASS"]."</td>". 
 			"<td align=\"center\">".$row["DAYS"]."</td>". 
@@ -181,9 +201,7 @@
 			"<td align=\"center\">".$info["CORE"]."</td>". 
 			"<td align=\"center\">".$info["AREA"]."</td>". 
 			"<td>".$info["PREREQUISITE"]."</td>".
-			"<td align=\"center\" id=\"notes\">".getNotes($row["CLASS"])."</td><tr>";	
-		//$prerequisiteInfo[$row["CLASS"]] = $info["PREREQUISITE"];
-		//echo"size of pre: ".count($prerequisiteInfo)."<br>";
+			"<td align=\"left\" id=\"notes\" style=\"color:red\">".getNotes($row["CLASS"]).$availabilityRes."</td><tr>";	
 	}
 
 	// Display Pre-Registration Form
