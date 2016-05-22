@@ -29,7 +29,8 @@ This application lets students fill the information for pre-registration. After 
 	7. Above results will be sent to KSI office by email and store into database.
 
 # File Description: (d) - directory
-	- login.php			// Student Login Page
+	- index.php				// Fake index page
+	- login.php				// Student Login Page
 	- studentInfo.php		// Student Information and Pre-registration Page
 	- processForm.php		// Process pre-registration result with email and database
 	- (d) include
