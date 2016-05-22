@@ -1,7 +1,7 @@
 <?php
 	ob_start();
-	require_once 'include/DBManagement_PDO.php';
-	require_once 'include/utilPreregistration.php';
+	require_once 'include/utilLogin.php';
+	
 	$errSID = $errDate = $errMsg = "";
 
 	if($_SERVER["REQUEST_METHOD"]=="POST"){

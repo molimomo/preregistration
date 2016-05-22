@@ -37,7 +37,9 @@ This application lets students fill the information for pre-registration. After 
 		- DBManagement_PDO.php	// Database operations in PDO
 		- loginMSSQL.php	// Login information for MS SQL Server
 		- loginSMTP.php		// Login information for PHPMailer
-		- utilPreregistration.php	// Helper functions for Pre-Registration
+		- utilLogin.php		// Helper functions for login.php
+		- utilStudentInfo.php	// Helper functions for studentInfo.php
+		- utilProcessForm.php	// Helper functions for precessForm.php
 		- valueMapping.php	// Value representation for Pre_Registration Database
 		- (d) PHPMailer		// PHPMailer Component
 		- (d) js		// javascript helper functions

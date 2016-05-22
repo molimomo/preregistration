@@ -1,10 +1,14 @@
 <?php
-	require_once "commonUtil.php";
+	/*********************************************
+		Include the value mapping in database
+	**********************************************/
+	require_once "include/DBManagement_PDO.php";
 	require_once "valueMapping.php";
-	require_once "PHPMailer/PHPMailerAutoload.php";
+	require_once "commonUtil.php";
 
-	// Include SMTP account login information
-	require_once "loginSMTP.php";
+	/*********************************************
+		Helper function for studentInfo.php page
+	**********************************************/
 
 	// Check prerequisite courses with "or" delimiter
 	function checkPreOr($courses){
@@ -103,6 +107,7 @@
 
 	// Check Couses Time Conflict
 	function checkConflict($selected){
+		echo "In check Conflict!<br>";
 		$courseTime = array();
 		for($i=0;$i<count($selected);$i++){
 			$selInfo = explode("/",$selected[$i]);
@@ -179,6 +184,7 @@
 
 	// Display a single course information in pre-registration form
 	function listCourseInfo($row){
+	//	echo "In list Course Info!<br>";
 		global $status, $statusMap;
 		//$isInternational = (strcmp($statusMap[$status],"GREEN CARD") != 0);
 		$info = getCourseInfo($row["CLASS"]);
@@ -201,14 +207,15 @@
 			"<td align=\"center\">".$info["CORE"]."</td>". 
 			"<td align=\"center\">".$info["AREA"]."</td>". 
 			"<td>".$info["PREREQUISITE"]."</td>".
-			"<td align=\"left\" id=\"notes\" style=\"color:red\">".getNotes($row["CLASS"]).$availabilityRes."</td><tr>";	
+			"<td align=\"center\" id=\"notes\" >".
+			getNotes($row["CLASS"])."<span style=\"color:red\">".$availabilityRes."</span></td><tr>";	
 	}
 
 	// Display Pre-Registration Form
 	function displayPreregistrationForm(){
 		global $firstname, $lastname, 
 				$sid, $dob,$status, 
-				$studentID, $prerequisiteInfo;
+				$studentID;
 		$semester = SEMESTER;
 		$dbc = connectToDB();
 		$query = "SELECT *
@@ -274,7 +281,6 @@
 		"<input type=\"hidden\" name=\"status\" value=\"".$status."\"".">".
 		"<input type=\"hidden\" name=\"sid\" value=\"".$sid."\"".">".
 		"<input type=\"hidden\" name=\"dob\" value=\"".$dob."\"".">".
-		"<input type=\"hidden\" name=\"prerequisiteInfo\" value=\"".$prerequisiteInfo."\"".">".
 		"</form>";
 	}
 
@@ -494,42 +500,5 @@
 		} 
 	}
 
-	// Check whether student already submitted pre-regiatration.
-	function isRegistered($sid){
-		$dbc = connectToDB();
-		$query = "SELECT * 
-					FROM PRE_REGISTER 
-					WHERE StudentID=(SELECT StudentID 
-										FROM STUDENT
-										WHERE ID=:sid)";
-		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(':sid',$sid,PDO::PARAM_STR);
-		$stmt->execute();
-		closeDB($dbc);
-		return ($row = $stmt->fetch(PDO::FETCH_ASSOC));
-	}
-
-	// Check the Date of Birth is match or not
-    function isMatch($sid, $dob){
-		$dbc = connectToDB();
-		$query = "SELECT BIRTH FROM STUDENT WHERE ID=:sid";
-		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(':sid',$sid,PDO::PARAM_STR);
-		$stmt->execute();
-		closeDB($dbc);
-		if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-			$tTime = new DateTime($row["BIRTH"]);
-			$iTime = new DateTime($dob);
-			$tDate = $tTime->format('m/d/Y');
-			$iDate = $iTime->format('m/d/Y');
-			return $tDate == $iDate;
-		}
-		return false;
-    }
-
-	// Check the sid and dob are valid or not
-	function isValid($sid, $dob){
-		return isExist("STUDENT", "ID", $sid)
-				&& isMatch($sid, $dob);
-	}
+	
 ?>
