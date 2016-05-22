@@ -1,7 +1,5 @@
 <?php
 	ob_start();
-	//require_once 'include/DBManagement_PDO.php';
-	//require_once 'include/utilPreregistration.php';
 	require_once "include/utilProcessForm.php";
 
 	// Check session status

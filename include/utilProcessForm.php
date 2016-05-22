@@ -11,7 +11,7 @@
 	// Include some helper function in utilStudentInfo.php
 	require_once "include/utilStudentInfo.php";
 
-	
+	// Send preregistration info to office	
 	function sendEmailToOffice($studentInfo, $selectedInfo){
 		$mail = new PHPMailer;
 		$comment = $_SESSION["comments"];
@@ -126,6 +126,6 @@
 		$selectedInfo.= "</table>";
 		echo $selectedInfo;
 		sendEmailToOffice($studentInfo, $selectedInfo);
-		//saveToDB($_SESSION["studentID"], $courseIDs);
+		saveToDB($_SESSION["studentID"], $courseIDs);
 	}
 ?>
